@@ -83,11 +83,6 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>edma_test.c</name>
-			<type>1</type>
-			<locationURI>PARENT-7-PROJECT_LOC/pdk_C6678_1_1_2_6/packages/ti/csl/example/edma/edma_test.c</locationURI>
-		</link>
-		<link>
 			<name>src</name>
 			<type>2</type>
 			<locationURI>TI_MCSDK_PCIEBOOT_DIR/pcieboot_interrupt/src</locationURI>
