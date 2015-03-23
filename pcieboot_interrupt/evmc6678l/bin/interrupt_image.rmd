@@ -1,0 +1,11 @@
+-a
+-boot
+-e _c_int00
+
+ROMS
+{
+	ROM1:  org = 0x80000000, length = 0x200000, memwidth = 32, romwidth = 32
+	files = { pcieboot_interrupt.btbl }
+}
+
+

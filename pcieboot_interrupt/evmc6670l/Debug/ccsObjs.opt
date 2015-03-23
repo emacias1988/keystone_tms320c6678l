@@ -1,0 +1,1 @@
+"./src/pcieboot_interrupt.obj" -l"ti.platform.evm6670l.ae66" -l"ti.csl.ae66" -l"ti.csl.intc.ae66" -l"libc.a" "../pcieboot_interrupt.cmd" 
