@@ -442,8 +442,20 @@ void main (void)
 #define PRINTRESULT 0
 
 	ui32Size = 4*4*KB;
-
-	LOG10_runTests("Log10", ui32Size,pfBuffer);
+	ATAN_runTests("atan", ui32Size,pfBuffer);
+	ATAN2_runTests("atan2", ui32Size,pfBuffer);
+	COS_runTests("cos", ui32Size,pfBuffer);
+	DIV_runTests("div", ui32Size,pfBuffer);
+	EXP_runTests("exp", ui32Size,pfBuffer);
+	EXP10_runTests("exp10", ui32Size,pfBuffer);
+	EXP2_runTests("exp2", ui32Size,pfBuffer);
+	LOG10_runTests("log10", ui32Size,pfBuffer);
+	LOG2_runTests("log2", ui32Size,pfBuffer);
+	POW_runTests("pow", ui32Size,pfBuffer);
+	RECIP_runTests("recip", ui32Size,pfBuffer);
+	RSQRT_runTests("rsqrt", ui32Size,pfBuffer);
+	SIN_runTests("sin", ui32Size,pfBuffer);
+	SQRT_runTests("sqrt", ui32Size,pfBuffer);
 
     while(1);
 

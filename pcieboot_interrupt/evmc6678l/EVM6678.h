@@ -12,7 +12,7 @@
 #define MB								(256*1024)
 #define GB								(256*1024*1024)
 
-#define DESTBUFFERSIZE (400*KB)
+#define DESTBUFFERSIZE (300*KB)
 
 #define DDR3_BASE_ADDRESS            0x80000000
 
