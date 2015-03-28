@@ -45,9 +45,20 @@
 #include "platform.h"
 #include "EVM6678.h"
 
+
+#include <ti/mathlib/src/log10dp/log10dp.h>
+#include <ti/mathlib/src/atansp/atansp.h>
+#include <ti/mathlib/src/atandp/atandp.h>
+//#include <ti/mathlib/src/common/tables.c>
+
 #include <ti/csl/src/intc/csl_intc.h>
 #include <ti/csl/tistdtypes.h>
 #include <ti/csl/csl_cpIntcAux.h>
+
+#include <ti/mathlib/src/log10sp/log10sp.h>
+#include <ti/mathlib/src/common/tables.c>
+
+
 
 #define DEVICE_REG32_W(x,y)   *(volatile uint32_t *)(x)=(y)
 #define DEVICE_REG32_R(x)    (*(volatile uint32_t *)(x))
@@ -85,7 +96,12 @@
 #define TEST_BYTES_TO_READ_DDR3_2GB		(2*GB)
 #define TEST_BYTES_TO_READ_DDR3_8GB		(8*GB)
 
-uint32_t pui32DestBuffer[400*KB];
+#define FLASHREAD 		0
+void readMemForLoop();
+uint32_t deviceSpeedRange;
+
+#define DESTBUFFERSIZE (300*KB)
+uint32_t pui32DestBuffer[DESTBUFFERSIZE];
 
 // Timing Variables
 uint32_t g_ui32StartTime;
@@ -97,6 +113,9 @@ platform_info	g_sEvmInfo;
 
 uint32_t Osal_calculateElapsedTime(uint32_t ui32Start, uint32_t ui32Stop)
 {
+	//
+	// There is a problem when register overflows more than once
+	//
 	uint32_t ui32ElapsedTime;
 
 	if(ui32Start >= ui32Stop)
@@ -109,6 +128,36 @@ uint32_t Osal_calculateElapsedTime(uint32_t ui32Start, uint32_t ui32Stop)
 	}
 	return ui32ElapsedTime;
 }
+
+
+void readMemForLoop(uint32_t ui32WordsToRead, uint32_t * pui32DDRContent)
+{
+		uint32_t k =0;
+		uint32_t inx = 0;
+	//	g_ui32StartTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
+		g_ui32StartTime = TSCL ;
+
+	    for(k=0;k<ui32WordsToRead;k++)
+	    {
+	    	pui32DestBuffer[inx++] = pui32DDRContent[k];
+	    	if (inx >= DESTBUFFERSIZE)
+	    	{
+	    		inx = 0;
+	    	}
+	    }
+
+	    g_ui32StopTime = TSCL;
+
+	    g_ui32ElapsedTime = Osal_calculateElapsedTime(g_ui32StartTime,g_ui32StopTime);
+	    printf ("Transfer: Elapsed Cycles: %lu Elapsed Time: %lu (ns) BW: %lu MB/s\n\n",
+	          		g_ui32ElapsedTime, (g_ui32ElapsedTime * (1000 / g_sEvmInfo.frequency)),
+	          		(int64_t) ((int64_t)ui32WordsToRead*4000) / ((int64_t)g_ui32ElapsedTime * (1000 / (int64_t)g_sEvmInfo.frequency)) );
+
+
+}
+
+
+
 
 /**********************************************************************
  ************************** Global Variables **************************
@@ -255,6 +304,12 @@ void main (void)
     memset(&init_config, 0, sizeof(platform_init_config));
     memset(&init_flags, 1, sizeof(platform_init_flags));
 
+#if FLASHREAD
+	init_flags.pll = 0;
+    init_flags.ddr = 0;
+#endif	
+	
+	
     init_config.pllm = 20;
 //    init_config.plld = 2;
 //    init_config.postdiv = 1;
@@ -264,7 +319,46 @@ void main (void)
 
     platform_get_info(&g_sEvmInfo);
 
+#if FLASHREAD
+		PLATFORM_DEVICE_info    *p_device;
+
+		p_device = platform_device_open(PLATFORM_DEVID_NAND512R3A2D, 0);
+			if (p_device == NULL) 
+			{
+				printf ("NAND device open failed!\n");
+		  //      print_platform_errno();
+				return;
+			}
+	
+	/* Read a block of data */
+	
+	uint8_t pui8buff[100];
+	
+        if(platform_device_read(p_device->handle, 
+                                0, 
+                                pui8buff,
+                                1) != Platform_EOK)
+        {
+            printf ("Failure in reading block %d\n", 0);
+//            print_platform_errno();
+//            if (platform_errno == PLATFORM_ERRNO_ECC_FAIL)
+//            {
+//                printf ("marking block %d as bad, re-flash attempted\n", block);
+//                markBlockBad (p_device, block);
+//            }
+//            if (swap_byte) free (scrach_block);
+//            return (FALSE);
+        }
+
+	
+#endif
+
     printf("\nStarting Benchmark Tests ...\n\n");
+    g_ui32StartTime = TSCL;
+    g_ui32StopTime = TSCL;
+    g_ui32ElapsedTime = g_ui32StopTime - g_ui32StartTime;
+        printf ("Time to start and stop timer: %u cycles \n\n",
+        	          		g_ui32ElapsedTime);
 
     //
     // 4kB Test - For Loop
@@ -272,28 +366,16 @@ void main (void)
 
     printf ("Read Test 4KB using for-loop (DDR3->l2)@ DSP Freq %d (Mhz)\n", g_sEvmInfo.frequency);
 
-    ui32WordsToRead = TEST_BYTES_TO_READ_DDR3_4KB;
+    ui32WordsToRead = 4*KB;
     pui32DDRContent = (uint32_t *) TEST_START_MEMORY_DDR3;
 
-    g_ui32StartTime = TSCL;
-
-    for(k=0;k<ui32WordsToRead;k++)
-    {
-    	pui32DestBuffer[k] = pui32DDRContent[k];
-    }
-
-    g_ui32StopTime = TSCL;
-
-    g_ui32ElapsedTime = Osal_calculateElapsedTime(g_ui32StartTime,g_ui32StopTime);
-
-    printf ("Transfer: Elapsed Cycles %d Elapsed Time %d (ns)\n\n",g_ui32ElapsedTime, (g_ui32ElapsedTime * (1000 / g_sEvmInfo.frequency)) );
+    readMemForLoop(ui32WordsToRead, pui32DDRContent );
 
     //
     // 4kB Test - EDMA
     //
     printf ("Read Test 4KB using EDMA (DDR3->l2)@ DSP Freq %d (Mhz)\n", g_sEvmInfo.frequency);
 
-    ui32WordsToRead = (4*KB);
 
     // Initialization for debugging Source Data
 //    pui8DDRContent = (uint8_t *) TEST_START_MEMORY_DDR3;
@@ -313,6 +395,21 @@ void main (void)
     ui32WordsToRead = (32*KB);
 
     ui32Status = edma_ping_pong_xfer_gbl_region(0, 0,(uint32_t)pui32DDRContent, (uint32_t) pui32DestBuffer, ui32WordsToRead);
+
+
+      //
+      // 32kB Test - For Loop
+      //
+
+    printf ("Read Test 32KB using for-loop (DDR3->l2)@ DSP Freq %d (Mhz)\n", g_sEvmInfo.frequency);
+
+    ui32WordsToRead = (32*KB);
+    pui32DDRContent = (uint32_t *) TEST_START_MEMORY_DDR3;
+
+    readMemForLoop(ui32WordsToRead, pui32DDRContent );
+
+
+
 
     //
     // 1MB Test - EDMA
@@ -340,6 +437,103 @@ void main (void)
     ui32WordsToRead = (2*GB);
 
     ui32Status = edma_ping_pong_xfer_gbl_region(0, 0,(uint32_t)pui32DDRContent, (uint32_t) pui32DestBuffer, ui32WordsToRead);
+
+    //
+    // Testing Operations
+    //
+
+
+
+#define PRINTRESULT 1
+	uint32_t size= 10;
+	float puiFloatBuffer[100*KB];
+
+	for(i=0;i<size;i++)
+	{
+		puiFloatBuffer[i] = i+0.001;
+	}
+
+
+	g_ui32StartTime = TSCL;
+	for (i =0; i <size; i++) {
+		puiFloatBuffer[i] = log10sp(puiFloatBuffer[i]);
+	}
+    g_ui32StopTime = TSCL;
+    g_ui32ElapsedTime = g_ui32StopTime - g_ui32StartTime;
+    printf ("Log10sp - 4KB: Elapsed Cycles: %lu Elapsed Time: %lu (ns) \n\n",
+    	          		g_ui32ElapsedTime, (g_ui32ElapsedTime * (1000 / g_sEvmInfo.frequency)));
+
+
+
+	for(i=0;i<size;i++)
+	{
+#if PRINTRESULT
+		printf ("Result[%u]:  %f  \n",i,puiFloatBuffer[i]);
+#endif
+		puiFloatBuffer[i] = i+0.001;
+	}
+
+	g_ui32StartTime = TSCL;
+	for (i =0; i <size; i++){
+		puiFloatBuffer[i] = log10sp_i(puiFloatBuffer[i]);
+	}
+    g_ui32StopTime = TSCL;
+    g_ui32ElapsedTime = g_ui32StopTime - g_ui32StartTime;
+    printf ("log10sp_i - 4KB: Elapsed Cycles: %lu Elapsed Time: %lu (ns) \n\n",
+    	          		g_ui32ElapsedTime, (g_ui32ElapsedTime * (1000 / g_sEvmInfo.frequency)));
+
+
+
+	for(i=0;i<size;i++)
+	{
+#if PRINTRESULT
+		printf ("Result[%u]:  %f  \n",i,puiFloatBuffer[i]);
+#endif
+		puiFloatBuffer[i] = i+0.001;
+	}
+
+	g_ui32StartTime = TSCL;
+	for (i =0; i <size; i++) {
+		puiFloatBuffer[i] = log10dp(puiFloatBuffer[i]);
+	}
+    g_ui32StopTime = TSCL;
+    g_ui32ElapsedTime = g_ui32StopTime - g_ui32StartTime;
+    printf ("Log10dp - 4KB: Elapsed Cycles: %lu Elapsed Time: %lu (ns) \n\n",
+    	          		g_ui32ElapsedTime, (g_ui32ElapsedTime * (1000 / g_sEvmInfo.frequency)));
+
+
+
+	for(i=0;i<size;i++)
+	{
+#if PRINTRESULT
+		printf ("Result[%u]:  %f  \n",i,puiFloatBuffer[i]);
+#endif
+		puiFloatBuffer[i] = i+0.001;
+	}
+
+	g_ui32StartTime = TSCL;
+	for (i =0; i <size; i++) {
+		puiFloatBuffer[i] = log10dp_i(puiFloatBuffer[i]);
+	}
+    g_ui32StopTime = TSCL;
+    g_ui32ElapsedTime = g_ui32StopTime - g_ui32StartTime;
+
+    uint32_t test = (1000 / g_sEvmInfo.frequency);
+    g_ui32ElapsedTime *= test;
+    printf ("log10dp_i - 4KB: Elapsed Cycles: %lu Elapsed Time: %lu (ns) \n\n",
+    	          		g_ui32ElapsedTime, (g_ui32ElapsedTime * (1000 / g_sEvmInfo.frequency)));
+
+	for(i=0;i<size;i++)
+	{
+#if PRINTRESULT
+		printf ("Result[%u]:  %f  \n",i,puiFloatBuffer[i]);
+#endif
+		puiFloatBuffer[i] = i+0.001;
+	}
+
+
+
+
 
     while(1);
 
@@ -474,3 +668,4 @@ void main (void)
 
     start_boot();
 }
+

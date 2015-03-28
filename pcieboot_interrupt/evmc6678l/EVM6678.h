@@ -359,6 +359,7 @@ extern Int32 edma_ping_pong_xfer_region (Int32 instNum, Uint8 channelNum, Int32 
 
 // Definition of TSCL register to use to count CLK cycles
 extern unsigned int volatile cregister TSCL;
+extern unsigned int volatile cregister TSCH;
 
 extern platform_info	g_sEvmInfo;
 
