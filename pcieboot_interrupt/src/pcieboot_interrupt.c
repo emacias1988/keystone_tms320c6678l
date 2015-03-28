@@ -100,33 +100,35 @@
 void readMemForLoop();
 uint32_t deviceSpeedRange;
 
-#define DESTBUFFERSIZE (300*KB)
+#define DESTBUFFERSIZE (400*KB)
 uint32_t pui32DestBuffer[DESTBUFFERSIZE];
 
 // Timing Variables
-uint32_t g_ui32StartTime;
-uint32_t g_ui32StopTime;
-uint32_t g_ui32ElapsedTime;
+uint64_t g_ui64StartTime;
+uint64_t g_ui64StopTime;
+uint64_t g_ui64ElapsedTime;
+
+uint64_t damian;
 
 // Platform Information Variables
 platform_info	g_sEvmInfo;
 
-uint32_t Osal_calculateElapsedTime(uint32_t ui32Start, uint32_t ui32Stop)
+uint64_t Osal_calculateElapsedTime(uint64_t ui64Start, uint64_t ui64Stop)
 {
 	//
 	// There is a problem when register overflows more than once
 	//
-	uint32_t ui32ElapsedTime;
+	uint64_t ui64ElapsedTime;
 
-	if(ui32Start >= ui32Stop)
+	if(ui64Start >= ui64Stop)
 	{
-		ui32ElapsedTime = ui32Stop + (0xFFFFFFFF - ui32Start);
+		ui64ElapsedTime = ui64Stop + (0xFFFFFFFFFFFFFFFF - ui64Start);
 	}
 	else
 	{
-		ui32ElapsedTime = ui32Stop - ui32Start;
+		ui64ElapsedTime = ui64Stop - ui64Start;
 	}
-	return ui32ElapsedTime;
+	return ui64ElapsedTime;
 }
 
 
@@ -134,8 +136,8 @@ void readMemForLoop(uint32_t ui32WordsToRead, uint32_t * pui32DDRContent)
 {
 		uint32_t k =0;
 		uint32_t inx = 0;
-	//	g_ui32StartTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
-		g_ui32StartTime = TSCL ;
+		g_ui64StartTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
+	//	g_ui64StartTime = TSCL ;
 
 	    for(k=0;k<ui32WordsToRead;k++)
 	    {
@@ -146,13 +148,16 @@ void readMemForLoop(uint32_t ui32WordsToRead, uint32_t * pui32DDRContent)
 	    	}
 	    }
 
-	    g_ui32StopTime = TSCL;
+	    g_ui64StopTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
 
-	    g_ui32ElapsedTime = Osal_calculateElapsedTime(g_ui32StartTime,g_ui32StopTime);
-	    printf ("Transfer: Elapsed Cycles: %lu Elapsed Time: %lu (ns) BW: %lu MB/s\n\n",
-	          		g_ui32ElapsedTime, (g_ui32ElapsedTime * (1000 / g_sEvmInfo.frequency)),
-	          		(int64_t) ((int64_t)ui32WordsToRead*4000) / ((int64_t)g_ui32ElapsedTime * (1000 / (int64_t)g_sEvmInfo.frequency)) );
+	    g_ui64ElapsedTime = Osal_calculateElapsedTime(g_ui64StartTime,g_ui64StopTime);
+//	    printf ("Transfer: Elapsed Cycles: %llu Elapsed Time: %llu (ns) BW: %llu MB/s\n\n",
+//	          		g_ui64ElapsedTime, (g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
+//	          		(int64_t) ((int64_t)ui32WordsToRead*4000) / ((int64_t)g_ui64ElapsedTime * (1000 / (int64_t)g_sEvmInfo.frequency)) );
 
+	    printf ("Transfer: Elapsed Cycles: %llu Elapsed Time: %llu (ns) BW: %llu MB/s\n\n",
+	  	          		(uint64_t)g_ui64ElapsedTime, (uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
+	  	          	(uint64_t)( ((int64_t)ui32WordsToRead*4000) / ((int64_t)g_ui64ElapsedTime * (1000 / (int64_t)g_sEvmInfo.frequency))));
 
 }
 
@@ -354,11 +359,12 @@ void main (void)
 #endif
 
     printf("\nStarting Benchmark Tests ...\n\n");
-    g_ui32StartTime = TSCL;
-    g_ui32StopTime = TSCL;
-    g_ui32ElapsedTime = g_ui32StopTime - g_ui32StartTime;
+    g_ui64StartTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
+    g_ui64StopTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
+
+    g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
         printf ("Time to start and stop timer: %u cycles \n\n",
-        	          		g_ui32ElapsedTime);
+        	          		g_ui64ElapsedTime);
 
     //
     // 4kB Test - For Loop
@@ -442,94 +448,216 @@ void main (void)
     // Testing Operations
     //
 
+//damian = 0xDEADBEAFDEADBEAF;
+//
+//printf (" %llu %llu\n", damian, damian);
+
+#define PRINTRESULT 0
+	volatile uint32_t size;
+
+	volatile uint32_t varIn = 0;
+
+	float * pfBuffer = (float*)pui32DestBuffer;
+
+	size = 0x40000000;
 
 
-#define PRINTRESULT 1
-	uint32_t size= 10;
-	float puiFloatBuffer[100*KB];
+		if(size < DESTBUFFERSIZE)
+		{
+			varIn = size;
+		}
+		else
+		{
+			varIn = DESTBUFFERSIZE;
+		}
 
-	for(i=0;i<size;i++)
+		for(i=0;i<varIn;i++)
+		{
+			pfBuffer[i] = i+0.001;
+		}
+
+
+	g_ui64StartTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
+
+	while(size)
 	{
-		puiFloatBuffer[i] = i+0.001;
+		if(size < DESTBUFFERSIZE)
+		{
+			varIn = size;
+		}
+		else
+		{
+			varIn = DESTBUFFERSIZE;
+		}
+
+		for(i=0;i<varIn;i++)
+		{
+			pfBuffer[i] = log10sp(pfBuffer[i]);
+		}
+
+		size = size - varIn;
 	}
 
-
-	g_ui32StartTime = TSCL;
-	for (i =0; i <size; i++) {
-		puiFloatBuffer[i] = log10sp(puiFloatBuffer[i]);
-	}
-    g_ui32StopTime = TSCL;
-    g_ui32ElapsedTime = g_ui32StopTime - g_ui32StartTime;
-    printf ("Log10sp - 4KB: Elapsed Cycles: %lu Elapsed Time: %lu (ns) \n\n",
-    	          		g_ui32ElapsedTime, (g_ui32ElapsedTime * (1000 / g_sEvmInfo.frequency)));
+//    g_ui64StopTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
+	g_ui64StopTime = (uint64_t)(TSCL) ;
+	g_ui64StopTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
+    g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
+    printf ("Log10sp - 4KB: Elapsed Cycles: %llu Elapsed Time: %llu (ns) \n\n",
+    	          		(uint64_t)g_ui64ElapsedTime, (uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)));
 
 
 
-	for(i=0;i<size;i++)
-	{
+    size = 0x80000000;
 #if PRINTRESULT
 		printf ("Result[%u]:  %f  \n",i,puiFloatBuffer[i]);
 #endif
-		puiFloatBuffer[i] = i+0.001;
-	}
+		if(size < DESTBUFFERSIZE)
+				{
+					varIn = size;
+				}
+				else
+				{
+					varIn = DESTBUFFERSIZE;
+				}
 
-	g_ui32StartTime = TSCL;
-	for (i =0; i <size; i++){
-		puiFloatBuffer[i] = log10sp_i(puiFloatBuffer[i]);
-	}
-    g_ui32StopTime = TSCL;
-    g_ui32ElapsedTime = g_ui32StopTime - g_ui32StartTime;
-    printf ("log10sp_i - 4KB: Elapsed Cycles: %lu Elapsed Time: %lu (ns) \n\n",
-    	          		g_ui32ElapsedTime, (g_ui32ElapsedTime * (1000 / g_sEvmInfo.frequency)));
+				for(i=0;i<varIn;i++)
+				{
+					pfBuffer[i] = i+0.001;
+				}
 
-
-
-	for(i=0;i<size;i++)
+	g_ui64StartTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
+	while(size)
 	{
+		if(size < DESTBUFFERSIZE)
+		{
+			varIn = size;
+		}
+		else
+		{
+			varIn = DESTBUFFERSIZE;
+		}
+
+		for(i=0;i<varIn;i++)
+		{
+			pfBuffer[i] = log10sp_i(pfBuffer[i]);
+		}
+
+		size = size - varIn;
+	}
+    g_ui64StopTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
+    g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
+    printf ("log10sp_i - 4KB: Elapsed Cycles: %llu Elapsed Time: %llu (ns) \n\n",
+    		(uint64_t)g_ui64ElapsedTime, (uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)));
+
+
+
+    size = 0x80000000;
 #if PRINTRESULT
 		printf ("Result[%u]:  %f  \n",i,puiFloatBuffer[i]);
 #endif
-		puiFloatBuffer[i] = i+0.001;
-	}
+		if(size < DESTBUFFERSIZE)
+				{
+					varIn = size;
+				}
+				else
+				{
+					varIn = DESTBUFFERSIZE;
+				}
 
-	g_ui32StartTime = TSCL;
-	for (i =0; i <size; i++) {
-		puiFloatBuffer[i] = log10dp(puiFloatBuffer[i]);
-	}
-    g_ui32StopTime = TSCL;
-    g_ui32ElapsedTime = g_ui32StopTime - g_ui32StartTime;
-    printf ("Log10dp - 4KB: Elapsed Cycles: %lu Elapsed Time: %lu (ns) \n\n",
-    	          		g_ui32ElapsedTime, (g_ui32ElapsedTime * (1000 / g_sEvmInfo.frequency)));
+				for(i=0;i<varIn;i++)
+				{
+					pfBuffer[i] = i+0.001;
+				}
 
-
-
-	for(i=0;i<size;i++)
+	g_ui64StartTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
+	while(size)
 	{
+		if(size < DESTBUFFERSIZE)
+		{
+			varIn = size;
+		}
+		else
+		{
+			varIn = DESTBUFFERSIZE;
+		}
+
+		for(i=0;i<varIn;i++)
+		{
+			pfBuffer[i] = log10dp(pfBuffer[i]);
+		}
+
+		size = size - varIn;
+	}
+    g_ui64StopTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
+    g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
+    printf ("Log10dp - 4KB: Elapsed Cycles: %llu Elapsed Time: %llu (ns) \n\n",
+    		(uint64_t)g_ui64ElapsedTime, (uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)));
+
+
+
+    size = 0x80000000;
 #if PRINTRESULT
 		printf ("Result[%u]:  %f  \n",i,puiFloatBuffer[i]);
 #endif
-		puiFloatBuffer[i] = i+0.001;
-	}
+		if(size < DESTBUFFERSIZE)
+				{
+					varIn = size;
+				}
+				else
+				{
+					varIn = DESTBUFFERSIZE;
+				}
 
-	g_ui32StartTime = TSCL;
-	for (i =0; i <size; i++) {
-		puiFloatBuffer[i] = log10dp_i(puiFloatBuffer[i]);
+				for(i=0;i<varIn;i++)
+				{
+					pfBuffer[i] = i+0.001;
+				}
+
+	g_ui64StartTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
+	while(size)
+	{
+		if(size < DESTBUFFERSIZE)
+		{
+			varIn = size;
+		}
+		else
+		{
+			varIn = DESTBUFFERSIZE;
+		}
+
+		for(i=0;i<varIn;i++)
+		{
+			pfBuffer[i] = log10dp_i(pfBuffer[i]);
+		}
+
+		size = size - varIn;
 	}
-    g_ui32StopTime = TSCL;
-    g_ui32ElapsedTime = g_ui32StopTime - g_ui32StartTime;
+    g_ui64StopTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
+    g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
 
     uint32_t test = (1000 / g_sEvmInfo.frequency);
-    g_ui32ElapsedTime *= test;
-    printf ("log10dp_i - 4KB: Elapsed Cycles: %lu Elapsed Time: %lu (ns) \n\n",
-    	          		g_ui32ElapsedTime, (g_ui32ElapsedTime * (1000 / g_sEvmInfo.frequency)));
+    g_ui64ElapsedTime *= test;
+    printf ("log10dp_i - 4KB: Elapsed Cycles: %llu Elapsed Time: %llu (ns) \n\n",
+    		(uint64_t)g_ui64ElapsedTime, (uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)));
 
-	for(i=0;i<size;i++)
-	{
+
+    size = 0x80000000;
 #if PRINTRESULT
 		printf ("Result[%u]:  %f  \n",i,puiFloatBuffer[i]);
 #endif
-		puiFloatBuffer[i] = i+0.001;
-	}
+		if(size < DESTBUFFERSIZE)
+				{
+					varIn = size;
+				}
+				else
+				{
+					varIn = DESTBUFFERSIZE;
+				}
+
+				for(i=0;i<varIn;i++)
+				{
+					pfBuffer[i] = i+0.001;
+				}
 
 
 

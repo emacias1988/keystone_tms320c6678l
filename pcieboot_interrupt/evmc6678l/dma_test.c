@@ -450,7 +450,7 @@ Int32 edma_ping_pong_xfer_gbl_region
     printf ("Debug: EDMA(%d) configuration (Global) Region for Channel %d...\n", instNum, channelNum);
 #endif
 
-    g_ui32StartTime = TSCL;
+    g_ui64StartTime = TSCL;
 
     /* Module initialization */
     if (CSL_edma3Init(&context) != CSL_SOK)
@@ -660,15 +660,15 @@ Int32 edma_ping_pong_xfer_gbl_region
     regionIntr.intrh  = 0x0000;
     CSL_edma3HwControl(hModule,CSL_EDMA3_CMD_INTR_ENABLE,&regionIntr);
 
-    g_ui32StopTime = TSCL;
+    g_ui64StopTime = TSCL;
 
-    g_ui32ElapsedTime = Osal_calculateElapsedTime(g_ui32StartTime,g_ui32StopTime);
+    g_ui64ElapsedTime = Osal_calculateElapsedTime(g_ui64StartTime,g_ui64StopTime);
 
-    printf ("Config: Elapsed Cycles %d Elapsed Time %d (ns)\n",g_ui32ElapsedTime, (g_ui32ElapsedTime * (1000 / g_sEvmInfo.frequency)) );
+    printf ("Config: Elapsed Cycles %llu Elapsed Time %llu (ns)\n",g_ui64ElapsedTime, (uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)) );
 
     //********************** TRIGGER PING AND PONG *********************//
 
-    g_ui32StartTime = TSCL;
+    g_ui64StartTime = TSCL;
 
     do
     {
@@ -741,13 +741,17 @@ Int32 edma_ping_pong_xfer_gbl_region
     }
     while(ui32WordsRemaining > 0);
 
-    g_ui32StopTime = TSCL;
+    g_ui64StopTime = TSCL;
 
-    g_ui32ElapsedTime = Osal_calculateElapsedTime(g_ui32StartTime,g_ui32StopTime);
+    g_ui64ElapsedTime = Osal_calculateElapsedTime(g_ui64StartTime,g_ui64StopTime);
 
-    printf ("Transfer: Elapsed Cycles: %d Elapsed Time: %d (ns) BW: %d MB/s\n\n",
-    		g_ui32ElapsedTime, (g_ui32ElapsedTime * (1000 / g_sEvmInfo.frequency)),
-    		(int64_t) ((int64_t)ui32TransferSizeWords*4000) / ((int64_t)g_ui32ElapsedTime * (1000 / (int64_t)g_sEvmInfo.frequency)) );
+//    printf ("Transfer: Elapsed Cycles: %d Elapsed Time: %d (ns) BW: %d MB/s\n\n",
+//    		g_ui64ElapsedTime, (g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
+//    		(int64_t) ((int64_t)ui32TransferSizeWords*4000) / ((int64_t)g_ui64ElapsedTime * (1000 / (int64_t)g_sEvmInfo.frequency)) );
+
+    printf ("Transfer: Elapsed Cycles: %llu Elapsed Time: %llu (ns) BW: %llu MB/s\n\n",
+    	  	          		(uint64_t)g_ui64ElapsedTime, (uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
+    	  	          	(uint64_t)( ((int64_t)ui32TransferSizeWords*4000) / ((int64_t)g_ui64ElapsedTime * (1000 / (int64_t)g_sEvmInfo.frequency))));
 
     /* Close Ping channel */
     if (CSL_edma3ChannelClose(hChannelPing) != CSL_SOK)

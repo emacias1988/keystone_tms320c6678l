@@ -363,8 +363,8 @@ extern unsigned int volatile cregister TSCH;
 
 extern platform_info	g_sEvmInfo;
 
-extern uint32_t g_ui32StartTime;
-extern uint32_t g_ui32StopTime;
-extern uint32_t g_ui32ElapsedTime;
+extern uint64_t g_ui64StartTime;
+extern uint64_t g_ui64StopTime;
+extern uint64_t g_ui64ElapsedTime;
 
-extern uint32_t Osal_calculateElapsedTime(uint32_t ui32Start, uint32_t ui32Stop);
+extern uint64_t Osal_calculateElapsedTime(uint64_t ui64Start, uint64_t ui64Stop);
