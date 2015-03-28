@@ -1,7 +1,18 @@
+#ifndef	_EVM6678_H_
+#define _EVM6678_H_
+
 #include <stdio.h>
 #include <stdint.h>
 #include "platform.h"
 #include <ti/csl/csl_types.h>
+
+
+
+#define KB								(256)
+#define MB								(256*1024)
+#define GB								(256*1024*1024)
+
+#define DESTBUFFERSIZE (400*KB)
 
 #define DDR3_BASE_ADDRESS            0x80000000
 
@@ -368,3 +379,5 @@ extern uint64_t g_ui64StopTime;
 extern uint64_t g_ui64ElapsedTime;
 
 extern uint64_t Osal_calculateElapsedTime(uint64_t ui64Start, uint64_t ui64Stop);
+
+#endif

@@ -43,20 +43,16 @@
 #include <stdlib.h>
 #include <string.h>
 #include "platform.h"
+#include "mathlib_tests.h"
 #include "EVM6678.h"
 
 
-#include <ti/mathlib/src/log10dp/log10dp.h>
-#include <ti/mathlib/src/atansp/atansp.h>
-#include <ti/mathlib/src/atandp/atandp.h>
+
 //#include <ti/mathlib/src/common/tables.c>
 
 #include <ti/csl/src/intc/csl_intc.h>
 #include <ti/csl/tistdtypes.h>
 #include <ti/csl/csl_cpIntcAux.h>
-
-#include <ti/mathlib/src/log10sp/log10sp.h>
-#include <ti/mathlib/src/common/tables.c>
 
 
 
@@ -85,22 +81,15 @@
 /**********************************************************************
  ************************** Dr. Jung Defines **************************
  **********************************************************************/
-#define KB								(1024/4)
-#define MB								(1024*1024/4)
-#define GB								(1024*1024*1024/4)
+
 
 #define TEST_START_MEMORY_DDR3			0x80000000
-#define TEST_BYTES_TO_READ_DDR3_4KB		(4*KB)
-#define TEST_BYTES_TO_READ_DDR3_1MB		(1*MB)
-#define TEST_BYTES_TO_READ_DDR3_1GB		(1*GB)
-#define TEST_BYTES_TO_READ_DDR3_2GB		(2*GB)
-#define TEST_BYTES_TO_READ_DDR3_8GB		(8*GB)
 
 #define FLASHREAD 		0
 void readMemForLoop();
 uint32_t deviceSpeedRange;
 
-#define DESTBUFFERSIZE (400*KB)
+//#define DESTBUFFERSIZE (400*KB)
 uint32_t pui32DestBuffer[DESTBUFFERSIZE];
 
 // Timing Variables
@@ -305,6 +294,10 @@ void main (void)
     // For Loop Variables
     uint32_t i,j,k;
 
+	volatile uint32_t ui32Size;
+
+	float * pfBuffer = (float*)pui32DestBuffer;
+
     /* Initialize main Platform lib */
     memset(&init_config, 0, sizeof(platform_init_config));
     memset(&init_flags, 1, sizeof(platform_init_flags));
@@ -414,9 +407,6 @@ void main (void)
 
     readMemForLoop(ui32WordsToRead, pui32DDRContent );
 
-
-
-
     //
     // 1MB Test - EDMA
     //
@@ -448,220 +438,12 @@ void main (void)
     // Testing Operations
     //
 
-//damian = 0xDEADBEAFDEADBEAF;
-//
-//printf (" %llu %llu\n", damian, damian);
 
 #define PRINTRESULT 0
-	volatile uint32_t size;
 
-	volatile uint32_t varIn = 0;
+	ui32Size = 4*4*KB;
 
-	float * pfBuffer = (float*)pui32DestBuffer;
-
-	size = 0x40000000;
-
-
-		if(size < DESTBUFFERSIZE)
-		{
-			varIn = size;
-		}
-		else
-		{
-			varIn = DESTBUFFERSIZE;
-		}
-
-		for(i=0;i<varIn;i++)
-		{
-			pfBuffer[i] = i+0.001;
-		}
-
-
-	g_ui64StartTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
-
-	while(size)
-	{
-		if(size < DESTBUFFERSIZE)
-		{
-			varIn = size;
-		}
-		else
-		{
-			varIn = DESTBUFFERSIZE;
-		}
-
-		for(i=0;i<varIn;i++)
-		{
-			pfBuffer[i] = log10sp(pfBuffer[i]);
-		}
-
-		size = size - varIn;
-	}
-
-//    g_ui64StopTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
-	g_ui64StopTime = (uint64_t)(TSCL) ;
-	g_ui64StopTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
-    g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
-    printf ("Log10sp - 4KB: Elapsed Cycles: %llu Elapsed Time: %llu (ns) \n\n",
-    	          		(uint64_t)g_ui64ElapsedTime, (uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)));
-
-
-
-    size = 0x80000000;
-#if PRINTRESULT
-		printf ("Result[%u]:  %f  \n",i,puiFloatBuffer[i]);
-#endif
-		if(size < DESTBUFFERSIZE)
-				{
-					varIn = size;
-				}
-				else
-				{
-					varIn = DESTBUFFERSIZE;
-				}
-
-				for(i=0;i<varIn;i++)
-				{
-					pfBuffer[i] = i+0.001;
-				}
-
-	g_ui64StartTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
-	while(size)
-	{
-		if(size < DESTBUFFERSIZE)
-		{
-			varIn = size;
-		}
-		else
-		{
-			varIn = DESTBUFFERSIZE;
-		}
-
-		for(i=0;i<varIn;i++)
-		{
-			pfBuffer[i] = log10sp_i(pfBuffer[i]);
-		}
-
-		size = size - varIn;
-	}
-    g_ui64StopTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
-    g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
-    printf ("log10sp_i - 4KB: Elapsed Cycles: %llu Elapsed Time: %llu (ns) \n\n",
-    		(uint64_t)g_ui64ElapsedTime, (uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)));
-
-
-
-    size = 0x80000000;
-#if PRINTRESULT
-		printf ("Result[%u]:  %f  \n",i,puiFloatBuffer[i]);
-#endif
-		if(size < DESTBUFFERSIZE)
-				{
-					varIn = size;
-				}
-				else
-				{
-					varIn = DESTBUFFERSIZE;
-				}
-
-				for(i=0;i<varIn;i++)
-				{
-					pfBuffer[i] = i+0.001;
-				}
-
-	g_ui64StartTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
-	while(size)
-	{
-		if(size < DESTBUFFERSIZE)
-		{
-			varIn = size;
-		}
-		else
-		{
-			varIn = DESTBUFFERSIZE;
-		}
-
-		for(i=0;i<varIn;i++)
-		{
-			pfBuffer[i] = log10dp(pfBuffer[i]);
-		}
-
-		size = size - varIn;
-	}
-    g_ui64StopTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
-    g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
-    printf ("Log10dp - 4KB: Elapsed Cycles: %llu Elapsed Time: %llu (ns) \n\n",
-    		(uint64_t)g_ui64ElapsedTime, (uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)));
-
-
-
-    size = 0x80000000;
-#if PRINTRESULT
-		printf ("Result[%u]:  %f  \n",i,puiFloatBuffer[i]);
-#endif
-		if(size < DESTBUFFERSIZE)
-				{
-					varIn = size;
-				}
-				else
-				{
-					varIn = DESTBUFFERSIZE;
-				}
-
-				for(i=0;i<varIn;i++)
-				{
-					pfBuffer[i] = i+0.001;
-				}
-
-	g_ui64StartTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
-	while(size)
-	{
-		if(size < DESTBUFFERSIZE)
-		{
-			varIn = size;
-		}
-		else
-		{
-			varIn = DESTBUFFERSIZE;
-		}
-
-		for(i=0;i<varIn;i++)
-		{
-			pfBuffer[i] = log10dp_i(pfBuffer[i]);
-		}
-
-		size = size - varIn;
-	}
-    g_ui64StopTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
-    g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
-
-    uint32_t test = (1000 / g_sEvmInfo.frequency);
-    g_ui64ElapsedTime *= test;
-    printf ("log10dp_i - 4KB: Elapsed Cycles: %llu Elapsed Time: %llu (ns) \n\n",
-    		(uint64_t)g_ui64ElapsedTime, (uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)));
-
-
-    size = 0x80000000;
-#if PRINTRESULT
-		printf ("Result[%u]:  %f  \n",i,puiFloatBuffer[i]);
-#endif
-		if(size < DESTBUFFERSIZE)
-				{
-					varIn = size;
-				}
-				else
-				{
-					varIn = DESTBUFFERSIZE;
-				}
-
-				for(i=0;i<varIn;i++)
-				{
-					pfBuffer[i] = i+0.001;
-				}
-
-
-
-
+	LOG10_runTests("Log10", ui32Size,pfBuffer);
 
     while(1);
 

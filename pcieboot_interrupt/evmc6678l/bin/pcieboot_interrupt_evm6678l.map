@@ -1,10 +1,10 @@
 ******************************************************************************
                TMS320C6x Linker PC v7.4.4                      
 ******************************************************************************
->> Linked Sat Mar 28 02:09:51 2015
+>> Linked Sat Mar 28 15:14:57 2015
 
 OUTPUT FILE NAME:   <../bin/pcieboot_interrupt_evm6678l.out>
-ENTRY POINT SYMBOL: "_c_int00"  address: 108750e0
+ENTRY POINT SYMBOL: "_c_int00"  address: 108756e0
 
 
 MEMORY CONFIGURATION
@@ -14,7 +14,7 @@ MEMORY CONFIGURATION
   L1P                   00e00000   00007fff  00001370  00006c8f  RWIX
   L1D                   00f00000   00007fff  00000000  00007fff  RWIX
   MSMC                  0c000000   001fffff  00000000  001fffff  RWIX
-  L2SRAM                10800000   00080000  0007ae1e  000051e2  RWIX
+  L2SRAM                10800000   00080000  0007b436  00004bca  RWIX
 
 
 SEGMENT ALLOCATION MAP
@@ -25,24 +25,24 @@ run origin  load origin   length   init length attrs members
   00e00000    00e00000    00001370   00001370    rw- platform_lib
 10800000    10800000    000643e0   00000000    rw-
   10800000    10800000    000643e0   00000000    rw- .far
-108643e0    108643e0    00015700   00011700    rwx
-  108643e0    108643e0    00011700   00011700    rwx .text
-  10875ae0    10875ae0    00002000   00000000    rw- .stack
-  10877ae0    10877ae0    00002000   00000000    rw- .sysmem
-10879ae0    10879ae0    00000b52   00000b52    r--
-  10879ae0    10879ae0    00000b52   00000b52    r-- .const
-1087a638    1087a638    00000480   00000360    rw-
-  1087a638    1087a638    00000360   00000360    rw- .fardata
-  1087a998    1087a998    00000120   00000000    rw- .cio
-1087aab8    1087aab8    00000090   00000090    r--
-  1087aab8    1087aab8    00000090   00000090    r-- .switch
-1087ab48    1087ab48    000000b4   00000078    rw-
-  1087ab48    1087ab48    00000078   00000078    rw- .data
-  1087abc0    1087abc0    0000003c   00000000    rw- .bss
-1087abfc    1087abfc    00000008   00000008    rw-
-  1087abfc    1087abfc    00000008   00000008    rw- .neardata
-1087ac04    1087ac04    00000220   00000220    r--
-  1087ac04    1087ac04    00000220   00000220    r-- .cinit
+108643e0    108643e0    00015d00   00011d00    rwx
+  108643e0    108643e0    00011d00   00011d00    rwx .text
+  108760e0    108760e0    00002000   00000000    rw- .stack
+  108780e0    108780e0    00002000   00000000    rw- .sysmem
+1087a0e0    1087a0e0    00000b6a   00000b6a    r--
+  1087a0e0    1087a0e0    00000b6a   00000b6a    r-- .const
+1087ac50    1087ac50    00000480   00000360    rw-
+  1087ac50    1087ac50    00000360   00000360    rw- .fardata
+  1087afb0    1087afb0    00000120   00000000    rw- .cio
+1087b0d0    1087b0d0    00000090   00000090    r--
+  1087b0d0    1087b0d0    00000090   00000090    r-- .switch
+1087b160    1087b160    000000b4   00000078    rw-
+  1087b160    1087b160    00000078   00000078    rw- .data
+  1087b1d8    1087b1d8    0000003c   00000000    rw- .bss
+1087b214    1087b214    00000008   00000008    rw-
+  1087b214    1087b214    00000008   00000008    rw- .neardata
+1087b21c    1087b21c    00000220   00000220    r--
+  1087b21c    1087b21c    00000220   00000220    r-- .cinit
 
 
 SECTION ALLOCATION MAP
@@ -65,208 +65,209 @@ platform_lib
                   108643d1    00000007     --HOLE--
                   108643d8    00000008     rts6600_elf.lib : trgdrv.obj (.far)
 
-.text      0    108643e0    00011700     
+.text      0    108643e0    00011d00     
                   108643e0    00001fe0     ti.platform.evm6678l.ae66 : platform.obj (.text)
                   108663c0    00001b40                               : evmc6678.obj (.text)
                   10867f00    000017c0     dma_test.obj (.text)
                   108696c0    00001160     ti.platform.evm6678l.ae66 : evm66x_nand.obj (.text)
-                  1086a820    00001080     pcieboot_interrupt.obj (.text)
-                  1086b8a0    00000d80     ti.platform.evm6678l.ae66 : evmc66x_i2c_eeprom.obj (.text)
-                  1086c620    000005c0     rts6600_elf.lib : divd.obj (.text:__c6xabi_divd)
-                  1086cbe0    000005c0                     : _printfi.obj (.text:_getarg_diouxp)
-                  1086d1a0    000005a0     ti.csl.ae66 : csl_edma3HwChannelControl.oe66 (.text:csl_section:edma3:CSL_edma3HwChannelControl)
-                  1086d740    000005a0     ti.platform.evm6678l.ae66 : evmc66x_spi.obj (.text)
-                  1086dce0    00000560                               : evmc6678_phy.obj (.text)
-                  1086e240    00000520                               : evmc66x_nor.obj (.text)
-                  1086e760    000004e0     ti.csl.ae66 : csl_edma3HwControl.oe66 (.text:csl_section:edma3:CSL_edma3HwControl)
-                  1086ec40    000004c0     ti.platform.evm6678l.ae66 : evmc66x_fpga.obj (.text)
-                  1086f100    00000460     rts6600_elf.lib : _printfi.obj (.text:_printfi)
-                  1086f560    00000460                     : _printfi.obj (.text:_setfield)
-                  1086f9c0    000003a0                     : fputs.obj (.text:fputs)
-                  1086fd60    00000320                     : _printfi.obj (.text:_pproc_fge)
-                  10870080    00000320     ti.platform.evm6678l.ae66 : evmc66x_uart.obj (.text)
-                  108703a0    000002e0     rts6600_elf.lib : _printfi.obj (.text:_pproc_fwp)
-                  10870680    000002e0     ti.csl.ae66 : csl_edma3GetHwStatus.oe66 (.text:csl_section:edma3:CSL_edma3GetHwStatus)
-                  10870960    000002a0     rts6600_elf.lib : _printfi.obj (.text:fcvt)
-                  10870c00    00000280                     : _printfi.obj (.text:ecvt)
-                  10870e80    00000280                     : memory.obj (.text:free)
-                  10871100    00000240                     : imath64.obj (.text:__c6xabi_divull)
-                  10871340    00000240                     : _printfi.obj (.text:_pconv_e)
-                  10871580    00000240                     : _printfi.obj (.text:_pproc_diouxp)
-                  108717c0    00000220                     : _printfi.obj (.text:_pproc_str)
-                  108719e0    00000220                     : fputc.obj (.text:fputc)
-                  10871c00    00000200                     : _printfi.obj (.text:_pconv_g)
-                  10871e00    00000200                     : setvbuf.obj (.text:setvbuf)
-                  10872000    000001c0                     : _printfi.obj (.text:_mcpy)
-                  108721c0    000001c0     mathlib.ae66 : log10dp.obj (.text:optasm)
-                  10872380    000001a0     rts6600_elf.lib : trgdrv.obj (.text:HOSTrename)
-                  10872520    000001a0                     : imath40.obj (.text:__c6xabi_divul)
-                  108726c0    00000180                     : copy_decompress_rle.obj (.text:__TI_decompress_rle_core)
-                  10872840    00000180                     : memory.obj (.text:malloc)
-                  108729c0    00000180     mathlib.ae66 : log10sp.obj (.text:optasm)
-                  10872b40    00000140     rts6600_elf.lib : _printfi.obj (.text:_pproc_fflags)
-                  10872c80    00000140                     : lowlev.obj (.text:getdevice)
-                  10872dc0    00000120                     : imath64.obj (.text:__c6xabi_divlli)
-                  10872ee0    00000120                     : fclose.obj (.text:_closefile)
-                  10873000    00000120                     : _printfi.obj (.text:_ltostr)
-                  10873120    00000120     ti.csl.ae66 : csl_edma3ChannelOpen.oe66 (.text:csl_section:edma3:CSL_edma3ChannelOpen)
-                  10873240    00000120     rts6600_elf.lib : fseek.obj (.text:fseek)
-                  10873360    00000100                     : trgdrv.obj (.text:HOSTlseek)
-                  10873460    00000100                     : autoinit.obj (.text:_auto_init_elf)
-                  10873560    00000100                     : _io_perm.obj (.text:_wrt_ok)
-                  10873660    00000100                     : cpy_tbl.obj (.text:copy_in)
-                  10873760    00000100     ti.csl.ae66 : csl_edma3GetBaseAddress.oe66 (.text:csl_section:edma:CSL_edma3ccGetModuleBaseAddr)
-                  10873860    000000e0     rts6600_elf.lib : trgdrv.obj (.text:HOSTopen)
-                  10873940    000000e0                     : divi.obj (.text:__divi)
-                  10873a20    000000e0                     : _printfi.obj (.text:_div)
-                  10873b00    000000e0                     : atoi.obj (.text:atoi)
-                  10873be0    000000e0                     : lowlev.obj (.text:close)
-                  10873cc0    000000e0                     : copy_zero_init.obj (.text:decompress:ZI:__TI_zero_init)
-                  10873da0    000000e0                     : ltoa.obj (.text:ltoa)
-                  10873e80    000000e0                     : memset.obj (.text:memset)
-                  10873f60    000000e0                     : printf.obj (.text:printf)
-                  10874040    000000c0                     : trgdrv.obj (.text:HOSTread)
-                  10874100    000000c0                     : trgdrv.obj (.text:HOSTunlink)
-                  108741c0    000000c0                     : trgdrv.obj (.text:HOSTwrite)
-                  10874280    000000c0                     : divu.obj (.text:__divu)
-                  10874340    000000c0                     : fflush.obj (.text:_doflush)
-                  10874400    000000c0     ti.csl.ae66 : csl_edma3HwChannelSetup.oe66 (.text:csl_section:edma3:CSL_edma3HwChannelSetupQue)
-                  108744c0    000000c0                 : csl_edma3Open.oe66 (.text:csl_section:edma3:CSL_edma3Open)
-                  10874580    000000c0     rts6600_elf.lib : exit.obj (.text:exit)
-                  10874640    000000c0                     : tls.obj (.text:tls:init:__TI_tls_init)
-                  10874700    000000a0                     : trgdrv.obj (.text:HOSTclose)
-                  108747a0    000000a0                     : remu.obj (.text:__remu)
-                  10874840    000000a0                     : fopen.obj (.text:_cleanup)
-                  108748e0    000000a0                     : _printfi.obj (.text:_ecpy)
-                  10874980    000000a0                     : _printfi.obj (.text:_fcpy)
-                  10874a20    000000a0                     : memory.obj (.text:_minit)
-                  10874ac0    000000a0                     : _printfi.obj (.text:_pconv_f)
-                  10874b60    000000a0     ti.csl.ae66 : csl_edma3HwChannelSetup.oe66 (.text:csl_section:edma3:CSL_edma3HwChannelSetupParam)
-                  10874c00    000000a0                 : csl_edma3Param.oe66 (.text:csl_section:edma3:CSL_edma3ParamSetup)
-                  10874ca0    000000a0     rts6600_elf.lib : lowlev.obj (.text:finddevice)
-                  10874d40    000000a0                     : lowlev.obj (.text:lseek)
-                  10874de0    000000a0                     : memcpy64.obj (.text:memcpy)
-                  10874e80    000000a0                     : memory.obj (.text:minsert)
-                  10874f20    000000a0                     : memory.obj (.text:mremove)
-                  10874fc0    000000a0                     : lowlev.obj (.text:write)
-                  10875060    00000080                     : llshift.obj (.text:__c6xabi_llshl)
-                  108750e0    00000080                     : boot.obj (.text:_c_int00)
-                  10875160    00000080     ti.csl.ae66 : csl_edma3Param.oe66 (.text:csl_section:edma3:CSL_edma3GetParamHandle)
-                  108751e0    00000080                 : csl_edma3HwChannelSetup.oe66 (.text:csl_section:edma3:CSL_edma3HwChannelSetupTriggerWord)
-                  10875260    00000080     mathlib.ae66 : divdp.obj (.text:optasm)
-                  108752e0    00000080     rts6600_elf.lib : trgmsg.obj (.text:readmsg)
-                  10875360    00000080                     : strncpy.obj (.text:strncpy)
-                  108753e0    00000080     ti.platform.evm6678l.ae66 : evm66x_i2c.obj (.text)
-                  10875460    00000080     rts6600_elf.lib : lowlev.obj (.text:unlink)
-                  108754e0    00000060                     : cpp_init.obj (.text:__TI_cpp_init)
-                  10875540    00000060                     : frcmpyd_div.obj (.text:__c6xabi_frcmpyd_div)
-                  108755a0    00000060                     : llshift.obj (.text:__c6xabi_llshru)
-                  10875600    00000060                     : imath64.obj (.text:_subcull)
-                  10875660    00000060                     : memccpy.obj (.text:memccpy)
-                  108756c0    00000060                     : vsprintf.obj (.text:vsprintf)
-                  10875720    00000060                     : trgmsg.obj (.text:writemsg)
-                  10875780    00000040                     : isinf.obj (.text:__c6xabi_isinf)
-                  108757c0    00000040                     : _printfi.obj (.text:__c6xabi_isnan)
-                  10875800    00000040                     : args_main.obj (.text:_args_main)
-                  10875840    00000040                     : vsprintf.obj (.text:_outs)
-                  10875880    00000040     ti.csl.ae66 : csl_edma3ChannelClose.oe66 (.text:csl_section:edma3:CSL_edma3ChannelClose)
-                  108758c0    00000040     rts6600_elf.lib : abs.obj (.text:llabs)
-                  10875900    00000040                     : strlen.obj (.text:strlen)
-                  10875940    00000038     mathlib.ae66 : log10sp.obj (.text)
-                  10875978    00000008     --HOLE-- [fill = 0]
-                  10875980    00000020     rts6600_elf.lib : negll.obj (.text:__c6xabi_negll)
-                  108759a0    00000020                     : _lock.obj (.text:_nop)
-                  108759c0    00000020                     : printf.obj (.text:_outc)
-                  108759e0    00000020                     : vsprintf.obj (.text:_outc)
-                  10875a00    00000020                     : printf.obj (.text:_outs)
-                  10875a20    00000020                     : exit.obj (.text:abort)
-                  10875a40    00000020     ti.csl.ae66 : csl_edma3Close.oe66 (.text:csl_section:edma3:CSL_edma3Close)
-                  10875a60    00000020                 : csl_edma3Init.oe66 (.text:csl_section:edma3:CSL_edma3Init)
-                  10875a80    00000020                 : csl_edma3Param.oe66 (.text:csl_section:edma3:CSL_edma3ParamWriteWord)
-                  10875aa0    00000020     rts6600_elf.lib : copy_decompress_none.obj (.text:decompress:none:__TI_decompress_none)
-                  10875ac0    00000020                     : copy_decompress_rle.obj (.text:decompress:rle24:__TI_decompress_rle24)
+                  1086a820    000010a0     log10.obj (.text)
+                  1086b8c0    00000d80     ti.platform.evm6678l.ae66 : evmc66x_i2c_eeprom.obj (.text)
+                  1086c640    000005e0     pcieboot_interrupt.obj (.text)
+                  1086cc20    000005c0     rts6600_elf.lib : divd.obj (.text:__c6xabi_divd)
+                  1086d1e0    000005c0                     : _printfi.obj (.text:_getarg_diouxp)
+                  1086d7a0    000005a0     ti.csl.ae66 : csl_edma3HwChannelControl.oe66 (.text:csl_section:edma3:CSL_edma3HwChannelControl)
+                  1086dd40    000005a0     ti.platform.evm6678l.ae66 : evmc66x_spi.obj (.text)
+                  1086e2e0    00000560                               : evmc6678_phy.obj (.text)
+                  1086e840    00000520                               : evmc66x_nor.obj (.text)
+                  1086ed60    000004e0     ti.csl.ae66 : csl_edma3HwControl.oe66 (.text:csl_section:edma3:CSL_edma3HwControl)
+                  1086f240    000004c0     ti.platform.evm6678l.ae66 : evmc66x_fpga.obj (.text)
+                  1086f700    00000460     rts6600_elf.lib : _printfi.obj (.text:_printfi)
+                  1086fb60    00000460                     : _printfi.obj (.text:_setfield)
+                  1086ffc0    000003a0                     : fputs.obj (.text:fputs)
+                  10870360    00000320                     : _printfi.obj (.text:_pproc_fge)
+                  10870680    00000320     ti.platform.evm6678l.ae66 : evmc66x_uart.obj (.text)
+                  108709a0    000002e0     rts6600_elf.lib : _printfi.obj (.text:_pproc_fwp)
+                  10870c80    000002e0     ti.csl.ae66 : csl_edma3GetHwStatus.oe66 (.text:csl_section:edma3:CSL_edma3GetHwStatus)
+                  10870f60    000002a0     rts6600_elf.lib : _printfi.obj (.text:fcvt)
+                  10871200    00000280                     : _printfi.obj (.text:ecvt)
+                  10871480    00000280                     : memory.obj (.text:free)
+                  10871700    00000240                     : imath64.obj (.text:__c6xabi_divull)
+                  10871940    00000240                     : _printfi.obj (.text:_pconv_e)
+                  10871b80    00000240                     : _printfi.obj (.text:_pproc_diouxp)
+                  10871dc0    00000220                     : _printfi.obj (.text:_pproc_str)
+                  10871fe0    00000220                     : fputc.obj (.text:fputc)
+                  10872200    00000200                     : _printfi.obj (.text:_pconv_g)
+                  10872400    00000200                     : setvbuf.obj (.text:setvbuf)
+                  10872600    000001c0                     : _printfi.obj (.text:_mcpy)
+                  108727c0    000001c0     mathlib.ae66 : log10dp.obj (.text:optasm)
+                  10872980    000001a0     rts6600_elf.lib : trgdrv.obj (.text:HOSTrename)
+                  10872b20    000001a0                     : imath40.obj (.text:__c6xabi_divul)
+                  10872cc0    00000180                     : copy_decompress_rle.obj (.text:__TI_decompress_rle_core)
+                  10872e40    00000180                     : memory.obj (.text:malloc)
+                  10872fc0    00000180     mathlib.ae66 : log10sp.obj (.text:optasm)
+                  10873140    00000140     rts6600_elf.lib : _printfi.obj (.text:_pproc_fflags)
+                  10873280    00000140                     : lowlev.obj (.text:getdevice)
+                  108733c0    00000120                     : imath64.obj (.text:__c6xabi_divlli)
+                  108734e0    00000120                     : fclose.obj (.text:_closefile)
+                  10873600    00000120                     : _printfi.obj (.text:_ltostr)
+                  10873720    00000120     ti.csl.ae66 : csl_edma3ChannelOpen.oe66 (.text:csl_section:edma3:CSL_edma3ChannelOpen)
+                  10873840    00000120     rts6600_elf.lib : fseek.obj (.text:fseek)
+                  10873960    00000100                     : trgdrv.obj (.text:HOSTlseek)
+                  10873a60    00000100                     : autoinit.obj (.text:_auto_init_elf)
+                  10873b60    00000100                     : _io_perm.obj (.text:_wrt_ok)
+                  10873c60    00000100                     : cpy_tbl.obj (.text:copy_in)
+                  10873d60    00000100     ti.csl.ae66 : csl_edma3GetBaseAddress.oe66 (.text:csl_section:edma:CSL_edma3ccGetModuleBaseAddr)
+                  10873e60    000000e0     rts6600_elf.lib : trgdrv.obj (.text:HOSTopen)
+                  10873f40    000000e0                     : divi.obj (.text:__divi)
+                  10874020    000000e0                     : _printfi.obj (.text:_div)
+                  10874100    000000e0                     : atoi.obj (.text:atoi)
+                  108741e0    000000e0                     : lowlev.obj (.text:close)
+                  108742c0    000000e0                     : copy_zero_init.obj (.text:decompress:ZI:__TI_zero_init)
+                  108743a0    000000e0                     : ltoa.obj (.text:ltoa)
+                  10874480    000000e0                     : memset.obj (.text:memset)
+                  10874560    000000e0                     : printf.obj (.text:printf)
+                  10874640    000000c0                     : trgdrv.obj (.text:HOSTread)
+                  10874700    000000c0                     : trgdrv.obj (.text:HOSTunlink)
+                  108747c0    000000c0                     : trgdrv.obj (.text:HOSTwrite)
+                  10874880    000000c0                     : divu.obj (.text:__divu)
+                  10874940    000000c0                     : fflush.obj (.text:_doflush)
+                  10874a00    000000c0     ti.csl.ae66 : csl_edma3HwChannelSetup.oe66 (.text:csl_section:edma3:CSL_edma3HwChannelSetupQue)
+                  10874ac0    000000c0                 : csl_edma3Open.oe66 (.text:csl_section:edma3:CSL_edma3Open)
+                  10874b80    000000c0     rts6600_elf.lib : exit.obj (.text:exit)
+                  10874c40    000000c0                     : tls.obj (.text:tls:init:__TI_tls_init)
+                  10874d00    000000a0                     : trgdrv.obj (.text:HOSTclose)
+                  10874da0    000000a0                     : remu.obj (.text:__remu)
+                  10874e40    000000a0                     : fopen.obj (.text:_cleanup)
+                  10874ee0    000000a0                     : _printfi.obj (.text:_ecpy)
+                  10874f80    000000a0                     : _printfi.obj (.text:_fcpy)
+                  10875020    000000a0                     : memory.obj (.text:_minit)
+                  108750c0    000000a0                     : _printfi.obj (.text:_pconv_f)
+                  10875160    000000a0     ti.csl.ae66 : csl_edma3HwChannelSetup.oe66 (.text:csl_section:edma3:CSL_edma3HwChannelSetupParam)
+                  10875200    000000a0                 : csl_edma3Param.oe66 (.text:csl_section:edma3:CSL_edma3ParamSetup)
+                  108752a0    000000a0     rts6600_elf.lib : lowlev.obj (.text:finddevice)
+                  10875340    000000a0                     : lowlev.obj (.text:lseek)
+                  108753e0    000000a0                     : memcpy64.obj (.text:memcpy)
+                  10875480    000000a0                     : memory.obj (.text:minsert)
+                  10875520    000000a0                     : memory.obj (.text:mremove)
+                  108755c0    000000a0                     : lowlev.obj (.text:write)
+                  10875660    00000080                     : llshift.obj (.text:__c6xabi_llshl)
+                  108756e0    00000080                     : boot.obj (.text:_c_int00)
+                  10875760    00000080     ti.csl.ae66 : csl_edma3Param.oe66 (.text:csl_section:edma3:CSL_edma3GetParamHandle)
+                  108757e0    00000080                 : csl_edma3HwChannelSetup.oe66 (.text:csl_section:edma3:CSL_edma3HwChannelSetupTriggerWord)
+                  10875860    00000080     mathlib.ae66 : divdp.obj (.text:optasm)
+                  108758e0    00000080     rts6600_elf.lib : trgmsg.obj (.text:readmsg)
+                  10875960    00000080                     : strncpy.obj (.text:strncpy)
+                  108759e0    00000080     ti.platform.evm6678l.ae66 : evm66x_i2c.obj (.text)
+                  10875a60    00000080     rts6600_elf.lib : lowlev.obj (.text:unlink)
+                  10875ae0    00000060                     : cpp_init.obj (.text:__TI_cpp_init)
+                  10875b40    00000060                     : frcmpyd_div.obj (.text:__c6xabi_frcmpyd_div)
+                  10875ba0    00000060                     : llshift.obj (.text:__c6xabi_llshru)
+                  10875c00    00000060                     : imath64.obj (.text:_subcull)
+                  10875c60    00000060                     : memccpy.obj (.text:memccpy)
+                  10875cc0    00000060                     : vsprintf.obj (.text:vsprintf)
+                  10875d20    00000060                     : trgmsg.obj (.text:writemsg)
+                  10875d80    00000040                     : isinf.obj (.text:__c6xabi_isinf)
+                  10875dc0    00000040                     : _printfi.obj (.text:__c6xabi_isnan)
+                  10875e00    00000040                     : args_main.obj (.text:_args_main)
+                  10875e40    00000040                     : vsprintf.obj (.text:_outs)
+                  10875e80    00000040     ti.csl.ae66 : csl_edma3ChannelClose.oe66 (.text:csl_section:edma3:CSL_edma3ChannelClose)
+                  10875ec0    00000040     rts6600_elf.lib : abs.obj (.text:llabs)
+                  10875f00    00000040                     : strlen.obj (.text:strlen)
+                  10875f40    00000038     mathlib.ae66 : log10sp.obj (.text)
+                  10875f78    00000008     --HOLE-- [fill = 0]
+                  10875f80    00000020     rts6600_elf.lib : negll.obj (.text:__c6xabi_negll)
+                  10875fa0    00000020                     : _lock.obj (.text:_nop)
+                  10875fc0    00000020                     : printf.obj (.text:_outc)
+                  10875fe0    00000020                     : vsprintf.obj (.text:_outc)
+                  10876000    00000020                     : printf.obj (.text:_outs)
+                  10876020    00000020                     : exit.obj (.text:abort)
+                  10876040    00000020     ti.csl.ae66 : csl_edma3Close.oe66 (.text:csl_section:edma3:CSL_edma3Close)
+                  10876060    00000020                 : csl_edma3Init.oe66 (.text:csl_section:edma3:CSL_edma3Init)
+                  10876080    00000020                 : csl_edma3Param.oe66 (.text:csl_section:edma3:CSL_edma3ParamWriteWord)
+                  108760a0    00000020     rts6600_elf.lib : copy_decompress_none.obj (.text:decompress:none:__TI_decompress_none)
+                  108760c0    00000020                     : copy_decompress_rle.obj (.text:decompress:rle24:__TI_decompress_rle24)
 
-.stack     0    10875ae0    00002000     UNINITIALIZED
-                  10875ae0    00000008     rts6600_elf.lib : boot.obj (.stack)
-                  10875ae8    00001ff8     --HOLE--
+.stack     0    108760e0    00002000     UNINITIALIZED
+                  108760e0    00000008     rts6600_elf.lib : boot.obj (.stack)
+                  108760e8    00001ff8     --HOLE--
 
-.sysmem    0    10877ae0    00002000     UNINITIALIZED
-                  10877ae0    00000008     rts6600_elf.lib : memory.obj (.sysmem)
-                  10877ae8    00001ff8     --HOLE--
+.sysmem    0    108780e0    00002000     UNINITIALIZED
+                  108780e0    00000008     rts6600_elf.lib : memory.obj (.sysmem)
+                  108780e8    00001ff8     --HOLE--
 
-.const     0    10879ae0    00000b52     
-                  10879ae0    00000690     dma_test.obj (.const:.string)
-                  1087a170    00000324     pcieboot_interrupt.obj (.const:.string)
-                  1087a494    00000004     --HOLE-- [fill = 0]
-                  1087a498    00000101     rts6600_elf.lib : ctype.obj (.const:.string:_ctypes_)
-                  1087a599    00000003     --HOLE-- [fill = 0]
-                  1087a59c    00000058     ti.platform.evm6678l.ae66 : platform.obj (.const:.string)
-                  1087a5f4    00000023     rts6600_elf.lib : _printfi.obj (.const:.string)
-                  1087a617    00000001     --HOLE-- [fill = 0]
-                  1087a618    0000000a     ti.platform.evm6678l.ae66 : evm66x_nand.obj (.const:.string:$P$T0$1)
-                  1087a622    00000006     --HOLE-- [fill = 0]
-                  1087a628    0000000a                               : evm66x_nand.obj (.const:.string:$P$T1$2)
+.const     0    1087a0e0    00000b6a     
+                  1087a0e0    00000690     dma_test.obj (.const:.string)
+                  1087a770    0000022c     pcieboot_interrupt.obj (.const:.string)
+                  1087a99c    00000114     log10.obj (.const:.string)
+                  1087aab0    00000101     rts6600_elf.lib : ctype.obj (.const:.string:_ctypes_)
+                  1087abb1    00000003     --HOLE-- [fill = 0]
+                  1087abb4    00000058     ti.platform.evm6678l.ae66 : platform.obj (.const:.string)
+                  1087ac0c    00000023     rts6600_elf.lib : _printfi.obj (.const:.string)
+                  1087ac2f    00000001     --HOLE-- [fill = 0]
+                  1087ac30    0000000a     ti.platform.evm6678l.ae66 : evm66x_nand.obj (.const:.string:$P$T0$1)
+                  1087ac3a    00000006     --HOLE-- [fill = 0]
+                  1087ac40    0000000a                               : evm66x_nand.obj (.const:.string:$P$T1$2)
 
-.fardata   0    1087a638    00000360     
-                  1087a638    000001e0     rts6600_elf.lib : defs.obj (.fardata:_ftable)
-                  1087a818    000000a0                     : lowlev.obj (.fardata:_stream)
-                  1087a8b8    00000078                     : lowlev.obj (.fardata:_device)
-                  1087a930    00000040     pcieboot_interrupt.obj (.fardata:logtable)
-                  1087a970    0000000c     rts6600_elf.lib : exit.obj (.fardata)
-                  1087a97c    0000000c                     : memory.obj (.fardata)
-                  1087a988    00000008                     : _lock.obj (.fardata)
-                  1087a990    00000004                     : defs.obj (.fardata)
-                  1087a994    00000004                     : errno.obj (.fardata)
+.fardata   0    1087ac50    00000360     
+                  1087ac50    000001e0     rts6600_elf.lib : defs.obj (.fardata:_ftable)
+                  1087ae30    000000a0                     : lowlev.obj (.fardata:_stream)
+                  1087aed0    00000078                     : lowlev.obj (.fardata:_device)
+                  1087af48    00000040     tables.obj (.fardata:logtable)
+                  1087af88    0000000c     rts6600_elf.lib : exit.obj (.fardata)
+                  1087af94    0000000c                     : memory.obj (.fardata)
+                  1087afa0    00000008                     : _lock.obj (.fardata)
+                  1087afa8    00000004                     : defs.obj (.fardata)
+                  1087afac    00000004                     : errno.obj (.fardata)
 
-.cio       0    1087a998    00000120     UNINITIALIZED
-                  1087a998    00000120     rts6600_elf.lib : trgmsg.obj (.cio)
+.cio       0    1087afb0    00000120     UNINITIALIZED
+                  1087afb0    00000120     rts6600_elf.lib : trgmsg.obj (.cio)
 
-.switch    0    1087aab8    00000090     
-                  1087aab8    0000003c     ti.csl.ae66 : csl_edma3HwControl.oe66 (.switch:CSL_edma3HwControl)
-                  1087aaf4    00000020                 : csl_edma3GetHwStatus.oe66 (.switch:CSL_edma3GetHwStatus)
-                  1087ab14    00000020     ti.platform.evm6678l.ae66 : platform.obj (.switch:platform_internal_memory_test)
-                  1087ab34    00000014     ti.csl.ae66 : csl_edma3HwChannelControl.oe66 (.switch:CSL_edma3HwChannelControl)
+.switch    0    1087b0d0    00000090     
+                  1087b0d0    0000003c     ti.csl.ae66 : csl_edma3HwControl.oe66 (.switch:CSL_edma3HwControl)
+                  1087b10c    00000020                 : csl_edma3GetHwStatus.oe66 (.switch:CSL_edma3GetHwStatus)
+                  1087b12c    00000020     ti.platform.evm6678l.ae66 : platform.obj (.switch:platform_internal_memory_test)
+                  1087b14c    00000014     ti.csl.ae66 : csl_edma3HwChannelControl.oe66 (.switch:CSL_edma3HwChannelControl)
 
-.data      0    1087ab48    00000078     
-                  1087ab48    00000078     mathlib.ae66 : log10dp.obj (.data)
+.data      0    1087b160    00000078     
+                  1087b160    00000078     mathlib.ae66 : log10dp.obj (.data)
 
-.bss       0    1087abc0    0000003c     UNINITIALIZED
-                  1087abc0    00000038     pcieboot_interrupt.obj (.bss)
-                  1087abf8    00000004     ti.platform.evm6678l.ae66 : evmc66x_spi.obj (.bss)
+.bss       0    1087b1d8    0000003c     UNINITIALIZED
+                  1087b1d8    00000038     pcieboot_interrupt.obj (.bss)
+                  1087b210    00000004     ti.platform.evm6678l.ae66 : evmc66x_spi.obj (.bss)
 
 .neardata 
-*          0    1087abfc    00000008     
-                  1087abfc    00000008     ti.platform.evm6678l.ae66 : platform.obj (.neardata)
+*          0    1087b214    00000008     
+                  1087b214    00000008     ti.platform.evm6678l.ae66 : platform.obj (.neardata)
 
-.cinit     0    1087ac04    00000220     
-                  1087ac04    000000ad     (.cinit..fardata.load) [load image, compression = rle]
-                  1087acb1    00000003     --HOLE-- [fill = 0]
-                  1087acb4    0000009f     (.cinit.platform_lib.load) [load image, compression = rle]
-                  1087ad53    00000001     --HOLE-- [fill = 0]
-                  1087ad54    00000075     (.cinit..data.load) [load image, compression = rle]
-                  1087adc9    00000003     --HOLE-- [fill = 0]
-                  1087adcc    0000000c     (__TI_handler_table)
-                  1087add8    00000009     (.cinit..neardata.load) [load image, compression = rle]
-                  1087ade1    00000003     --HOLE-- [fill = 0]
-                  1087ade4    00000008     (.cinit..bss.load) [load image, compression = zero_init]
-                  1087adec    00000008     (.cinit..far.load) [load image, compression = zero_init]
-                  1087adf4    00000030     (__TI_cinit_table)
+.cinit     0    1087b21c    00000220     
+                  1087b21c    000000ad     (.cinit..fardata.load) [load image, compression = rle]
+                  1087b2c9    00000003     --HOLE-- [fill = 0]
+                  1087b2cc    0000009f     (.cinit.platform_lib.load) [load image, compression = rle]
+                  1087b36b    00000001     --HOLE-- [fill = 0]
+                  1087b36c    00000075     (.cinit..data.load) [load image, compression = rle]
+                  1087b3e1    00000003     --HOLE-- [fill = 0]
+                  1087b3e4    0000000c     (__TI_handler_table)
+                  1087b3f0    00000009     (.cinit..neardata.load) [load image, compression = rle]
+                  1087b3f9    00000003     --HOLE-- [fill = 0]
+                  1087b3fc    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  1087b404    00000008     (.cinit..far.load) [load image, compression = zero_init]
+                  1087b40c    00000030     (__TI_cinit_table)
 
 
 LINKER GENERATED COPY TABLES
 
-__TI_cinit_table @ 1087adf4 records: 6, size/record: 8, table size: 48
-	.fardata: load addr=1087ac04, load size=000000ad bytes, run addr=1087a638, run size=00000360 bytes, compression=rle
-	platform_lib: load addr=1087acb4, load size=0000009f bytes, run addr=00e00000, run size=00001370 bytes, compression=rle
-	.data: load addr=1087ad54, load size=00000075 bytes, run addr=1087ab48, run size=00000078 bytes, compression=rle
-	.neardata: load addr=1087add8, load size=00000009 bytes, run addr=1087abfc, run size=00000008 bytes, compression=rle
-	.bss: load addr=1087ade4, load size=00000008 bytes, run addr=1087abc0, run size=0000003c bytes, compression=zero_init
-	.far: load addr=1087adec, load size=00000008 bytes, run addr=10800000, run size=000643e0 bytes, compression=zero_init
+__TI_cinit_table @ 1087b40c records: 6, size/record: 8, table size: 48
+	.fardata: load addr=1087b21c, load size=000000ad bytes, run addr=1087ac50, run size=00000360 bytes, compression=rle
+	platform_lib: load addr=1087b2cc, load size=0000009f bytes, run addr=00e00000, run size=00001370 bytes, compression=rle
+	.data: load addr=1087b36c, load size=00000075 bytes, run addr=1087b160, run size=00000078 bytes, compression=rle
+	.neardata: load addr=1087b3f0, load size=00000009 bytes, run addr=1087b214, run size=00000008 bytes, compression=rle
+	.bss: load addr=1087b3fc, load size=00000008 bytes, run addr=1087b1d8, run size=0000003c bytes, compression=zero_init
+	.far: load addr=1087b404, load size=00000008 bytes, run addr=10800000, run size=000643e0 bytes, compression=zero_init
 
 
 LINKER GENERATED HANDLER TABLE
 
-__TI_handler_table @ 1087adcc records: 3, size/record: 4, table size: 12
+__TI_handler_table @ 1087b3e4 records: 3, size/record: 4, table size: 12
 	index: 0, handler: __TI_zero_init
 	index: 1, handler: __TI_decompress_rle24
 	index: 2, handler: __TI_decompress_none
@@ -276,151 +277,154 @@ GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name
 
 address    name
 --------   ----
-10875a20   C$$EXIT
-10875778   C$$IO$$
-10875880   CSL_edma3ChannelClose
-10873120   CSL_edma3ChannelOpen
-10875a40   CSL_edma3Close
-10870680   CSL_edma3GetHwStatus
-10875160   CSL_edma3GetParamHandle
-1086d1a0   CSL_edma3HwChannelControl
-10874b60   CSL_edma3HwChannelSetupParam
-10874400   CSL_edma3HwChannelSetupQue
-108751e0   CSL_edma3HwChannelSetupTriggerWord
-1086e760   CSL_edma3HwControl
-10875a60   CSL_edma3Init
-108744c0   CSL_edma3Open
-10874c00   CSL_edma3ParamSetup
-10875a80   CSL_edma3ParamWriteWord
-10873760   CSL_edma3ccGetModuleBaseAddr
+10876020   C$$EXIT
+10875d78   C$$IO$$
+10875e80   CSL_edma3ChannelClose
+10873720   CSL_edma3ChannelOpen
+10876040   CSL_edma3Close
+10870c80   CSL_edma3GetHwStatus
+10875760   CSL_edma3GetParamHandle
+1086d7a0   CSL_edma3HwChannelControl
+10875160   CSL_edma3HwChannelSetupParam
+10874a00   CSL_edma3HwChannelSetupQue
+108757e0   CSL_edma3HwChannelSetupTriggerWord
+1086ed60   CSL_edma3HwControl
+10876060   CSL_edma3Init
+10874ac0   CSL_edma3Open
+10875200   CSL_edma3ParamSetup
+10876080   CSL_edma3ParamWriteWord
+10873d60   CSL_edma3ccGetModuleBaseAddr
 10866360   Convert_CoreLocal2GlobalAddr
 108675d4   CorePllcGetHwSetup
 10867378   CorePllcHwSetup
 10867b14   DDR3Init
 10864130   EventHandler
 10864228   EventRecord
-10874700   HOSTclose
-10873360   HOSTlseek
-10873860   HOSTopen
-10874040   HOSTread
-10872380   HOSTrename
-10874100   HOSTunlink
-108741c0   HOSTwrite
-1086e158   Init_SGMII
-10875940   Logtable_asm
+10874d00   HOSTclose
+10873960   HOSTlseek
+10873e60   HOSTopen
+10874640   HOSTread
+10872980   HOSTrename
+10874700   HOSTunlink
+108747c0   HOSTwrite
+1086e758   Init_SGMII
+1086b234   LOG10_dpTest
+1086b880   LOG10_runTests
+1086a820   LOG10_spTest
+10875f40   Logtable_asm
 1086a6f8   NandGetDetails
 10869dec   NandReadSpareArea
 1086a10c   NandWriteDataBytes
 1086a370   NandWriteSpareArea
-1086a8e0   Osal_calculateElapsedTime
-1086b870   Osal_platformFree
-1086b864   Osal_platformMalloc
-1086b860   Osal_platformSpiCsEnter
-1086b858   Osal_platformSpiCsExit
+1086c704   Osal_calculateElapsedTime
+1086cbf0   Osal_platformFree
+1086cbe4   Osal_platformMalloc
+1086cbe0   Osal_platformSpiCsEnter
+1086cbd8   Osal_platformSpiCsExit
 108678b4   PowerUpDomains
 10867950   SetDDR3PllConfig
 108676c0   SetPaPllConfig
-10870080   UartInit
-1087034c   UartIsDataReady
-10870250   UartReadBaudRate
-108702c0   UartReadData
-108701d8   UartSetBaudRate
-108702ec   UartWriteData
+10870680   UartInit
+1087094c   UartIsDataReady
+10870850   UartReadBaudRate
+108708c0   UartReadData
+108707d8   UartSetBaudRate
+108708ec   UartWriteData
 10867f00   Verify_Transfer
-1087a998   __CIOBUF_
-1087adf4   __TI_CINIT_Base
-1087ae24   __TI_CINIT_Limit
-1087adcc   __TI_Handler_Table_Base
-1087add8   __TI_Handler_Table_Limit
+1087afb0   __CIOBUF_
+1087b40c   __TI_CINIT_Base
+1087b43c   __TI_CINIT_Limit
+1087b3e4   __TI_Handler_Table_Base
+1087b3f0   __TI_Handler_Table_Limit
 UNDEFED    __TI_INITARRAY_Base
 UNDEFED    __TI_INITARRAY_Limit
-10877ae0   __TI_STACK_END
+108780e0   __TI_STACK_END
 00002000   __TI_STACK_SIZE
-1087abc0   __TI_STATIC_BASE
+1087b1d8   __TI_STATIC_BASE
 00002000   __TI_SYSMEM_SIZE
 UNDEFED    __TI_TLS_INIT_Base
 UNDEFED    __TI_TLS_INIT_Limit
 00000001   __TI_args_main
-108754e0   __TI_cpp_init
-10875aa0   __TI_decompress_none
-10875ac0   __TI_decompress_rle24
-1087a978   __TI_enable_exit_profile_output
+10875ae0   __TI_cpp_init
+108760a0   __TI_decompress_none
+108760c0   __TI_decompress_rle24
+1087af90   __TI_enable_exit_profile_output
 ffffffff   __TI_pprof_out_hndl
 ffffffff   __TI_prof_data_size
 ffffffff   __TI_prof_data_start
-10874640   __TI_tls_init
-10873cc0   __TI_zero_init
+10874c40   __TI_tls_init
+108742c0   __TI_zero_init
 ffffffff   __binit__
-1086c620   __c6xabi_divd
-10873940   __c6xabi_divi
-10872dc0   __c6xabi_divlli
-10874280   __c6xabi_divu
-10872520   __c6xabi_divul
-10871100   __c6xabi_divull
-10875540   __c6xabi_frcmpyd_div
-10875780   __c6xabi_isinf
-10875060   __c6xabi_llshl
-108755a0   __c6xabi_llshru
-10875980   __c6xabi_negll
-108747a0   __c6xabi_remu
+1086cc20   __c6xabi_divd
+10873f40   __c6xabi_divi
+108733c0   __c6xabi_divlli
+10874880   __c6xabi_divu
+10872b20   __c6xabi_divul
+10871700   __c6xabi_divull
+10875b40   __c6xabi_frcmpyd_div
+10875d80   __c6xabi_isinf
+10875660   __c6xabi_llshl
+10875ba0   __c6xabi_llshru
+10875f80   __c6xabi_negll
+10874da0   __c6xabi_remu
 ffffffff   __c_args__
-10873940   __divi
-10874280   __divu
-1087a994   __errno
-108747a0   __remu
-10875800   _args_main
-10873460   _auto_init_elf
-108750e0   _c_int00
-10874840   _cleanup
-1087a970   _cleanup_ptr
-10872ee0   _closefile
-1087a498   _ctypes_
-10874340   _doflush
-1087a974   _dtors_ptr
-1087a990   _ft_end
-1087a638   _ftable
-1087a988   _lock
-10874a20   _minit
-108759a0   _nop
-1086f100   _printfi
-10875ae0   _stack
-10875600   _subcull
-10877ae0   _sys_memory
+10873f40   __divi
+10874880   __divu
+1087afac   __errno
+10874da0   __remu
+10875e00   _args_main
+10873a60   _auto_init_elf
+108756e0   _c_int00
+10874e40   _cleanup
+1087af88   _cleanup_ptr
+108734e0   _closefile
+1087aab0   _ctypes_
+10874940   _doflush
+1087af8c   _dtors_ptr
+1087afa8   _ft_end
+1087ac50   _ftable
+1087afa0   _lock
+10875020   _minit
+10875fa0   _nop
+1086f700   _printfi
+108760e0   _stack
+10875c00   _subcull
+108780e0   _sys_memory
 10864230   _tmpnams
-1087a98c   _unlock
-10873560   _wrt_ok
-10875a20   abort
-10873b00   atoi
+1087afa4   _unlock
+10873b60   _wrt_ok
+10876020   abort
+10874100   atoi
 ffffffff   binit
-10873be0   close
-1086e0e0   configSerdes
-10873660   copy_in
-1087abe0   damian
-1087abc0   deviceSpeedRange
-10875260   divdp
+108741e0   close
+1086e6e0   configSerdes
+10873c60   copy_in
+1087b1f8   damian
+1087b1d8   deviceSpeedRange
+10875860   divdp
 108643c8   dstBuff1
 108643d0   dstBuff2
 108691f0   edma_ping_pong_xfer_gbl_region
 108688e8   edma_ping_pong_xfer_region
 00e01368   emac_port_mode
-1087a994   errno
-108753e0   evmI2CInit
-10874580   exit
-1086ecd8   fpgaControlUserLEDs
-1086eeac   fpgaDisableEepromWriteProtect
-1086ed98   fpgaDisableNandWriteProtect
-1086ee24   fpgaDisableNorWriteProtect
-1086eef0   fpgaEnableEepromWriteProtect
-1086ede0   fpgaEnableNandWriteProtect
-1086ee68   fpgaEnableNorWriteProtect
-1086ef80   fpgaGetAMCDetect
-1086ef34   fpgaGetUserSwitch
-1086f070   fpgaReadConfigurationRegister
-1086efc4   fpgaWriteConfigurationRegister
-108719e0   fputc
-1086f9c0   fputs
-10870e80   free
-10873240   fseek
+1087afac   errno
+108759e0   evmI2CInit
+10874b80   exit
+1086f2d8   fpgaControlUserLEDs
+1086f4ac   fpgaDisableEepromWriteProtect
+1086f398   fpgaDisableNandWriteProtect
+1086f424   fpgaDisableNorWriteProtect
+1086f4f0   fpgaEnableEepromWriteProtect
+1086f3e0   fpgaEnableNandWriteProtect
+1086f468   fpgaEnableNorWriteProtect
+1086f580   fpgaGetAMCDetect
+1086f534   fpgaGetUserSwitch
+1086f670   fpgaReadConfigurationRegister
+1086f5c4   fpgaWriteConfigurationRegister
+10871fe0   fputc
+1086ffc0   fputs
+10871480   free
+10873840   fseek
 00e012f4   gDeviceEeprom0
 00e0132c   gDeviceEeprom1
 00e01284   gDeviceNand
@@ -428,40 +432,40 @@ ffffffff   binit
 00e012bc   gDeviceNor
 10864370   gI2cBlock
 10864000   g_sEvmInfo
-1087abd8   g_ui64ElapsedTime
-1087abc8   g_ui64StartTime
-1087abd0   g_ui64StopTime
-1086ec40   getBoardVersion
-1086ec8c   getFpgaDevID
-1087abec   hTest
-1087abe8   hnd
-1086c2c0   i2cEepromMacRead
-1086c028   i2cEepromMacWrite
-1086bbac   i2cEepromRead
-1086bdb0   i2cEepromWrite
-1086b8e4   i2cEepromWriteBlock
-1086bed0   i2cEepromWriteByteAddr
+1087b1f0   g_ui64ElapsedTime
+1087b1e0   g_ui64StartTime
+1087b1e8   g_ui64StopTime
+1086f240   getBoardVersion
+1086f28c   getFpgaDevID
+1087b204   hTest
+1087b200   hnd
+1086c2e0   i2cEepromMacRead
+1086c048   i2cEepromMacWrite
+1086bbcc   i2cEepromRead
+1086bdd0   i2cEepromWrite
+1086b904   i2cEepromWriteBlock
+1086bef0   i2cEepromWriteByteAddr
 10864094   intcContext
 10864220   intcObj
-108758c0   llabs
-108721c0   log10dp
-108729e0   log10sp
-1087a930   logtable
-10874d40   lseek
-10873da0   ltoa
-1086aa80   main
-10872840   malloc
-10875660   memccpy
-10874de0   memcpy
-10873e80   memset
+10875ec0   llabs
+108727c0   log10dp
+10872fe0   log10sp
+1087af48   logtable
+10875340   lseek
+108743a0   ltoa
+1086c8a4   main
+10872e40   malloc
+10875c60   memccpy
+108753e0   memcpy
+10874480   memset
 1086a498   nandFlashBlockErase
 1086a800   nandInit
-1087ab48   nmn_L2
-1086e634   nor_erase
-1086e2c0   nor_get_details
-1086e34c   nor_init
-1086e3c4   nor_read
-1086e454   nor_write
+1087b160   nmn_L2
+1086ec34   nor_erase
+1086e8c0   nor_get_details
+1086e94c   nor_init
+1086e9c4   nor_read
+1086ea54   nor_write
 10865c70   platform_blocknpage_to_offset
 10865190   platform_delay
 108651f0   platform_delaycycles
@@ -473,7 +477,7 @@ ffffffff   binit
 10865790   platform_device_read_spare_data
 10865d64   platform_device_write
 10865950   platform_device_write_spare_data
-1087abfc   platform_errno
+1087b214   platform_errno
 10865230   platform_external_memory_test
 10864eb4   platform_get_coreid
 10864ec8   platform_get_emac_info
@@ -482,7 +486,7 @@ ffffffff   binit
 10864fec   platform_get_phy_addr
 10865064   platform_get_switch_state
 10864c74   platform_init
-1087ac00   platform_init_return_code
+1087b218   platform_init_return_code
 108652b0   platform_internal_memory_test
 10865148   platform_led
 10865b48   platform_offset_to_blocknpage
@@ -493,37 +497,37 @@ ffffffff   binit
 108650d8   platform_uart_write
 10865460   platform_write
 10865424   platform_write_configure
-10873f60   printf
+10874560   printf
 10867214   prog_pll1_values
 10800000   pui32DestBuffer
 108680e0   qdma_link_xfer_region
-1086a928   readMemForLoop
+1086c74c   readMemForLoop
 10869ed8   readNandPage
-108752e0   readmsg
-10875460   remove
+108758e0   readmsg
+10875a60   remove
 10864854   serial_num_isvalid
-10871e00   setvbuf
-1086d770   spi_claim
-1086da64   spi_cmd
-1086dac8   spi_cmd_read
-1086db28   spi_cmd_write
-1086db88   spi_read_word
-1086d918   spi_release
-1086dc40   spi_write_word
-1086d930   spi_xfer
+10872400   setvbuf
+1086dd70   spi_claim
+1086e064   spi_cmd
+1086e0c8   spi_cmd_read
+1086e128   spi_cmd_write
+1086e188   spi_read_word
+1086df18   spi_release
+1086e240   spi_write_word
+1086df30   spi_xfer
 108643b8   srcBuff1
 108643c0   srcBuff2
-1086a894   start_boot
-1087abf0   state
-10875900   strlen
-10875360   strncpy
-10875460   unlink
-1087abf4   vectId
-108756c0   vsprintf
-10874fc0   write
+1086c6b8   start_boot
+1087b208   state
+10875f00   strlen
+10875960   strncpy
+10875a60   unlink
+1087b20c   vectId
+10875cc0   vsprintf
+108755c0   write
 1086a170   writeNandPage
-1086a820   write_uart
-10875720   writemsg
+1086c640   write_uart
+10875d20   writemsg
 10867ac0   xmc_setup
 
 
@@ -603,173 +607,176 @@ address    name
 1086a498   nandFlashBlockErase
 1086a6f8   NandGetDetails
 1086a800   nandInit
-1086a820   write_uart
-1086a894   start_boot
-1086a8e0   Osal_calculateElapsedTime
-1086a928   readMemForLoop
-1086aa80   main
-1086b858   Osal_platformSpiCsExit
-1086b860   Osal_platformSpiCsEnter
-1086b864   Osal_platformMalloc
-1086b870   Osal_platformFree
-1086b8e4   i2cEepromWriteBlock
-1086bbac   i2cEepromRead
-1086bdb0   i2cEepromWrite
-1086bed0   i2cEepromWriteByteAddr
-1086c028   i2cEepromMacWrite
-1086c2c0   i2cEepromMacRead
-1086c620   __c6xabi_divd
-1086d1a0   CSL_edma3HwChannelControl
-1086d770   spi_claim
-1086d918   spi_release
-1086d930   spi_xfer
-1086da64   spi_cmd
-1086dac8   spi_cmd_read
-1086db28   spi_cmd_write
-1086db88   spi_read_word
-1086dc40   spi_write_word
-1086e0e0   configSerdes
-1086e158   Init_SGMII
-1086e2c0   nor_get_details
-1086e34c   nor_init
-1086e3c4   nor_read
-1086e454   nor_write
-1086e634   nor_erase
-1086e760   CSL_edma3HwControl
-1086ec40   getBoardVersion
-1086ec8c   getFpgaDevID
-1086ecd8   fpgaControlUserLEDs
-1086ed98   fpgaDisableNandWriteProtect
-1086ede0   fpgaEnableNandWriteProtect
-1086ee24   fpgaDisableNorWriteProtect
-1086ee68   fpgaEnableNorWriteProtect
-1086eeac   fpgaDisableEepromWriteProtect
-1086eef0   fpgaEnableEepromWriteProtect
-1086ef34   fpgaGetUserSwitch
-1086ef80   fpgaGetAMCDetect
-1086efc4   fpgaWriteConfigurationRegister
-1086f070   fpgaReadConfigurationRegister
-1086f100   _printfi
-1086f9c0   fputs
-10870080   UartInit
-108701d8   UartSetBaudRate
-10870250   UartReadBaudRate
-108702c0   UartReadData
-108702ec   UartWriteData
-1087034c   UartIsDataReady
-10870680   CSL_edma3GetHwStatus
-10870e80   free
-10871100   __c6xabi_divull
-108719e0   fputc
-10871e00   setvbuf
-108721c0   log10dp
-10872380   HOSTrename
-10872520   __c6xabi_divul
-10872840   malloc
-108729e0   log10sp
-10872dc0   __c6xabi_divlli
-10872ee0   _closefile
-10873120   CSL_edma3ChannelOpen
-10873240   fseek
-10873360   HOSTlseek
-10873460   _auto_init_elf
-10873560   _wrt_ok
-10873660   copy_in
-10873760   CSL_edma3ccGetModuleBaseAddr
-10873860   HOSTopen
-10873940   __c6xabi_divi
-10873940   __divi
-10873b00   atoi
-10873be0   close
-10873cc0   __TI_zero_init
-10873da0   ltoa
-10873e80   memset
-10873f60   printf
-10874040   HOSTread
-10874100   HOSTunlink
-108741c0   HOSTwrite
-10874280   __c6xabi_divu
-10874280   __divu
-10874340   _doflush
-10874400   CSL_edma3HwChannelSetupQue
-108744c0   CSL_edma3Open
-10874580   exit
-10874640   __TI_tls_init
-10874700   HOSTclose
-108747a0   __c6xabi_remu
-108747a0   __remu
-10874840   _cleanup
-10874a20   _minit
-10874b60   CSL_edma3HwChannelSetupParam
-10874c00   CSL_edma3ParamSetup
-10874d40   lseek
-10874de0   memcpy
-10874fc0   write
-10875060   __c6xabi_llshl
-108750e0   _c_int00
-10875160   CSL_edma3GetParamHandle
-108751e0   CSL_edma3HwChannelSetupTriggerWord
-10875260   divdp
-108752e0   readmsg
-10875360   strncpy
-108753e0   evmI2CInit
-10875460   remove
-10875460   unlink
-108754e0   __TI_cpp_init
-10875540   __c6xabi_frcmpyd_div
-108755a0   __c6xabi_llshru
-10875600   _subcull
-10875660   memccpy
-108756c0   vsprintf
-10875720   writemsg
-10875778   C$$IO$$
-10875780   __c6xabi_isinf
-10875800   _args_main
-10875880   CSL_edma3ChannelClose
-108758c0   llabs
-10875900   strlen
-10875940   Logtable_asm
-10875980   __c6xabi_negll
-108759a0   _nop
-10875a20   C$$EXIT
-10875a20   abort
-10875a40   CSL_edma3Close
-10875a60   CSL_edma3Init
-10875a80   CSL_edma3ParamWriteWord
-10875aa0   __TI_decompress_none
-10875ac0   __TI_decompress_rle24
-10875ae0   _stack
-10877ae0   __TI_STACK_END
-10877ae0   _sys_memory
-1087a498   _ctypes_
-1087a638   _ftable
-1087a930   logtable
-1087a970   _cleanup_ptr
-1087a974   _dtors_ptr
-1087a978   __TI_enable_exit_profile_output
-1087a988   _lock
-1087a98c   _unlock
-1087a990   _ft_end
-1087a994   __errno
-1087a994   errno
-1087a998   __CIOBUF_
-1087ab48   nmn_L2
-1087abc0   __TI_STATIC_BASE
-1087abc0   deviceSpeedRange
-1087abc8   g_ui64StartTime
-1087abd0   g_ui64StopTime
-1087abd8   g_ui64ElapsedTime
-1087abe0   damian
-1087abe8   hnd
-1087abec   hTest
-1087abf0   state
-1087abf4   vectId
-1087abfc   platform_errno
-1087ac00   platform_init_return_code
-1087adcc   __TI_Handler_Table_Base
-1087add8   __TI_Handler_Table_Limit
-1087adf4   __TI_CINIT_Base
-1087ae24   __TI_CINIT_Limit
+1086a820   LOG10_spTest
+1086b234   LOG10_dpTest
+1086b880   LOG10_runTests
+1086b904   i2cEepromWriteBlock
+1086bbcc   i2cEepromRead
+1086bdd0   i2cEepromWrite
+1086bef0   i2cEepromWriteByteAddr
+1086c048   i2cEepromMacWrite
+1086c2e0   i2cEepromMacRead
+1086c640   write_uart
+1086c6b8   start_boot
+1086c704   Osal_calculateElapsedTime
+1086c74c   readMemForLoop
+1086c8a4   main
+1086cbd8   Osal_platformSpiCsExit
+1086cbe0   Osal_platformSpiCsEnter
+1086cbe4   Osal_platformMalloc
+1086cbf0   Osal_platformFree
+1086cc20   __c6xabi_divd
+1086d7a0   CSL_edma3HwChannelControl
+1086dd70   spi_claim
+1086df18   spi_release
+1086df30   spi_xfer
+1086e064   spi_cmd
+1086e0c8   spi_cmd_read
+1086e128   spi_cmd_write
+1086e188   spi_read_word
+1086e240   spi_write_word
+1086e6e0   configSerdes
+1086e758   Init_SGMII
+1086e8c0   nor_get_details
+1086e94c   nor_init
+1086e9c4   nor_read
+1086ea54   nor_write
+1086ec34   nor_erase
+1086ed60   CSL_edma3HwControl
+1086f240   getBoardVersion
+1086f28c   getFpgaDevID
+1086f2d8   fpgaControlUserLEDs
+1086f398   fpgaDisableNandWriteProtect
+1086f3e0   fpgaEnableNandWriteProtect
+1086f424   fpgaDisableNorWriteProtect
+1086f468   fpgaEnableNorWriteProtect
+1086f4ac   fpgaDisableEepromWriteProtect
+1086f4f0   fpgaEnableEepromWriteProtect
+1086f534   fpgaGetUserSwitch
+1086f580   fpgaGetAMCDetect
+1086f5c4   fpgaWriteConfigurationRegister
+1086f670   fpgaReadConfigurationRegister
+1086f700   _printfi
+1086ffc0   fputs
+10870680   UartInit
+108707d8   UartSetBaudRate
+10870850   UartReadBaudRate
+108708c0   UartReadData
+108708ec   UartWriteData
+1087094c   UartIsDataReady
+10870c80   CSL_edma3GetHwStatus
+10871480   free
+10871700   __c6xabi_divull
+10871fe0   fputc
+10872400   setvbuf
+108727c0   log10dp
+10872980   HOSTrename
+10872b20   __c6xabi_divul
+10872e40   malloc
+10872fe0   log10sp
+108733c0   __c6xabi_divlli
+108734e0   _closefile
+10873720   CSL_edma3ChannelOpen
+10873840   fseek
+10873960   HOSTlseek
+10873a60   _auto_init_elf
+10873b60   _wrt_ok
+10873c60   copy_in
+10873d60   CSL_edma3ccGetModuleBaseAddr
+10873e60   HOSTopen
+10873f40   __c6xabi_divi
+10873f40   __divi
+10874100   atoi
+108741e0   close
+108742c0   __TI_zero_init
+108743a0   ltoa
+10874480   memset
+10874560   printf
+10874640   HOSTread
+10874700   HOSTunlink
+108747c0   HOSTwrite
+10874880   __c6xabi_divu
+10874880   __divu
+10874940   _doflush
+10874a00   CSL_edma3HwChannelSetupQue
+10874ac0   CSL_edma3Open
+10874b80   exit
+10874c40   __TI_tls_init
+10874d00   HOSTclose
+10874da0   __c6xabi_remu
+10874da0   __remu
+10874e40   _cleanup
+10875020   _minit
+10875160   CSL_edma3HwChannelSetupParam
+10875200   CSL_edma3ParamSetup
+10875340   lseek
+108753e0   memcpy
+108755c0   write
+10875660   __c6xabi_llshl
+108756e0   _c_int00
+10875760   CSL_edma3GetParamHandle
+108757e0   CSL_edma3HwChannelSetupTriggerWord
+10875860   divdp
+108758e0   readmsg
+10875960   strncpy
+108759e0   evmI2CInit
+10875a60   remove
+10875a60   unlink
+10875ae0   __TI_cpp_init
+10875b40   __c6xabi_frcmpyd_div
+10875ba0   __c6xabi_llshru
+10875c00   _subcull
+10875c60   memccpy
+10875cc0   vsprintf
+10875d20   writemsg
+10875d78   C$$IO$$
+10875d80   __c6xabi_isinf
+10875e00   _args_main
+10875e80   CSL_edma3ChannelClose
+10875ec0   llabs
+10875f00   strlen
+10875f40   Logtable_asm
+10875f80   __c6xabi_negll
+10875fa0   _nop
+10876020   C$$EXIT
+10876020   abort
+10876040   CSL_edma3Close
+10876060   CSL_edma3Init
+10876080   CSL_edma3ParamWriteWord
+108760a0   __TI_decompress_none
+108760c0   __TI_decompress_rle24
+108760e0   _stack
+108780e0   __TI_STACK_END
+108780e0   _sys_memory
+1087aab0   _ctypes_
+1087ac50   _ftable
+1087af48   logtable
+1087af88   _cleanup_ptr
+1087af8c   _dtors_ptr
+1087af90   __TI_enable_exit_profile_output
+1087afa0   _lock
+1087afa4   _unlock
+1087afa8   _ft_end
+1087afac   __errno
+1087afac   errno
+1087afb0   __CIOBUF_
+1087b160   nmn_L2
+1087b1d8   __TI_STATIC_BASE
+1087b1d8   deviceSpeedRange
+1087b1e0   g_ui64StartTime
+1087b1e8   g_ui64StopTime
+1087b1f0   g_ui64ElapsedTime
+1087b1f8   damian
+1087b200   hnd
+1087b204   hTest
+1087b208   state
+1087b20c   vectId
+1087b214   platform_errno
+1087b218   platform_init_return_code
+1087b3e4   __TI_Handler_Table_Base
+1087b3f0   __TI_Handler_Table_Limit
+1087b40c   __TI_CINIT_Base
+1087b43c   __TI_CINIT_Limit
 ffffffff   __TI_pprof_out_hndl
 ffffffff   __TI_prof_data_size
 ffffffff   __TI_prof_data_start
@@ -781,4 +788,4 @@ UNDEFED    __TI_INITARRAY_Limit
 UNDEFED    __TI_TLS_INIT_Base
 UNDEFED    __TI_TLS_INIT_Limit
 
-[249 symbols]
+[252 symbols]
