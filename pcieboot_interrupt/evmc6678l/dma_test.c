@@ -450,7 +450,10 @@ Int32 edma_ping_pong_xfer_gbl_region
     printf ("Debug: EDMA(%d) configuration (Global) Region for Channel %d...\n", instNum, channelNum);
 #endif
 
-    g_ui64StartTime = TSCL;
+
+    // Get Start Time
+	g_ui64StartTime = (uint64_t)(TSCL) ;
+	g_ui64StartTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
 
     /* Module initialization */
     if (CSL_edma3Init(&context) != CSL_SOK)
@@ -660,7 +663,10 @@ Int32 edma_ping_pong_xfer_gbl_region
     regionIntr.intrh  = 0x0000;
     CSL_edma3HwControl(hModule,CSL_EDMA3_CMD_INTR_ENABLE,&regionIntr);
 
-    g_ui64StopTime = TSCL;
+
+    // Get Stop Time
+    g_ui64StopTime = (uint64_t)(TSCL) ;
+    g_ui64StopTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
 
     g_ui64ElapsedTime = Osal_calculateElapsedTime(g_ui64StartTime,g_ui64StopTime);
 
@@ -668,7 +674,9 @@ Int32 edma_ping_pong_xfer_gbl_region
 
     //********************** TRIGGER PING AND PONG *********************//
 
-    g_ui64StartTime = TSCL;
+    // Get Start Time
+    g_ui64StartTime = (uint64_t)(TSCL) ;
+    g_ui64StartTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
 
     do
     {
@@ -741,7 +749,10 @@ Int32 edma_ping_pong_xfer_gbl_region
     }
     while(ui32WordsRemaining > 0);
 
-    g_ui64StopTime = TSCL;
+    // Get Stop Time
+    g_ui64StopTime = (uint64_t)(TSCL) ;
+    g_ui64StopTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
+
 
     g_ui64ElapsedTime = Osal_calculateElapsedTime(g_ui64StartTime,g_ui64StopTime);
 

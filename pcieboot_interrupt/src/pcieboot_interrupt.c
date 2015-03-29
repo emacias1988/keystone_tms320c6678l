@@ -125,7 +125,10 @@ void readMemForLoop(uint32_t ui32WordsToRead, uint32_t * pui32DDRContent)
 {
 		uint32_t k =0;
 		uint32_t inx = 0;
-		g_ui64StartTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
+
+		// Get Start Time
+		g_ui64StartTime = (uint64_t)(TSCL) ;
+		g_ui64StartTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
 	//	g_ui64StartTime = TSCL ;
 
 	    for(k=0;k<ui32WordsToRead;k++)
@@ -137,7 +140,9 @@ void readMemForLoop(uint32_t ui32WordsToRead, uint32_t * pui32DDRContent)
 	    	}
 	    }
 
-	    g_ui64StopTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
+	    // Get Stop Time
+		g_ui64StopTime = (uint64_t)(TSCL) ;
+		g_ui64StopTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
 
 	    g_ui64ElapsedTime = Osal_calculateElapsedTime(g_ui64StartTime,g_ui64StopTime);
 //	    printf ("Transfer: Elapsed Cycles: %llu Elapsed Time: %llu (ns) BW: %llu MB/s\n\n",
@@ -359,6 +364,18 @@ void main (void)
         printf ("Time to start and stop timer: %u cycles \n\n",
         	          		g_ui64ElapsedTime);
 
+
+    //
+    // 4kB Test - EDMA
+    //
+	ui32WordsToRead = 4*KB;
+	pui32DDRContent = (uint32_t *) TEST_START_MEMORY_DDR3;
+    printf ("Read Test 4KB using EDMA (DDR3->l2)@ DSP Freq %d (Mhz)\n", g_sEvmInfo.frequency);
+
+
+
+    ui32Status = edma_ping_pong_xfer_gbl_region(0, 0,(uint32_t)pui32DDRContent, (uint32_t) pui32DestBuffer, ui32WordsToRead);
+
     //
     // 4kB Test - For Loop
     //
@@ -369,22 +386,6 @@ void main (void)
     pui32DDRContent = (uint32_t *) TEST_START_MEMORY_DDR3;
 
     readMemForLoop(ui32WordsToRead, pui32DDRContent );
-
-    //
-    // 4kB Test - EDMA
-    //
-    printf ("Read Test 4KB using EDMA (DDR3->l2)@ DSP Freq %d (Mhz)\n", g_sEvmInfo.frequency);
-
-
-    // Initialization for debugging Source Data
-//    pui8DDRContent = (uint8_t *) TEST_START_MEMORY_DDR3;
-//
-//    for(k=0;k<(ui32WordsToRead*4);k++)
-//    {
-//    	pui8DDRContent[k] = k;
-//    }
-
-    ui32Status = edma_ping_pong_xfer_gbl_region(0, 0,(uint32_t)pui32DDRContent, (uint32_t) pui32DestBuffer, ui32WordsToRead);
 
     //
     // 32kB Test - EDMA
@@ -417,6 +418,17 @@ void main (void)
     ui32Status = edma_ping_pong_xfer_gbl_region(0, 0,(uint32_t)pui32DDRContent, (uint32_t) pui32DestBuffer, ui32WordsToRead);
 
     //
+    // 1MB Test - For Loop
+    //
+
+    printf ("Read Test 1MB using for-loop (DDR3->l2)@ DSP Freq %d (Mhz)\n", g_sEvmInfo.frequency);
+
+    ui32WordsToRead = 1*MB;
+    pui32DDRContent = (uint32_t *) TEST_START_MEMORY_DDR3;
+
+    readMemForLoop(ui32WordsToRead, pui32DDRContent );
+
+    //
     // 1GB Test - EDMA
     //
     printf ("Read Test 1GB using EDMA (DDR3->l2)@ DSP Freq %d (Mhz)\n", g_sEvmInfo.frequency);
@@ -426,6 +438,18 @@ void main (void)
     ui32Status = edma_ping_pong_xfer_gbl_region(0, 0,(uint32_t)pui32DDRContent, (uint32_t) pui32DestBuffer, ui32WordsToRead);
 
     //
+    // 1GB Test - For Loop
+    //
+
+    printf ("Read Test 1GB using for-loop (DDR3->l2)@ DSP Freq %d (Mhz)\n", g_sEvmInfo.frequency);
+
+    ui32WordsToRead = 1*GB;
+    pui32DDRContent = (uint32_t *) TEST_START_MEMORY_DDR3;
+
+    readMemForLoop(ui32WordsToRead, pui32DDRContent );
+
+
+    //
     // 2GB Test - EDMA
     //
     printf ("Read Test 2GB using EDMA (DDR3->l2)@ DSP Freq %d (Mhz)\n", g_sEvmInfo.frequency);
@@ -433,6 +457,18 @@ void main (void)
     ui32WordsToRead = (2*GB);
 
     ui32Status = edma_ping_pong_xfer_gbl_region(0, 0,(uint32_t)pui32DDRContent, (uint32_t) pui32DestBuffer, ui32WordsToRead);
+
+    //
+    // 2GB Test - For Loop
+    //
+
+    printf ("Read Test 2GB using for-loop (DDR3->l2)@ DSP Freq %d (Mhz)\n", g_sEvmInfo.frequency);
+
+    ui32WordsToRead = 2*GB;
+    pui32DDRContent = (uint32_t *) TEST_START_MEMORY_DDR3;
+
+    readMemForLoop(ui32WordsToRead, pui32DDRContent );
+
 
     //
     // Testing Operations
@@ -456,6 +492,8 @@ void main (void)
 	RSQRT_runTests("rsqrt", ui32Size,pfBuffer);
 	SIN_runTests("sin", ui32Size,pfBuffer);
 	SQRT_runTests("sqrt", ui32Size,pfBuffer);
+
+	printf ("Test Complete!\n");
 
     while(1);
 

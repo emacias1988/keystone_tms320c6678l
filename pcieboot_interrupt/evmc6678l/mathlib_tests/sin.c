@@ -93,12 +93,13 @@ void SIN_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 	g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
 
 
-	printf ("%ssp %d%s words - Elapsed Cycles: %llu Elapsed Time: %llu (ns) \n\n",
+	printf ("%ssp %d%s words - Elapsed Cycles: %llu Elapsed Time: %llu (ns) Cycles/Word: %llu \n\n",
 			psFuncName,
 			ui32SizePrint,
 			pcSizeString,
 			(uint64_t)g_ui64ElapsedTime,
-			(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)));
+			(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
+			(uint64_t)(g_ui64ElapsedTime/ui32Size));
 
 	//
 	// Single Precision Inline Single Input
@@ -158,12 +159,13 @@ void SIN_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 	g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
 
 
-	printf ("%ssp_i %d%s words - Elapsed Cycles: %llu Elapsed Time: %llu (ns) \n\n",
+	printf ("%ssp_i %d%s words - Elapsed Cycles: %llu Elapsed Time: %llu (ns) Cycles/Word: %llu \n\n",
 			psFuncName,
 			ui32SizePrint,
 			pcSizeString,
 			(uint64_t)g_ui64ElapsedTime,
-			(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)));
+			(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
+			(uint64_t)(g_ui64ElapsedTime/ui32Size));
 
 }
 
@@ -253,12 +255,13 @@ void SIN_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 	g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
 
 
-	printf ("%sdp %d%s words - Elapsed Cycles: %llu Elapsed Time: %llu (ns) \n\n",
+	printf ("%sdp %d%s words - Elapsed Cycles: %llu Elapsed Time: %llu (ns) Cycles/Word: %llu \n\n",
 			psFuncName,
 			ui32SizePrint,
 			pcSizeString,
 			(uint64_t)g_ui64ElapsedTime,
-			(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)));
+			(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
+			(uint64_t)(g_ui64ElapsedTime/ui32Size));
 
 	//
 	// Single Precision Inline Single Input
@@ -318,12 +321,13 @@ void SIN_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 	g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
 
 
-	printf ("%sdp_i %d%s words - Elapsed Cycles: %llu Elapsed Time: %llu (ns) \n\n",
+	printf ("%sdp_i %d%s words - Elapsed Cycles: %llu Elapsed Time: %llu (ns) Cycles/Word: %llu \n\n",
 			psFuncName,
 			ui32SizePrint,
 			pcSizeString,
 			(uint64_t)g_ui64ElapsedTime,
-			(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)));
+			(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
+			(uint64_t)(g_ui64ElapsedTime/ui32Size));
 
 }
 
