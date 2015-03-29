@@ -68,6 +68,13 @@ void LOG2_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer);
 void LOG2_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer);
 
 //
+// LOG Functions
+//
+void LOG_runTests(char * psFuncName, uint32_t ui32Size, float * pfBuffer);
+void LOG_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer);
+void LOG_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer);
+
+//
 // POW
 //
 void POW_runTests(char * psFuncName, uint32_t ui32Size, float * pfBuffer);

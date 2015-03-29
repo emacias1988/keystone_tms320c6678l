@@ -5,7 +5,7 @@
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROGRAM.Texas Instruments XDS100v1 USB Emulator_0/C66xx_0" value="${build_artifact:pcieboot_interrupt_evmc6678l}"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROJECT.Texas Instruments XDS100v1 USB Emulator_0/C66xx_0" value="pcieboot_interrupt_evmc6678l"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_TARGET_CONFIG" value="${target_config_active_default:pcieboot_interrupt_evmc6678l}"/>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.Texas Instruments XDS100v1 USB Emulator_0/C66xx_0" value="C:/Users\a0272339\Documents\UTD\uP\keystone_tms320c6678l\pcieboot_interrupt\evmc6678l\bin\pcieboot_interrupt_evm6678l.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.Texas Instruments XDS100v1 USB Emulator_0/C66xx_0" value="C:/ti\ccs_ver5_5_keystone\mcsdk_2_01_02_06\tools\boot_loader\examples\pcie\keystone_tms320c6678l\pcieboot_interrupt\evmc6678l\bin\pcieboot_interrupt_evm6678l.out"/>
 <mapAttribute key="com.ti.ccstudio.debug.ui.displayFormats">
 <mapEntry key="Texas Instruments XDS100v1 USB Emulator_0/C66xx_0@##separator##@0" value="32-Bit Hex - TI Style"/>
 </mapAttribute>
