@@ -464,16 +464,9 @@ void main (void)
 
     printf ("Read Test 2GB using for-loop (DDR3->l2)@ DSP Freq %d (Mhz)\n", g_sEvmInfo.frequency);
 
-    ui32WordsToRead = 2*GB;
-    pui32DDRContent = (uint32_t *) TEST_START_MEMORY_DDR3;
-
-    readMemForLoop(ui32WordsToRead, pui32DDRContent );
-
-
     //
     // Testing Operations
     //
-
 
 #define PRINTRESULT 0
 
@@ -487,6 +480,58 @@ void main (void)
 	EXP2_runTests("exp2", ui32Size,pfBuffer);
 	LOG10_runTests("log10", ui32Size,pfBuffer);
 	LOG2_runTests("log2", ui32Size,pfBuffer);
+	LOG_runTests("log", ui32Size,pfBuffer);
+	POW_runTests("pow", ui32Size,pfBuffer);
+	RECIP_runTests("recip", ui32Size,pfBuffer);
+	RSQRT_runTests("rsqrt", ui32Size,pfBuffer);
+	SIN_runTests("sin", ui32Size,pfBuffer);
+	SQRT_runTests("sqrt", ui32Size,pfBuffer);
+
+	ui32Size = 32*4*KB;
+	ATAN_runTests("atan", ui32Size,pfBuffer);
+	ATAN2_runTests("atan2", ui32Size,pfBuffer);
+	COS_runTests("cos", ui32Size,pfBuffer);
+	DIV_runTests("div", ui32Size,pfBuffer);
+	EXP_runTests("exp", ui32Size,pfBuffer);
+	EXP10_runTests("exp10", ui32Size,pfBuffer);
+	EXP2_runTests("exp2", ui32Size,pfBuffer);
+	LOG10_runTests("log10", ui32Size,pfBuffer);
+	LOG2_runTests("log2", ui32Size,pfBuffer);
+	LOG_runTests("log", ui32Size,pfBuffer);
+	POW_runTests("pow", ui32Size,pfBuffer);
+	RECIP_runTests("recip", ui32Size,pfBuffer);
+	RSQRT_runTests("rsqrt", ui32Size,pfBuffer);
+	SIN_runTests("sin", ui32Size,pfBuffer);
+	SQRT_runTests("sqrt", ui32Size,pfBuffer);
+
+	ui32Size = 1*4*MB;
+	ATAN_runTests("atan", ui32Size,pfBuffer);
+	ATAN2_runTests("atan2", ui32Size,pfBuffer);
+	COS_runTests("cos", ui32Size,pfBuffer);
+	DIV_runTests("div", ui32Size,pfBuffer);
+	EXP_runTests("exp", ui32Size,pfBuffer);
+	EXP10_runTests("exp10", ui32Size,pfBuffer);
+	EXP2_runTests("exp2", ui32Size,pfBuffer);
+	LOG10_runTests("log10", ui32Size,pfBuffer);
+	LOG2_runTests("log2", ui32Size,pfBuffer);
+	LOG_runTests("log", ui32Size,pfBuffer);
+	POW_runTests("pow", ui32Size,pfBuffer);
+	RECIP_runTests("recip", ui32Size,pfBuffer);
+	RSQRT_runTests("rsqrt", ui32Size,pfBuffer);
+	SIN_runTests("sin", ui32Size,pfBuffer);
+	SQRT_runTests("sqrt", ui32Size,pfBuffer);
+
+	ui32Size = 1*4*GB;
+	ATAN_runTests("atan", ui32Size,pfBuffer);
+	ATAN2_runTests("atan2", ui32Size,pfBuffer);
+	COS_runTests("cos", ui32Size,pfBuffer);
+	DIV_runTests("div", ui32Size,pfBuffer);
+	EXP_runTests("exp", ui32Size,pfBuffer);
+	EXP10_runTests("exp10", ui32Size,pfBuffer);
+	EXP2_runTests("exp2", ui32Size,pfBuffer);
+	LOG10_runTests("log10", ui32Size,pfBuffer);
+	LOG2_runTests("log2", ui32Size,pfBuffer);
+	LOG_runTests("log", ui32Size,pfBuffer);
 	POW_runTests("pow", ui32Size,pfBuffer);
 	RECIP_runTests("recip", ui32Size,pfBuffer);
 	RSQRT_runTests("rsqrt", ui32Size,pfBuffer);
