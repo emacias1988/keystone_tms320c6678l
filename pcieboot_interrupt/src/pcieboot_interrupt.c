@@ -45,7 +45,6 @@
 #include "platform.h"
 #include "mathlib_tests.h"
 #include "EVM6678.h"
-#include "test_selector.h"
 
 
 
