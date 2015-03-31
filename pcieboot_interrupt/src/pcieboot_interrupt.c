@@ -45,6 +45,7 @@
 #include "platform.h"
 #include "mathlib_tests.h"
 #include "EVM6678.h"
+#include "test_selector.h"
 
 
 
@@ -85,7 +86,7 @@
 
 #define TEST_START_MEMORY_DDR3			0x80000000
 
-#define FLASHREAD 		0
+
 void readMemForLoop();
 uint32_t deviceSpeedRange;
 
@@ -364,7 +365,8 @@ void main (void)
         printf ("Time to start and stop timer: %u cycles \n\n",
         	          		g_ui64ElapsedTime);
 
-
+#ifdef FOUR_K
+#ifdef DDR3_READ_EDMA
     //
     // 4kB Test - EDMA
     //
@@ -375,7 +377,9 @@ void main (void)
 
 
     ui32Status = edma_ping_pong_xfer_gbl_region(0, 0,(uint32_t)pui32DDRContent, (uint32_t) pui32DestBuffer, ui32WordsToRead);
+#endif
 
+#ifdef DDR3_READ_LOOP
     //
     // 4kB Test - For Loop
     //
@@ -386,7 +390,10 @@ void main (void)
     pui32DDRContent = (uint32_t *) TEST_START_MEMORY_DDR3;
 
     readMemForLoop(ui32WordsToRead, pui32DDRContent );
+#endif
+#endif
 
+#ifdef THIRTY_TWO_K
     //
     // 32kB Test - EDMA
     //
@@ -407,7 +414,9 @@ void main (void)
     pui32DDRContent = (uint32_t *) TEST_START_MEMORY_DDR3;
 
     readMemForLoop(ui32WordsToRead, pui32DDRContent );
+#endif
 
+#ifdef ONE_M
     //
     // 1MB Test - EDMA
     //
@@ -427,6 +436,9 @@ void main (void)
     pui32DDRContent = (uint32_t *) TEST_START_MEMORY_DDR3;
 
     readMemForLoop(ui32WordsToRead, pui32DDRContent );
+#endif
+
+#ifdef ONE_G
 
     //
     // 1GB Test - EDMA
@@ -448,7 +460,9 @@ void main (void)
 
     readMemForLoop(ui32WordsToRead, pui32DDRContent );
 
+#endif
 
+#ifdef TWO_G
     //
     // 2GB Test - EDMA
     //
@@ -463,6 +477,12 @@ void main (void)
     //
 
     printf ("Read Test 2GB using for-loop (DDR3->l2)@ DSP Freq %d (Mhz)\n", g_sEvmInfo.frequency);
+    ui32WordsToRead = 2*GB;
+    pui32DDRContent = (uint32_t *) TEST_START_MEMORY_DDR3;
+
+    readMemForLoop(ui32WordsToRead, pui32DDRContent );
+
+#endif
 
     //
     // Testing Operations
