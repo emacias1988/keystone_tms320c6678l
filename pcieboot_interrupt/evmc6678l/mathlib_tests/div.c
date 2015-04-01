@@ -81,8 +81,7 @@ void DIV_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 
 		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 		{
-//			pfBuffer[ui32Idx] = divsp(pfBuffer[ui32Idx],pfBuffer[ui32IdxCount-1-ui32Idx]);
-			pfBuffer[ui32Idx] = divsp(pfBuffer[ui32Idx],(float) 2.53);
+			pfBuffer[ui32Idx] = divsp(pfBuffer[ui32Idx],pfBuffer[ui32IdxCount-1-ui32Idx]);
 		}
 
 		ui32TotalSize = ui32TotalSize - ui32IdxCount;
@@ -148,8 +147,7 @@ void DIV_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 
 		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 		{
-			pfBuffer[ui32Idx] = divsp_i(pfBuffer[ui32Idx],(float) 2.53);
-//			pfBuffer[ui32Idx] = divsp_i(pfBuffer[ui32Idx],pfBuffer[ui32IdxCount-1-ui32Idx]);
+			pfBuffer[ui32Idx] = divsp_i(pfBuffer[ui32Idx],pfBuffer[ui32IdxCount-1-ui32Idx]);
 		}
 
 		ui32TotalSize = ui32TotalSize - ui32IdxCount;
@@ -248,8 +246,7 @@ void DIV_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 
 		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 		{
-			pfBuffer[ui32Idx] = divdp(pfBuffer[ui32Idx],(double) 2.53);
-//			pdBuffer[ui32Idx] = divdp(pdBuffer[ui32Idx],pdBuffer[ui32IdxCount-1-ui32Idx]);
+			pdBuffer[ui32Idx] = divdp(pdBuffer[ui32Idx],pdBuffer[ui32IdxCount-1-ui32Idx]);
 		}
 
 		ui32TotalSize = ui32TotalSize - ui32IdxCount;
@@ -298,8 +295,7 @@ void DIV_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 
 		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 		{
-			pfBuffer[ui32Idx] = divdp(pfBuffer[ui32Idx],(double) 2.53);
-//			pdBuffer[ui32Idx] = divdp(pdBuffer[ui32Idx],pdBuffer[ui32IdxCount-1-ui32Idx]);
+			pdBuffer[ui32Idx] = divdp(pdBuffer[ui32Idx],pdBuffer[ui32IdxCount-1-ui32Idx]);
 		}
 
 		ui32TotalSize = ui32TotalSize - ui32IdxCount;
@@ -368,8 +364,7 @@ void DIV_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 
 		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 		{
-			pfBuffer[ui32Idx] = divdp_i(pfBuffer[ui32Idx],(double) 2.53);
-//			pdBuffer[ui32Idx] = divdp_i(pdBuffer[ui32IdxCount-1-ui32Idx],pdBuffer[ui32Idx]);
+			pdBuffer[ui32Idx] = divdp_i(pdBuffer[ui32IdxCount-1-ui32Idx],pdBuffer[ui32Idx]);
 		}
 
 		ui32TotalSize = ui32TotalSize - ui32IdxCount;
@@ -418,8 +413,7 @@ void DIV_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 
 		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 		{
-			pfBuffer[ui32Idx] = divdp_i(pfBuffer[ui32Idx],(double) 2.53);
-//			pdBuffer[ui32Idx] = divdp_i(pdBuffer[ui32IdxCount-1-ui32Idx],pdBuffer[ui32Idx]);
+			pdBuffer[ui32Idx] = divdp_i(pdBuffer[ui32IdxCount-1-ui32Idx],pdBuffer[ui32Idx]);
 		}
 
 		ui32TotalSize = ui32TotalSize - ui32IdxCount;
