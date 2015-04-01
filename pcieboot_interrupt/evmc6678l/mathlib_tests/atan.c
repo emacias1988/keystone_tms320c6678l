@@ -158,13 +158,14 @@ void ATAN_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 	g_ui64StopTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
 	g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
 
+
 	printf ("%ssp_i %d%s words - Elapsed Cycles: %llu Elapsed Time: %llu (ns) Cycles/Word: %llu \n\n",
-				psFuncName,
-				ui32SizePrint,
-				pcSizeString,
-				(uint64_t)g_ui64ElapsedTime,
-				(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
-				(uint64_t)(g_ui64ElapsedTime/ui32Size));
+			psFuncName,
+			ui32SizePrint,
+			pcSizeString,
+			(uint64_t)g_ui64ElapsedTime,
+			(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
+			(uint64_t)(g_ui64ElapsedTime/ui32Size));
 
 }
 
@@ -176,7 +177,10 @@ void ATAN_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 	char * pcSizeString;
 	uint32_t ui32SizePrint;
 
-	ui32TotalSize = ui32Size;
+	volatile double * pdBuffer;
+
+	ui32TotalSize = ui32Size >> 1;
+	pdBuffer = (double *) pfBuffer;
 
 
 	// The size will be displayed in K
@@ -201,19 +205,19 @@ void ATAN_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 	//
 	// Initialize Buffer with known values
 	//
-	if(ui32TotalSize < DESTBUFFERSIZE)
+	if(ui32TotalSize < (DESTBUFFERSIZE >> 1) )
 	{
 		ui32IdxCount = ui32TotalSize;
 	}
 	else
 	{
-		ui32IdxCount = DESTBUFFERSIZE;
+		ui32IdxCount = (DESTBUFFERSIZE >> 1);
 	}
 
 
 	for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 	{
-		pfBuffer[ui32Idx] = ui32Idx+0.001;
+		pdBuffer[ui32Idx] = ui32Idx+0.001;
 	}
 
 	//
@@ -230,19 +234,19 @@ void ATAN_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 
 	while(ui32TotalSize)
 	{
-		if(ui32TotalSize < DESTBUFFERSIZE)
+		if(ui32TotalSize < (DESTBUFFERSIZE >> 1))
 		{
 			ui32IdxCount = ui32TotalSize;
 
 		}
 		else
 		{
-			ui32IdxCount = DESTBUFFERSIZE;
+			ui32IdxCount = (DESTBUFFERSIZE >> 1);
 		}
 
 		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 		{
-			pfBuffer[ui32Idx] = atandp(pfBuffer[ui32Idx]);
+			pdBuffer[ui32Idx] = atandp(pdBuffer[ui32Idx]);
 		}
 
 		ui32TotalSize = ui32TotalSize - ui32IdxCount;
@@ -253,38 +257,90 @@ void ATAN_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 	g_ui64StopTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
 	g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
 
-
-	printf ("%sdp %d%s words - Elapsed Cycles: %llu Elapsed Time: %llu (ns) Cycles/Word: %llu \n\n",
-				psFuncName,
-				ui32SizePrint,
-				pcSizeString,
-				(uint64_t)g_ui64ElapsedTime,
-				(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
-				(uint64_t)(g_ui64ElapsedTime/ui32Size));
-
-	//
-	// Single Precision Inline Single Input
-	//
-
-	ui32TotalSize = ui32Size;
+	ui32TotalSize = ui32Size >> 1;
 
 	//
 	// Initialize Buffer with known values
 	//
-	if(ui32TotalSize < DESTBUFFERSIZE)
+	if(ui32TotalSize < (DESTBUFFERSIZE >> 1) )
 	{
 		ui32IdxCount = ui32TotalSize;
 	}
 	else
 	{
-		ui32IdxCount = DESTBUFFERSIZE;
+		ui32IdxCount = (DESTBUFFERSIZE >> 1);
 	}
 
 
 	for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 	{
-		pfBuffer[ui32Idx] = ui32Idx+0.001;
+		pdBuffer[ui32Idx] = ui32Idx+0.002;
 	}
+
+	// Get Start Time
+	g_ui64StartTime = (uint64_t)(TSCL) ;
+	g_ui64StartTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
+
+	while(ui32TotalSize)
+	{
+		if(ui32TotalSize < (DESTBUFFERSIZE >> 1))
+		{
+			ui32IdxCount = ui32TotalSize;
+
+		}
+		else
+		{
+			ui32IdxCount = (DESTBUFFERSIZE >> 1);
+		}
+
+		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
+		{
+			pdBuffer[ui32Idx] = atandp(pdBuffer[ui32Idx]);
+		}
+
+		ui32TotalSize = ui32TotalSize - ui32IdxCount;
+	}
+
+	// Get Stop Time
+	g_ui64StopTime = (uint64_t)(TSCL) ;
+	g_ui64StopTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
+	g_ui64ElapsedTime = g_ui64ElapsedTime + g_ui64StopTime - g_ui64StartTime;
+
+	printf ("%ssdp %d%s words - Elapsed Cycles: %llu Elapsed Time: %llu (ns) Cycles/Word: %llu \n\n",
+			psFuncName,
+			ui32SizePrint,
+			pcSizeString,
+			(uint64_t)g_ui64ElapsedTime,
+			(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
+			(uint64_t)(g_ui64ElapsedTime/ui32Size));
+
+	//
+	// Single Precision Inline Single Input
+	//
+
+	ui32TotalSize = ui32Size >> 1;
+
+	//
+	// Initialize Buffer with known values
+	//
+	if(ui32TotalSize < (DESTBUFFERSIZE >> 1) )
+	{
+		ui32IdxCount = ui32TotalSize;
+	}
+	else
+	{
+		ui32IdxCount = (DESTBUFFERSIZE >> 1);
+	}
+
+
+	for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
+	{
+		pdBuffer[ui32Idx] = ui32Idx+0.001;
+	}
+
+	//
+	//   Single Precision Single Input Test
+	//
 
 	//
 	// Initialize Complete
@@ -296,19 +352,19 @@ void ATAN_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 
 	while(ui32TotalSize)
 	{
-		if(ui32TotalSize < DESTBUFFERSIZE)
+		if(ui32TotalSize < (DESTBUFFERSIZE >> 1))
 		{
 			ui32IdxCount = ui32TotalSize;
 
 		}
 		else
 		{
-			ui32IdxCount = DESTBUFFERSIZE;
+			ui32IdxCount = (DESTBUFFERSIZE >> 1);
 		}
 
 		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 		{
-			pfBuffer[ui32Idx] = atandp_i(pfBuffer[ui32Idx]);
+			pdBuffer[ui32Idx] = atandp_i(pdBuffer[ui32Idx]);
 		}
 
 		ui32TotalSize = ui32TotalSize - ui32IdxCount;
@@ -319,14 +375,63 @@ void ATAN_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 	g_ui64StopTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
 	g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
 
+	ui32TotalSize = ui32Size >> 1;
+
+	//
+	// Initialize Buffer with known values
+	//
+	if(ui32TotalSize < (DESTBUFFERSIZE >> 1) )
+	{
+		ui32IdxCount = ui32TotalSize;
+	}
+	else
+	{
+		ui32IdxCount = (DESTBUFFERSIZE >> 1);
+	}
+
+
+	for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
+	{
+		pdBuffer[ui32Idx] = ui32Idx+0.002;
+	}
+
+	// Get Start Time
+	g_ui64StartTime = (uint64_t)(TSCL) ;
+	g_ui64StartTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
+
+	while(ui32TotalSize)
+	{
+		if(ui32TotalSize < (DESTBUFFERSIZE >> 1))
+		{
+			ui32IdxCount = ui32TotalSize;
+
+		}
+		else
+		{
+			ui32IdxCount = (DESTBUFFERSIZE >> 1);
+		}
+
+		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
+		{
+			pdBuffer[ui32Idx] = atandp_i(pdBuffer[ui32Idx]);
+		}
+
+		ui32TotalSize = ui32TotalSize - ui32IdxCount;
+	}
+
+	// Get Stop Time
+	g_ui64StopTime = (uint64_t)(TSCL) ;
+	g_ui64StopTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
+	g_ui64ElapsedTime = g_ui64ElapsedTime + g_ui64StopTime - g_ui64StartTime;
+
 
 	printf ("%sdp_i %d%s words - Elapsed Cycles: %llu Elapsed Time: %llu (ns) Cycles/Word: %llu \n\n",
-				psFuncName,
-				ui32SizePrint,
-				pcSizeString,
-				(uint64_t)g_ui64ElapsedTime,
-				(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
-				(uint64_t)(g_ui64ElapsedTime/ui32Size));
+			psFuncName,
+			ui32SizePrint,
+			pcSizeString,
+			(uint64_t)g_ui64ElapsedTime,
+			(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
+			(uint64_t)(g_ui64ElapsedTime/ui32Size));
 
 }
 

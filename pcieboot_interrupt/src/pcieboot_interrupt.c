@@ -365,8 +365,11 @@ void main (void)
         printf ("Time to start and stop timer: %u cycles \n\n",
         	          		g_ui64ElapsedTime);
 
-#ifdef FOUR_K
-#ifdef DDR3_READ_EDMA
+    	ui32Size = 4*4*KB;
+    	DIV_runTests("div", ui32Size,pfBuffer);
+
+#if FOUR_K
+#if DDR3_READ_EDMA
     //
     // 4kB Test - EDMA
     //
@@ -379,7 +382,7 @@ void main (void)
     ui32Status = edma_ping_pong_xfer_gbl_region(0, 0,(uint32_t)pui32DDRContent, (uint32_t) pui32DestBuffer, ui32WordsToRead);
 #endif
 
-#ifdef DDR3_READ_LOOP
+#if DDR3_READ_LOOP
     //
     // 4kB Test - For Loop
     //
@@ -393,8 +396,8 @@ void main (void)
 #endif
 #endif
 
-#ifdef THIRTY_TWO_K
-#ifdef DDR3_READ_EDMA
+#if THIRTY_TWO_K
+#if DDR3_READ_EDMA
     //
     // 32kB Test - EDMA
     //
@@ -404,7 +407,7 @@ void main (void)
 
     ui32Status = edma_ping_pong_xfer_gbl_region(0, 0,(uint32_t)pui32DDRContent, (uint32_t) pui32DestBuffer, ui32WordsToRead);
 #endif
-#ifdef DDR3_READ_LOOP
+#if DDR3_READ_LOOP
       //
       // 32kB Test - For Loop
       //
@@ -418,8 +421,8 @@ void main (void)
 #endif
 #endif
 
-#ifdef ONE_M
-#ifdef DDR3_READ_EDMA
+#if ONE_M
+#if DDR3_READ_EDMA
     //
     // 1MB Test - EDMA
     //
@@ -429,7 +432,7 @@ void main (void)
 
     ui32Status = edma_ping_pong_xfer_gbl_region(0, 0,(uint32_t)pui32DDRContent, (uint32_t) pui32DestBuffer, ui32WordsToRead);
 #endif
-#ifdef DDR3_READ_LOOP
+#if DDR3_READ_LOOP
     //
     // 1MB Test - For Loop
     //
@@ -443,8 +446,8 @@ void main (void)
 #endif
 #endif
 
-#ifdef ONE_G
-#ifdef DDR3_READ_EDMA
+#if ONE_G
+#if DDR3_READ_EDMA
     //
     // 1GB Test - EDMA
     //
@@ -454,7 +457,7 @@ void main (void)
 
     ui32Status = edma_ping_pong_xfer_gbl_region(0, 0,(uint32_t)pui32DDRContent, (uint32_t) pui32DestBuffer, ui32WordsToRead);
 #endif
-#ifdef DDR3_READ_LOOP
+#if DDR3_READ_LOOP
     //
     // 1GB Test - For Loop
     //
@@ -468,8 +471,8 @@ void main (void)
 #endif
 #endif
 
-#ifdef TWO_G
-#ifdef DDR3_READ_EDMA
+#if TWO_G
+#if DDR3_READ_EDMA
     //
     // 2GB Test - EDMA
     //
@@ -479,7 +482,7 @@ void main (void)
 
     ui32Status = edma_ping_pong_xfer_gbl_region(0, 0,(uint32_t)pui32DDRContent, (uint32_t) pui32DestBuffer, ui32WordsToRead);
 #endif
-#ifdef DDR3_READ_LOOP
+#if DDR3_READ_LOOP
     //
     // 2GB Test - For Loop
     //
@@ -498,9 +501,9 @@ void main (void)
 
 #define PRINTRESULT 0
 
-#ifdef OPERATIONS
+#if OPERATIONS
 
-#ifdef FOUR_K
+#if FOUR_K
 	ui32Size = 4*4*KB;
 	ATAN_runTests("atan", ui32Size,pfBuffer);
 	ATAN2_runTests("atan2", ui32Size,pfBuffer);
@@ -518,7 +521,7 @@ void main (void)
 	SIN_runTests("sin", ui32Size,pfBuffer);
 	SQRT_runTests("sqrt", ui32Size,pfBuffer);
 #endif
-#ifdef THIRTY_TWO_K
+#if THIRTY_TWO_K
 	ui32Size = 32*4*KB;
 	ATAN_runTests("atan", ui32Size,pfBuffer);
 	ATAN2_runTests("atan2", ui32Size,pfBuffer);
@@ -537,7 +540,7 @@ void main (void)
 	SQRT_runTests("sqrt", ui32Size,pfBuffer);
 #endif
 
-#ifdef ONE_M
+#if ONE_M
 	ui32Size = 1*4*MB;
 	ATAN_runTests("atan", ui32Size,pfBuffer);
 	ATAN2_runTests("atan2", ui32Size,pfBuffer);
@@ -555,7 +558,7 @@ void main (void)
 	SIN_runTests("sin", ui32Size,pfBuffer);
 	SQRT_runTests("sqrt", ui32Size,pfBuffer);
 #endif
-#ifdef ONE_G
+#if ONE_G
 	ui32Size = 1*4*GB;
 	ATAN_runTests("atan", ui32Size,pfBuffer);
 	ATAN2_runTests("atan2", ui32Size,pfBuffer);
