@@ -93,10 +93,11 @@ void SQRT_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 	g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
 
 
-	printf ("%ssp %d%s words - Elapsed Cycles: %llu Elapsed Time: %llu (ns) Cycles/Word: %llu \n\n",
+	printf ("MATHLIB_TEST %ssp %d%s(%d) words Elapsed_Cycles: %llu Elapsed_Time: %llu (ns) Cycles/Word: %llu \n\n",
 			psFuncName,
 			ui32SizePrint,
 			pcSizeString,
+			ui32Size,
 			(uint64_t)g_ui64ElapsedTime,
 			(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
 			(uint64_t)(g_ui64ElapsedTime/ui32Size));
@@ -158,15 +159,14 @@ void SQRT_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 	g_ui64StopTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
 	g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
 
-
-	printf ("%ssp_i %d%s words - Elapsed Cycles: %llu Elapsed Time: %llu (ns) Cycles/Word: %llu \n\n",
+	printf ("MATHLIB_TEST %ssp_i %d%s(%d) words Elapsed_Cycles: %llu Elapsed_Time: %llu (ns) Cycles/Word: %llu \n\n",
 			psFuncName,
 			ui32SizePrint,
 			pcSizeString,
+			ui32Size,
 			(uint64_t)g_ui64ElapsedTime,
 			(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
 			(uint64_t)(g_ui64ElapsedTime/ui32Size));
-
 }
 
 void SQRT_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
@@ -306,10 +306,11 @@ void SQRT_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 	g_ui64StopTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
 	g_ui64ElapsedTime = g_ui64ElapsedTime + g_ui64StopTime - g_ui64StartTime;
 
-	printf ("%ssdp %d%s words - Elapsed Cycles: %llu Elapsed Time: %llu (ns) Cycles/Word: %llu \n\n",
+	printf ("MATHLIB_TEST %sdp %d%s(%d) words Elapsed_Cycles: %llu Elapsed_Time: %llu (ns) Cycles/Word: %llu \n\n",
 			psFuncName,
 			ui32SizePrint,
 			pcSizeString,
+			ui32Size,
 			(uint64_t)g_ui64ElapsedTime,
 			(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
 			(uint64_t)(g_ui64ElapsedTime/ui32Size));
@@ -424,15 +425,14 @@ void SQRT_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 	g_ui64StopTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
 	g_ui64ElapsedTime = g_ui64ElapsedTime + g_ui64StopTime - g_ui64StartTime;
 
-
-	printf ("%sdp_i %d%s words - Elapsed Cycles: %llu Elapsed Time: %llu (ns) Cycles/Word: %llu \n\n",
+	printf ("MATHLIB_TEST %sdp_i %d%s(%d) words Elapsed_Cycles: %llu Elapsed_Time: %llu (ns) Cycles/Word: %llu \n\n",
 			psFuncName,
 			ui32SizePrint,
 			pcSizeString,
+			ui32Size,
 			(uint64_t)g_ui64ElapsedTime,
 			(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
 			(uint64_t)(g_ui64ElapsedTime/ui32Size));
-
 }
 
 

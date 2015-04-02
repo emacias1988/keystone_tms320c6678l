@@ -47,8 +47,6 @@
 #include "EVM6678.h"
 #include "testselector.h"
 
-
-
 //#include <ti/mathlib/src/common/tables.c>
 
 #include <ti/csl/src/intc/csl_intc.h>
@@ -365,9 +363,6 @@ void main (void)
         printf ("Time to start and stop timer: %u cycles \n\n",
         	          		g_ui64ElapsedTime);
 
-    	ui32Size = 4*4*KB;
-    	DIV_runTests("div", ui32Size,pfBuffer);
-
 #if FOUR_K
 #if DDR3_READ_EDMA
     //
@@ -520,6 +515,7 @@ void main (void)
 	RSQRT_runTests("rsqrt", ui32Size,pfBuffer);
 	SIN_runTests("sin", ui32Size,pfBuffer);
 	SQRT_runTests("sqrt", ui32Size,pfBuffer);
+	CMP_runTests("cmp",ui32Size,(char *) pfBuffer);
 #endif
 #if THIRTY_TWO_K
 	ui32Size = 32*4*KB;
@@ -538,6 +534,7 @@ void main (void)
 	RSQRT_runTests("rsqrt", ui32Size,pfBuffer);
 	SIN_runTests("sin", ui32Size,pfBuffer);
 	SQRT_runTests("sqrt", ui32Size,pfBuffer);
+	CMP_runTests("cmp",ui32Size,(char *) pfBuffer);
 #endif
 
 #if ONE_M
@@ -557,6 +554,7 @@ void main (void)
 	RSQRT_runTests("rsqrt", ui32Size,pfBuffer);
 	SIN_runTests("sin", ui32Size,pfBuffer);
 	SQRT_runTests("sqrt", ui32Size,pfBuffer);
+	CMP_runTests("cmp",ui32Size,(char *) pfBuffer);
 #endif
 #if ONE_G
 	ui32Size = 1*4*GB;
@@ -575,6 +573,7 @@ void main (void)
 	RSQRT_runTests("rsqrt", ui32Size,pfBuffer);
 	SIN_runTests("sin", ui32Size,pfBuffer);
 	SQRT_runTests("sqrt", ui32Size,pfBuffer);
+	CMP_runTests("cmp",ui32Size,(char *) pfBuffer);
 #endif
 #endif
 

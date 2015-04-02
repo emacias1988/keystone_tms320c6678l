@@ -1,6 +1,7 @@
 #ifndef	_EVM6678_H_
 #define _EVM6678_H_
 
+#include <stdlib.h>
 #include <stdio.h>
 #include <stdint.h>
 #include "platform.h"
@@ -11,6 +12,10 @@
 #define KB								(256)
 #define MB								(256*1024)
 #define GB								(256*1024*1024)
+
+#define bool int
+#define true 1
+#define false 0
 
 #define DESTBUFFERSIZE (300*KB)
 
@@ -379,5 +384,9 @@ extern uint64_t g_ui64StopTime;
 extern uint64_t g_ui64ElapsedTime;
 
 extern uint64_t Osal_calculateElapsedTime(uint64_t ui64Start, uint64_t ui64Stop);
+
+void CMP_runTests(char * psFuncName, uint32_t ui32Size, char * pcBuffer);
+
+void CMP_spTest(char * psFuncName, uint32_t ui32Size, char * pcBuffer);
 
 #endif
