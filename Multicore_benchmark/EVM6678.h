@@ -17,7 +17,7 @@
 #define true 1
 #define false 0
 
-//#define DESTBUFFERSIZE (300*KB)
+#define DESTBUFFERSIZE (150*KB)
 //
 //#define DDR3_BASE_ADDRESS            0x80000000
 //
@@ -383,7 +383,7 @@ extern uint64_t g_ui64StartTime;
 extern uint64_t g_ui64StopTime;
 extern uint64_t g_ui64ElapsedTime;
 
-//extern uint64_t Osal_calculateElapsedTime(uint64_t ui64Start, uint64_t ui64Stop);
+extern uint64_t Osal_calculateElapsedTime(uint64_t ui64Start, uint64_t ui64Stop);
 //
 //void CMP_runTests(char * psFuncName, uint32_t ui32Size, char * pcBuffer);
 //

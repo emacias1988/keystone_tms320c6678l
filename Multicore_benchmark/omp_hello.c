@@ -20,29 +20,53 @@
 #include <ti/csl/csl_tsc.h> // Needed for TSC_read()
 #include "mathlib_tests.h"
 
-#define NTHREADS  4
 
-#define SIZE 150*1024
+/**********************************************************************
+ ************************** Dr. Jung Defines **************************
+ **********************************************************************/
+#define NTHREADS  4
+#pragma DATA_SECTION(pui32DestBuffer, ".damian")
+uint32_t pui32DestBuffer[DESTBUFFERSIZE];
+
+// Timing Variables
+uint64_t g_ui64StartTime;
+uint64_t g_ui64StopTime;
+uint64_t g_ui64ElapsedTime;
+
 //unsigned int volatile cregister TSCL;
 //unsigned int volatile cregister TSCH;
 
-#pragma DATA_SECTION(A, ".damian")
-int A[SIZE];
+uint64_t Osal_calculateElapsedTime(uint64_t ui64Start, uint64_t ui64Stop)
+{
+	//
+	// There is a problem when register overflows more than once
+	//
+	uint64_t ui64ElapsedTime;
+
+	if(ui64Start >= ui64Stop)
+	{
+		ui64ElapsedTime = ui64Stop + (0xFFFFFFFFFFFFFFFF - ui64Start);
+	}
+	else
+	{
+		ui64ElapsedTime = ui64Stop - ui64Start;
+	}
+	return ui64ElapsedTime;
+}
+
+
 
 void main()
 {
 
-int N = SIZE;
+int N = DESTBUFFERSIZE;
 
 //int B[20][20];
 //int C[20];
 int nthreads, id, i;
 //int sum;
 
-// Timing variables
-uint64_t g_ui64StartTime;
-uint64_t g_ui64StopTime;
-uint64_t g_ui64ElapsedTime;
+
 
 
 nthreads = NTHREADS;
@@ -54,7 +78,7 @@ CSL_tscEnable();
 //	g_ui64StartTime = (uint64_t)(TSCL) ;
 //	g_ui64StartTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
 
-#pragma omp parallel private(i,id,g_ui64ElapsedTime,g_ui64StopTime,g_ui64StartTime) shared(N,A)
+#pragma omp parallel private(i,id,g_ui64ElapsedTime,g_ui64StopTime,g_ui64StartTime) shared(N,pui32DestBuffer)
 {
 	CSL_tscEnable();
 		g_ui64StartTime = (uint64_t)(TSCL) ;
@@ -65,7 +89,7 @@ CSL_tscEnable();
 #pragma omp for
 	for(i=0;i<N;i++)
 	{
-		A[i] = log10sp_i(A[i]);
+		pui32DestBuffer[i] = log10sp_i(pui32DestBuffer[i]);
 	}
 
 
