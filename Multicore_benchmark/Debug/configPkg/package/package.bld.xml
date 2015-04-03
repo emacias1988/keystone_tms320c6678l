@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="configPkg" version="" producerId="undefined">
+    <units>
+    </units>
+    <sources>
+        <srcFile name="package/cfg/omp_config_pe66.c"/>
+    </sources>
+    <configscripts>
+        <srcFile name="C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/Multicore_benchmark/omp_config.cfg"/>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/cfg/omp_config_pe66.mak" src="package.bld"/>
+        <srcFile name="package/cfg/omp_config_pe66.oe66.dep" src="package/cfg/omp_config_pe66.c"/>
+        <srcFile name="package/cfg/omp_config_pe66.dep" src="package/cfg/omp_config_pe66.cfg"/>
+        <srcFile name="package/cfg/omp_config.xe66.mak" src="package.bld"/>
+        <srcFile name="package/rel/configPkg.tar.dep" src="package/rel/configPkg.xdc.inc"/>
+    </makefiles>
+    <targets>
+        <target name="ti.targets.elf.C66"
+            version="ti.targets.elf.C66{1,0,7.4,4"
+            rawVersion="7.4.4"
+            platform="ti.platforms.simTCI6616"
+            isa="66"
+            suffix="e66"
+            rootDir="C:/ti/ccsv5/tools/compiler/c6000_7.4.4"
+            os="undefined"
+            rts="ti.targets.rts6000">
+            <model endian="little"
+                codeModel="undefined"
+                dataModel="undefined"/>
+        </target>
+    </targets>
+    <libraries>
+    </libraries>
+    <configurations>
+    <configuration name="omp_config"
+        pname="omp_config.pe66"
+        target="ti.targets.elf.C66"
+        platform="ti.omp.examples.platforms.evm6678"
+        profile="debug"
+        isPartial="false"
+        xCfgScript="package/cfg/omp_config_pe66.cfg"
+        xCfgPrefix="package/cfg/omp_config_pe66"
+        cfgScript="C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/Multicore_benchmark/omp_config.cfg"
+        cfgArgs="null"
+        />
+    </configurations>
+    <executables>
+    <executable name="omp_config"
+        pname="omp_config.xe66"
+        target="ti.targets.elf.C66"
+        platform="ti.omp.examples.platforms.evm6678"
+        profile="debug"
+        xCfgScript="package/cfg/omp_config_pe66.cfg"
+        xCfgPrefix="package/cfg/omp_config_pe66"
+        cfgScript="C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/Multicore_benchmark/omp_config.cfg"
+        cfgArgs="null"
+        />
+    </executables>
+    <tests>
+    <test exeName="omp_config.xe66"
+        args=""
+        groupName="omp_config.xe66"
+        refOutput="undefined"
+        refExitCode="0"
+        execArgs=""
+        />
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="configPkg"
+        pname="configPkg.tar"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>
