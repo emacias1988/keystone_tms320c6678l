@@ -2,17 +2,15 @@
 
 omp_hello.obj: ../omp_hello.c
 omp_hello.obj: C:/ti/omp_1_01_03_02/packages/ti/omp/omp.h
-omp_hello.obj: C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/string.h
+omp_hello.obj: C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/Multicore_benchmark/mathlib_tests/mathlib_tests.h
+omp_hello.obj: C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/Multicore_benchmark/mathlib_tests/EVM6678.h
+omp_hello.obj: C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdlib.h
 omp_hello.obj: C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/linkage.h
-omp_hello.obj: C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/assert.h
-omp_hello.obj: C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdint.h
 omp_hello.obj: C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdio.h
 omp_hello.obj: C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdarg.h
-omp_hello.obj: C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/time.h
-omp_hello.obj: C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/csl_tsc.h
-omp_hello.obj: C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/soc.h
-omp_hello.obj: C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/cslr.h
-omp_hello.obj: C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/cslr_device.h
+omp_hello.obj: C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdint.h
+omp_hello.obj: C:/ti/pdk_C6678_1_1_2_6/packages/ti/platform/platform.h
+omp_hello.obj: C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/csl_types.h
 omp_hello.obj: C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/tistdtypes.h
 omp_hello.obj: C:/ti/xdctools_3_25_03_72/packages/xdc/std.h
 omp_hello.obj: C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdarg.h
@@ -20,13 +18,7 @@ omp_hello.obj: C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stddef.h
 omp_hello.obj: C:/ti/xdctools_3_25_03_72/packages/ti/targets/elf/std.h
 omp_hello.obj: C:/ti/xdctools_3_25_03_72/packages/ti/targets/elf/C66.h
 omp_hello.obj: C:/ti/xdctools_3_25_03_72/packages/ti/targets/std.h
-omp_hello.obj: C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/csl.h
-omp_hello.obj: C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/csl_types.h
-omp_hello.obj: C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/csl_error.h
-omp_hello.obj: ../mathlib_tests.h
-omp_hello.obj: ../EVM6678.h
-omp_hello.obj: C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdlib.h
-omp_hello.obj: C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdio.h
+omp_hello.obj: C:/ti/omp_1_01_03_02/packages/ti/omp/omp.h
 omp_hello.obj: C:/ti/mathlib_c66x_3_0_1_1/inc/mathlib.h
 omp_hello.obj: C:/ti/mathlib_c66x_3_0_1_1/packages/ti/mathlib/src/atan2dp/atan2dp.h
 omp_hello.obj: C:/ti/mathlib_c66x_3_0_1_1/packages/ti/mathlib/src/atan2dp/c66/atan2dp.h
@@ -120,20 +112,29 @@ omp_hello.obj: C:/ti/mathlib_c66x_3_0_1_1/packages/ti/mathlib/src/sqrtdp/c66/sqr
 omp_hello.obj: C:/ti/mathlib_c66x_3_0_1_1/packages/ti/mathlib/src/sqrtsp/sqrtsp.h
 omp_hello.obj: C:/ti/mathlib_c66x_3_0_1_1/packages/ti/mathlib/src/sqrtsp/c66/sqrtsp.h
 omp_hello.obj: C:/ti/mathlib_c66x_3_0_1_1/packages/ti/mathlib/src/sqrtsp/c66/sqrtsp_i.h
+omp_hello.obj: ../testselector.h
+omp_hello.obj: C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/string.h
+omp_hello.obj: C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/assert.h
+omp_hello.obj: C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdio.h
+omp_hello.obj: C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/time.h
+omp_hello.obj: C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/csl_tsc.h
+omp_hello.obj: C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/soc.h
+omp_hello.obj: C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/cslr.h
+omp_hello.obj: C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/cslr_device.h
+omp_hello.obj: C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/csl.h
+omp_hello.obj: C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/csl_error.h
 
 ../omp_hello.c: 
 C:/ti/omp_1_01_03_02/packages/ti/omp/omp.h: 
-C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/string.h: 
+C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/Multicore_benchmark/mathlib_tests/mathlib_tests.h: 
+C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/Multicore_benchmark/mathlib_tests/EVM6678.h: 
+C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdlib.h: 
 C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/linkage.h: 
-C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/assert.h: 
-C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdint.h: 
 C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdio.h: 
 C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdarg.h: 
-C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/time.h: 
-C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/csl_tsc.h: 
-C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/soc.h: 
-C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/cslr.h: 
-C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/cslr_device.h: 
+C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdint.h: 
+C:/ti/pdk_C6678_1_1_2_6/packages/ti/platform/platform.h: 
+C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/csl_types.h: 
 C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/tistdtypes.h: 
 C:/ti/xdctools_3_25_03_72/packages/xdc/std.h: 
 C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdarg.h: 
@@ -141,13 +142,7 @@ C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stddef.h:
 C:/ti/xdctools_3_25_03_72/packages/ti/targets/elf/std.h: 
 C:/ti/xdctools_3_25_03_72/packages/ti/targets/elf/C66.h: 
 C:/ti/xdctools_3_25_03_72/packages/ti/targets/std.h: 
-C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/csl.h: 
-C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/csl_types.h: 
-C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/csl_error.h: 
-../mathlib_tests.h: 
-../EVM6678.h: 
-C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdlib.h: 
-C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdio.h: 
+C:/ti/omp_1_01_03_02/packages/ti/omp/omp.h: 
 C:/ti/mathlib_c66x_3_0_1_1/inc/mathlib.h: 
 C:/ti/mathlib_c66x_3_0_1_1/packages/ti/mathlib/src/atan2dp/atan2dp.h: 
 C:/ti/mathlib_c66x_3_0_1_1/packages/ti/mathlib/src/atan2dp/c66/atan2dp.h: 
@@ -241,3 +236,14 @@ C:/ti/mathlib_c66x_3_0_1_1/packages/ti/mathlib/src/sqrtdp/c66/sqrtdp_i.h:
 C:/ti/mathlib_c66x_3_0_1_1/packages/ti/mathlib/src/sqrtsp/sqrtsp.h: 
 C:/ti/mathlib_c66x_3_0_1_1/packages/ti/mathlib/src/sqrtsp/c66/sqrtsp.h: 
 C:/ti/mathlib_c66x_3_0_1_1/packages/ti/mathlib/src/sqrtsp/c66/sqrtsp_i.h: 
+../testselector.h: 
+C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/string.h: 
+C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/assert.h: 
+C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdio.h: 
+C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/time.h: 
+C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/csl_tsc.h: 
+C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/soc.h: 
+C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/cslr.h: 
+C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/cslr_device.h: 
+C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/csl.h: 
+C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/csl_error.h: 

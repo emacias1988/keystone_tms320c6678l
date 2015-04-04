@@ -8,6 +8,7 @@ CG_TOOL_ROOT := C:/ti/ccsv5/tools/compiler/c6000_7.4.4
 
 ORDERED_OBJS += \
 $(GEN_CMDS__FLAG) \
+"./mathlib_tests/log.obj" \
 "./tables.obj" \
 "./omp_hello.obj" \
 -l"libc.a" \
@@ -21,7 +22,9 @@ RMDIR := RMDIR /S/Q
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include subdir_vars.mk
+-include mathlib_tests/subdir_vars.mk
 -include subdir_rules.mk
+-include mathlib_tests/subdir_rules.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -124,8 +127,8 @@ Multicore_benchmark.out: $(OBJS) $(GEN_CMDS)
 clean:
 	-$(RM) $(GEN_MISC_FILES__QUOTED)$(C6000_EXECUTABLE_OUTPUTS__QUOTED)$(GEN_FILES__QUOTED)$(GEN_OPTS__QUOTED)$(GEN_CMDS__QUOTED) "Multicore_benchmark.out"
 	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
-	-$(RM) "omp_hello.pp" "tables.pp" 
-	-$(RM) "omp_hello.obj" "tables.obj" 
+	-$(RM) "omp_hello.pp" "tables.pp" "mathlib_tests\log.pp" 
+	-$(RM) "omp_hello.obj" "tables.obj" "mathlib_tests\log.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

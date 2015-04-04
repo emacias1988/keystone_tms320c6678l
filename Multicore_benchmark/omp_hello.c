@@ -11,20 +11,24 @@
 * LAST REVISED: 04/06/05
 ******************************************************************************/
 #include <ti/omp/omp.h>
+#include "mathlib_tests.h"
+#include "EVM6678.h"
+#include "testselector.h"
+
 
 #include <string.h>
 #include <assert.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <time.h>
-#include <ti/csl/csl_tsc.h> // Needed for TSC_read()
-#include "mathlib_tests.h"
+#include <ti/csl/csl_tsc.h> // Needed for TSC_enable()
+
 
 
 /**********************************************************************
  ************************** Dr. Jung Defines **************************
  **********************************************************************/
-#define NTHREADS  4
+#define NTHREADS  4	//Number of cores
 #pragma DATA_SECTION(pui32DestBuffer, ".damian")
 uint32_t pui32DestBuffer[DESTBUFFERSIZE];
 
@@ -59,125 +63,84 @@ uint64_t Osal_calculateElapsedTime(uint64_t ui64Start, uint64_t ui64Stop)
 void main()
 {
 
-int N = DESTBUFFERSIZE;
+//int N = DESTBUFFERSIZE;
 
 //int B[20][20];
 //int C[20];
-int nthreads, id, i;
+int nthreads, id;// i;
+volatile uint32_t ui32Size;
 //int sum;
 
-
+float * pfBuffer = (float*)pui32DestBuffer;
 
 
 nthreads = NTHREADS;
-omp_set_num_threads(NTHREADS);
+omp_set_num_threads(NTHREADS);	  // Set number of active cores (must set in omp_config.cfg too)
+id = omp_get_thread_num(); 		  // Get master core
 
-id = omp_get_thread_num();
-printf("Core = %d, This is serial\n", id);
-CSL_tscEnable();
+//
+// Enable TSC registers in all cores
+//
+
+#pragma omp parallel
+{
+	CSL_tscEnable();
+}
+
+
+printf("\nStarting Benchmark Tests for %d cores...\n\n",nthreads);
+printf("Master core is core %d\n\n",id);
+g_ui64StartTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
+g_ui64StopTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
+
+g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
+    printf ("Time to start and stop timer: %u cycles \n\n",
+    	          		g_ui64ElapsedTime);
+
+
+
+#if OPERATIONS
+
+#if FOUR_K
+    ui32Size = 1*4*GB;
+	LOG_runTests("log", ui32Size,pfBuffer);
+
+#endif
+#endif
 //	g_ui64StartTime = (uint64_t)(TSCL) ;
 //	g_ui64StartTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
 
-#pragma omp parallel private(i,id,g_ui64ElapsedTime,g_ui64StopTime,g_ui64StartTime) shared(N,pui32DestBuffer)
-{
-	CSL_tscEnable();
-		g_ui64StartTime = (uint64_t)(TSCL) ;
-		g_ui64StartTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
-
-
-
-#pragma omp for
-	for(i=0;i<N;i++)
-	{
-		pui32DestBuffer[i] = log10sp_i(pui32DestBuffer[i]);
-	}
-
-
-		g_ui64StopTime = (uint64_t)(TSCL) ;
-		g_ui64StopTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
-		g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
-
-		id = omp_get_thread_num();
-	printf("Core = %d, Done in %llu cycles\n", id,g_ui64ElapsedTime);
-}
-
-//g_ui64StopTime = (uint64_t)(TSCL) ;
-//g_ui64StopTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
-//g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
-//
-//id = omp_get_thread_num();
-//printf("Core = %d, Done in %llu cycles\n", id,g_ui64ElapsedTime);
-
-//#pragma omp parallel private(i) shared(A)
+//#pragma omp parallel private(i,id,g_ui64ElapsedTime,g_ui64StopTime,g_ui64StartTime) shared(N,pui32DestBuffer)
 //{
-//	int id,istart, iend;
-//	id = omp_get_thread_num();
-//	nthreads = omp_get_num_threads();
-//	istart = id*N/nthreads;
-//	iend = (id+1)*N/nthreads;
-//	for(i=istart;i<iend;i++)
+//	CSL_tscEnable();
+//		g_ui64StartTime = (uint64_t)(TSCL) ;
+//		g_ui64StartTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
+//
+//
+//
+//#pragma omp for
+//	for(i=0;i<N;i++)
 //	{
-//		A[i]=id+i;
-//		printf("Core = %d, result[%d]= %d CLK cycles\n", id,i,A[i]);
+//		pui32DestBuffer[i] = log10sp_i(pui32DestBuffer[i]);
 //	}
-//	printf("Core = %d is done!", id);
+//
+//
+//		g_ui64StopTime = (uint64_t)(TSCL) ;
+//		g_ui64StopTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
+//		g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
+//
+//		id = omp_get_thread_num();
+//	printf("Core = %d, Done in %llu cycles\n", id,g_ui64ElapsedTime);
 //}
+
 
 id = omp_get_thread_num();
 printf("Core = %d, Done with loop\n", id);
 
-//#pragma omp parallel private(i,j,sum,g_ui64ElapsedTime,g_ui64StopTime,g_ui64StartTime) shared(A,B,C)
-//  {
-//	CSL_tscEnable();
-//
-//	sum = 0;
-//	for(i=0;i<5;i++)
-//	{
-//		//sum = 0;
-////		g_ui64StartTime = CSL_tscRead();
-//
-//		g_ui64StartTime = (uint64_t)(TSCL) ;
-//				g_ui64StartTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
-//		A[i] = (sum++)*i;
-//
-//	    // Get Stop Time
-////		g_ui64StopTime =  CSL_tscRead();
-//
-//				g_ui64StopTime = (uint64_t)(TSCL) ;
-//				g_ui64StopTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
-//
-//
-//
-//	    g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
-//
-//		tid = omp_get_thread_num();
-//		printf("Core = %d, result[%d]= %d, Elapsed time for sum++: %llu\n", tid,i,A[i],g_ui64ElapsedTime);
-//	//
-//	}
-//
-//
-//  }
+
   while(1);
 }
 
-///* Fork a team of threads giving them their own copies of variables */
-//#pragma omp parallel private(nthreads, tid)
-//  {
-//
-//  /* Obtain thread number */
-//  tid = omp_get_thread_num();
-//  printf("Hello World from thread = %d\n", tid);
-//
-//  /* Only master thread does this */
-//  if (tid == 0)
-//    {
-//    nthreads = omp_get_num_threads();
-//    printf("Number of threads = %d\n", nthreads);
-//    }
-//
-//  }  /* All threads join master thread and disband */
-//
-//}
 
 
 

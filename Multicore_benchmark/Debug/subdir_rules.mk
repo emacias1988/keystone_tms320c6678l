@@ -16,14 +16,14 @@ configPkg/: | configPkg/linker.cmd
 omp_hello.obj: ../omp_hello.c $(GEN_OPTS) $(GEN_HDRS)
 	@echo 'Building file: $<'
 	@echo 'Invoking: C6000 Compiler'
-	"C:/ti/ccsv5/tools/compiler/c6000_7.4.4/bin/cl6x" -mv6600 --abi=eabi -O3 -g --include_path="C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include" --include_path="C:/ti/mathlib_c66x_3_0_1_1/packages" --display_error_number --diag_warning=225 --diag_wrap=off --openmp --preproc_with_compile --preproc_dependency="omp_hello.pp" $(GEN_OPTS__FLAG) "$<"
+	"C:/ti/ccsv5/tools/compiler/c6000_7.4.4/bin/cl6x" -mv6600 --abi=eabi -O3 -g --include_path="C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include" --include_path="C:/ti/pdk_C6678_1_1_2_6/packages" --include_path="C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/Multicore_benchmark/mathlib_tests" --include_path="C:/ti/pdk_C6678_1_1_2_6/packages/ti/platform" --include_path="C:/ti/mathlib_c66x_3_0_1_1/packages" --display_error_number --diag_warning=225 --diag_wrap=off --openmp --preproc_with_compile --preproc_dependency="omp_hello.pp" $(GEN_OPTS__FLAG) "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
 tables.obj: ../tables.c $(GEN_OPTS) $(GEN_HDRS)
 	@echo 'Building file: $<'
 	@echo 'Invoking: C6000 Compiler'
-	"C:/ti/ccsv5/tools/compiler/c6000_7.4.4/bin/cl6x" -mv6600 --abi=eabi -O3 -g --include_path="C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include" --include_path="C:/ti/mathlib_c66x_3_0_1_1/packages" --display_error_number --diag_warning=225 --diag_wrap=off --openmp --preproc_with_compile --preproc_dependency="tables.pp" $(GEN_OPTS__FLAG) "$<"
+	"C:/ti/ccsv5/tools/compiler/c6000_7.4.4/bin/cl6x" -mv6600 --abi=eabi -O3 -g --include_path="C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include" --include_path="C:/ti/pdk_C6678_1_1_2_6/packages" --include_path="C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/Multicore_benchmark/mathlib_tests" --include_path="C:/ti/pdk_C6678_1_1_2_6/packages/ti/platform" --include_path="C:/ti/mathlib_c66x_3_0_1_1/packages" --display_error_number --diag_warning=225 --diag_wrap=off --openmp --preproc_with_compile --preproc_dependency="tables.pp" $(GEN_OPTS__FLAG) "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
