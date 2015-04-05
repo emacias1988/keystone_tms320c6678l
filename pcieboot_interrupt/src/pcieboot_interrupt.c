@@ -497,6 +497,9 @@ void main (void)
 #define PRINTRESULT 0
 
 #if OPERATIONS
+    ui32Size = 10;
+    LOG_runTests("log", ui32Size,pfBuffer);
+
 
 #if FOUR_K
 	ui32Size = 4*4*KB;

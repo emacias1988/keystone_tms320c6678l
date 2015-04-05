@@ -204,7 +204,7 @@ SECTIONS
 
 SECTIONS
 {
-    ti.sdo.ipc.SharedRegion_0:  { . += 0x80000;} run > 0xa0100000, type = NOLOAD
+    ti.sdo.ipc.SharedRegion_0:  { . += 0x100000;} run > 0xa0100000, type = NOLOAD
     ti.sdo.ipc.SharedRegion_2:  { . += 0x1000000;} run > 0x90000000, type = NOLOAD
 }
 
@@ -256,7 +256,6 @@ SECTIONS
     .c6xabi.extab: load >> MSMCSRAM_NOCACHE
     ddr: load > DDR3
     .threadprivate: load > L2SRAM
-    .damian: load > MSMCSRAM
     .vecs: load > MSMCSRAM
     .text:_c_int00: load > MSMCSRAM align = 0x400
     .tls_tp: load > L2SRAM

@@ -15,6 +15,7 @@
 #include "EVM6678.h"
 #include "testselector.h"
 
+#include "platform.h"
 
 #include <string.h>
 #include <assert.h>
@@ -29,7 +30,7 @@
  ************************** Dr. Jung Defines **************************
  **********************************************************************/
 #define NTHREADS  4	//Number of cores
-#pragma DATA_SECTION(pui32DestBuffer, ".damian")
+#pragma DATA_SECTION(pui32DestBuffer, ".L2SRAM")
 uint32_t pui32DestBuffer[DESTBUFFERSIZE];
 
 // Timing Variables
@@ -39,6 +40,7 @@ uint64_t g_ui64ElapsedTime;
 
 //unsigned int volatile cregister TSCL;
 //unsigned int volatile cregister TSCH;
+platform_info	g_sEvmInfo;
 
 uint64_t Osal_calculateElapsedTime(uint64_t ui64Start, uint64_t ui64Stop)
 {
@@ -63,6 +65,9 @@ uint64_t Osal_calculateElapsedTime(uint64_t ui64Start, uint64_t ui64Stop)
 void main()
 {
 
+	platform_init_flags     init_flags;
+    platform_init_config    init_config;
+
 //int N = DESTBUFFERSIZE;
 
 //int B[20][20];
@@ -72,6 +77,19 @@ volatile uint32_t ui32Size;
 //int sum;
 
 float * pfBuffer = (float*)pui32DestBuffer;
+//float * pfBuffer;
+
+/* Initialize main Platform lib */
+memset(&init_config, 0, sizeof(platform_init_config));
+memset(&init_flags, 1, sizeof(platform_init_flags));
+
+
+
+
+init_config.pllm = 20;
+
+platform_init(&init_flags, &init_config);
+platform_get_info(&g_sEvmInfo);
 
 
 nthreads = NTHREADS;
@@ -103,6 +121,7 @@ g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
 
 #if FOUR_K
     ui32Size = 1*4*GB;
+ //   pfBuffer = (float *)malloc(DESTBUFFERSIZE*sizeof(int));
 	LOG_runTests("log", ui32Size,pfBuffer);
 
 #endif

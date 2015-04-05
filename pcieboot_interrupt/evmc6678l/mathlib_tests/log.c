@@ -92,7 +92,12 @@ void LOG_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 	g_ui64StopTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
 	g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
 
+	for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
+	{
 
+		printf ("Result[%d] of logsp is %f\n",ui32Idx,(float)pfBuffer[ui32Idx]);
+
+	}
 	printf ("MATHLIB_TEST %ssp %d%s(%d) words Elapsed_Cycles: %llu Elapsed_Time: %llu (ns) Cycles/Word: %llu \n\n",
 			psFuncName,
 			ui32SizePrint,
