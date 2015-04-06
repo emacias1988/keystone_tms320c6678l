@@ -9,7 +9,7 @@
  */
 
 
--l"C:\Users\a0272339\Documents\UTD\uP\keystone\NewOMP\Debug\configPkg\package\cfg\omp_config_pe66.oe66"
+-l"C:\Users\a0272339\Documents\UTD\uP\keystone_tms320c6678l\NewOMP\Debug\configPkg\package\cfg\omp_config_pe66.oe66"
 -l"C:\ti\omp_1_02_00_05\packages\ti\omp\utils\lib\debug\ti.omp.utils.ae66"
 -l"C:\ti\omp_1_02_00_05\packages\ti\omp\utils\lib\debug\ti.omp.utils.C6678.ae66"
 -l"C:\ti\ipc_1_24_03_32\packages\ti\sdo\ipc\lib\instrumented_e66\ipc\ipc.lib"

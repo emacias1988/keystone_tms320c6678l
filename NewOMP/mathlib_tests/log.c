@@ -79,17 +79,17 @@ void LOG_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 			ui32IdxCount = DESTBUFFERSIZE;
 		}
 
-//#pragma omp parallel private(ui32Idx) shared(ui32IdxCount,pfBuffer)
-//{
-//
-//#pragma omp for
+#pragma omp parallel private(ui32Idx) shared(ui32IdxCount,pfBuffer)
+{
+
+#pragma omp for
 		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 		{
 			pfBuffer[ui32Idx] = logsp(pfBuffer[ui32Idx]);
 
 
 		}
-//}
+}
 
 		ui32TotalSize = ui32TotalSize - ui32IdxCount;
 	}
@@ -157,16 +157,16 @@ void LOG_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 		{
 			ui32IdxCount = DESTBUFFERSIZE;
 		}
-//#pragma omp parallel private(ui32Idx) shared(ui32IdxCount,pfBuffer)
-//{
-//#pragma omp for
+#pragma omp parallel private(ui32Idx) shared(ui32IdxCount,pfBuffer)
+{
+#pragma omp for
 		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 		{
 			pfBuffer[ui32Idx] = logsp_i(pfBuffer[ui32Idx]);
 		//	printf ("Result of logsp_i is %f\n",pfBuffer[ui32Idx]);
 
 		}
-//}
+}
 
 		ui32TotalSize = ui32TotalSize - ui32IdxCount;
 	}

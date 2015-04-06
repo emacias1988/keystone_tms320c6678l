@@ -29,7 +29,7 @@
 /**********************************************************************
  ************************** Dr. Jung Defines **************************
  **********************************************************************/
-#define NTHREADS  1	//Number of cores
+#define NTHREADS  4	//Number of cores
 #pragma DATA_SECTION(pui32DestBuffer, ".damian")
 //#pragma DATA_ALIGN(pui32DestBuffer, 128);
 uint32_t pui32DestBuffer[DESTBUFFERSIZE];
@@ -86,10 +86,10 @@ id = omp_get_thread_num(); 		  // Get master core
 // Enable TSC registers in all cores
 //
 
-//#pragma omp parallel
-//{
+#pragma omp parallel
+{
 	CSL_tscEnable();
-//}
+}
 
 
 printf("\nStarting Benchmark Tests for %d cores...\n\n",nthreads);

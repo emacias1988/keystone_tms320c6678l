@@ -11,7 +11,7 @@ var makeAssembly = false;
 var Executable = xdc.module('xdc.bld.Executable');
 
 var exeOpts = new Executable.Attrs({
-        cfgScript: 'C:/Users/a0272339/Documents/UTD/uP/keystone/NewOMP/omp_config.cfg',
+        cfgScript: 'C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/NewOMP/omp_config.cfg',
         profile: 'debug',
         cfgHome: 'configPkg',
 });
@@ -41,7 +41,7 @@ else {
 
 var thisObj = {
     cfg:        '../omp_config.cfg',
-    outputPath: 'C:/Users/a0272339/Documents/UTD/uP/keystone/NewOMP/Debug/configPkg',
+    outputPath: 'C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/NewOMP/Debug/configPkg',
     exeName:    'omp_config' + suffix,
     exeIntName: 'omp_config' + suffix.replace('.', '_'),
     targ:       targ,

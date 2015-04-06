@@ -2,8 +2,8 @@
 
 omp_hello.obj: ../omp_hello.c
 omp_hello.obj: C:/ti/omp_1_02_00_05/packages/ti/omp/omp.h
-omp_hello.obj: C:/Users/a0272339/Documents/UTD/uP/keystone/NewOMP/mathlib_tests/mathlib_tests.h
-omp_hello.obj: C:/Users/a0272339/Documents/UTD/uP/keystone/NewOMP/EVM6678.h
+omp_hello.obj: C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/NewOMP/mathlib_tests/mathlib_tests.h
+omp_hello.obj: C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/NewOMP/EVM6678.h
 omp_hello.obj: C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdlib.h
 omp_hello.obj: C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/linkage.h
 omp_hello.obj: C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdio.h
@@ -126,8 +126,8 @@ omp_hello.obj: C:/ti/pdk_C6678_1_1_2_6/packages/ti/csl/csl_error.h
 
 ../omp_hello.c: 
 C:/ti/omp_1_02_00_05/packages/ti/omp/omp.h: 
-C:/Users/a0272339/Documents/UTD/uP/keystone/NewOMP/mathlib_tests/mathlib_tests.h: 
-C:/Users/a0272339/Documents/UTD/uP/keystone/NewOMP/EVM6678.h: 
+C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/NewOMP/mathlib_tests/mathlib_tests.h: 
+C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/NewOMP/EVM6678.h: 
 C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdlib.h: 
 C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/linkage.h: 
 C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdio.h: 

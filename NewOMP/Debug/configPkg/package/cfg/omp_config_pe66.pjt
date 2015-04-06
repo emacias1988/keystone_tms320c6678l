@@ -8,9 +8,9 @@ Tool="CustomBuilder"
 Config="Executable"
 
 [Project Dependencies]
-Source="C:/Users/a0272339/Documents/UTD/uP/keystone/NewOMP/Debug/configPkg/package/configPkg.pjt"
+Source="C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/NewOMP/Debug/configPkg/package/configPkg.pjt"
 
-["C:/Users/a0272339/Documents/UTD/uP/keystone/NewOMP/Debug/configPkg/package/configPkg.pjt" Settings]
+["C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/NewOMP/Debug/configPkg/package/configPkg.pjt" Settings]
 ExcludeFromBuild=true
 
 
@@ -20,7 +20,7 @@ ExcludeFromBuild=true
 ;  directories.
 ;
 ["Compiler" Settings: "Executable"]
-Options=-i"C:/ti/omp_1_02_00_05/packages" -i"C:/ti/bios_6_35_04_50/packages" -i"C:/ti/ipc_1_24_03_32/packages" -i"C:/ti/pdk_C6678_1_1_2_6/packages" -i"C:/ti/ccsv5/ccs_base" -i"C:/ti/xdctools_3_25_03_72/packages" -i"C:\Users\a0272339\Documents\UTD\uP\keystone\NewOMP\Debug" 
+Options=-i"C:/ti/omp_1_02_00_05/packages" -i"C:/ti/bios_6_35_04_50/packages" -i"C:/ti/ipc_1_24_03_32/packages" -i"C:/ti/pdk_C6678_1_1_2_6/packages" -i"C:/ti/ccsv5/ccs_base" -i"C:/ti/xdctools_3_25_03_72/packages" -i"C:\Users\a0272339\Documents\UTD\uP\keystone_tms320c6678l\NewOMP\Debug" 
 
 [External Makefile]
 ExtMakefile=../../package.bld
@@ -32,7 +32,7 @@ ExtMakefile=../../package.bld
 [Source Files]
 Source="../../package.bld"
 Source="omp_config_xe66.c"
-Source="../../C:/Users/a0272339/Documents/UTD/uP/keystone/NewOMP/omp_config.cfg"
+Source="../../C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/NewOMP/omp_config.cfg"
 
 ["../../package.bld" Settings: "Executable"]
 UseCustomBuild=true
@@ -66,5 +66,5 @@ Run=Always
 ["omp_config_xe66.c" Settings: "Executable"]
 ExcludeFromBuild=true
 
-["../../C:/Users/a0272339/Documents/UTD/uP/keystone/NewOMP/omp_config.cfg" Settings: "Executable"]
+["../../C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/NewOMP/omp_config.cfg" Settings: "Executable"]
 ExcludeFromBuild=true

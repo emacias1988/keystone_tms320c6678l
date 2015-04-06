@@ -7,7 +7,7 @@
         <srcFile name="package/cfg/omp_config_pe66.c"/>
     </sources>
     <configscripts>
-        <srcFile name="C:/Users/a0272339/Documents/UTD/uP/keystone/NewOMP/omp_config.cfg"/>
+        <srcFile name="C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/NewOMP/omp_config.cfg"/>
     </configscripts>
     <makefiles>
         <srcFile name="package.mak" src="package.bld"/>
@@ -44,7 +44,7 @@
         isPartial="false"
         xCfgScript="package/cfg/omp_config_pe66.cfg"
         xCfgPrefix="package/cfg/omp_config_pe66"
-        cfgScript="C:/Users/a0272339/Documents/UTD/uP/keystone/NewOMP/omp_config.cfg"
+        cfgScript="C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/NewOMP/omp_config.cfg"
         cfgArgs="null"
         />
     </configurations>
@@ -56,7 +56,7 @@
         profile="debug"
         xCfgScript="package/cfg/omp_config_pe66.cfg"
         xCfgPrefix="package/cfg/omp_config_pe66"
-        cfgScript="C:/Users/a0272339/Documents/UTD/uP/keystone/NewOMP/omp_config.cfg"
+        cfgScript="C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/NewOMP/omp_config.cfg"
         cfgArgs="null"
         />
     </executables>

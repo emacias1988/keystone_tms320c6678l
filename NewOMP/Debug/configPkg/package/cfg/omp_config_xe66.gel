@@ -1,13 +1,13 @@
 XDC_open() {
-    GEL_ProjectLoad("C:/Users/a0272339/Documents/UTD/uP/keystone/NewOMP/Debug/configPkg/package/configPkg.pjt");
-    GEL_ProjectLoad("C:/Users/a0272339/Documents/UTD/uP/keystone/NewOMP/Debug/configPkg/package/cfg/omp_config_xe66.pjt");
-    GEL_ProjectSetActive("C:/Users/a0272339/Documents/UTD/uP/keystone/NewOMP/Debug/configPkg/package/cfg/omp_config_xe66.pjt");
+    GEL_ProjectLoad("C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/NewOMP/Debug/configPkg/package/configPkg.pjt");
+    GEL_ProjectLoad("C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/NewOMP/Debug/configPkg/package/cfg/omp_config_xe66.pjt");
+    GEL_ProjectSetActive("C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/NewOMP/Debug/configPkg/package/cfg/omp_config_xe66.pjt");
 }
 XDC_close() {
-    GEL_ProjectClose("C:/Users/a0272339/Documents/UTD/uP/keystone/NewOMP/Debug/configPkg/package/configPkg.pjt");
-    GEL_ProjectClose("C:/Users/a0272339/Documents/UTD/uP/keystone/NewOMP/Debug/configPkg/package/cfg/omp_config_xe66.pjt");
+    GEL_ProjectClose("C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/NewOMP/Debug/configPkg/package/configPkg.pjt");
+    GEL_ProjectClose("C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/NewOMP/Debug/configPkg/package/cfg/omp_config_xe66.pjt");
 }
 menuitem "XDC Package"
-hotmenu load_executable () { GEL_Load("C:/Users/a0272339/Documents/UTD/uP/keystone/NewOMP/Debug/configPkg/omp_config.xe66"); }
+hotmenu load_executable () { GEL_Load("C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/NewOMP/Debug/configPkg/omp_config.xe66"); }
 hotmenu open_project () { XDC_open(); }
 hotmenu close_project () { XDC_close(); }

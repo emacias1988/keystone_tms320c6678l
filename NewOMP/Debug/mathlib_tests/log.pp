@@ -2,7 +2,7 @@
 
 mathlib_tests/log.obj: ../mathlib_tests/log.c
 mathlib_tests/log.obj: ../mathlib_tests/mathlib_tests.h
-mathlib_tests/log.obj: C:/Users/a0272339/Documents/UTD/uP/keystone/NewOMP/EVM6678.h
+mathlib_tests/log.obj: C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/NewOMP/EVM6678.h
 mathlib_tests/log.obj: C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdlib.h
 mathlib_tests/log.obj: C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/linkage.h
 mathlib_tests/log.obj: C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdio.h
@@ -114,7 +114,7 @@ mathlib_tests/log.obj: C:/ti/mathlib_c66x_3_0_1_1/packages/ti/mathlib/src/sqrtsp
 
 ../mathlib_tests/log.c: 
 ../mathlib_tests/mathlib_tests.h: 
-C:/Users/a0272339/Documents/UTD/uP/keystone/NewOMP/EVM6678.h: 
+C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/NewOMP/EVM6678.h: 
 C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdlib.h: 
 C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/linkage.h: 
 C:/ti/ccsv5/tools/compiler/c6000_7.4.4/include/stdio.h: 
