@@ -29,7 +29,7 @@
 /**********************************************************************
  ************************** Dr. Jung Defines **************************
  **********************************************************************/
-#define NTHREADS  4	//Number of cores
+#define NTHREADS  2	//Number of cores
 #pragma DATA_SECTION(pui32DestBuffer, ".damian")
 //#pragma DATA_ALIGN(pui32DestBuffer, 128);
 uint32_t pui32DestBuffer[DESTBUFFERSIZE];

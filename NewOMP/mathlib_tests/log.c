@@ -4,7 +4,7 @@ void LOG_runTests(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 {
 	LOG_spTest(psFuncName,ui32Size,pfBuffer);
 
-//	LOG_dpTest(psFuncName,ui32Size,pfBuffer);
+	LOG_dpTest(psFuncName,ui32Size,pfBuffer);
 }
 
 void LOG_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
@@ -14,7 +14,7 @@ void LOG_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 	uint32_t ui32TotalSize;
 	char * pcSizeString;
 	uint32_t ui32SizePrint;
-//	int coreid;
+	int coreid;
 	ui32TotalSize = ui32Size;
 
 
@@ -49,7 +49,7 @@ void LOG_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 		ui32IdxCount = DESTBUFFERSIZE;
 	}
 
-//#pragma omp for // DO it in parallel to speed this up
+
 	for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 	{
 		pfBuffer[ui32Idx] = ui32Idx+0.001;
@@ -86,7 +86,8 @@ void LOG_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 		{
 			pfBuffer[ui32Idx] = logsp(pfBuffer[ui32Idx]);
-
+//			coreid = omp_get_thread_num(); 		  // Get master core
+//			printf ("Core: %d Result[%d] of logsp is %f\n",coreid,ui32Idx,(float)pfBuffer[ui32Idx]);
 
 		}
 }
@@ -132,7 +133,7 @@ void LOG_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 		ui32IdxCount = DESTBUFFERSIZE;
 	}
 
-//#pragma omp for // DO it in parallel to speed this up
+
 	for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 	{
 		pfBuffer[ui32Idx] = ui32Idx+0.001;
@@ -157,8 +158,15 @@ void LOG_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 		{
 			ui32IdxCount = DESTBUFFERSIZE;
 		}
-#pragma omp parallel private(ui32Idx) shared(ui32IdxCount,pfBuffer)
+#pragma omp parallel private(ui32Idx, TSCL, TSCH) shared(ui32IdxCount,pfBuffer)
 {
+//	uint64_t g_ui64StopTime2;
+//	uint64_t g_ui64StartTime2;
+//	uint64_t g_ui64ElapsedTime2;
+//
+//
+//		g_ui64StartTime2 = (uint64_t)(TSCL) ;
+//		g_ui64StartTime2 |= (uint64_t)((uint64_t)TSCH << 32 ) ;
 #pragma omp for
 		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 		{
@@ -166,6 +174,18 @@ void LOG_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 		//	printf ("Result of logsp_i is %f\n",pfBuffer[ui32Idx]);
 
 		}
+
+//			g_ui64StopTime2 = (uint64_t)(TSCL) ;
+//			g_ui64StopTime2 |= (uint64_t)((uint64_t)TSCH << 32 ) ;
+//			g_ui64ElapsedTime2 = g_ui64StopTime - g_ui64StartTime;
+//		printf ("MATHLIB_TEST %ssp_i %d%s(%d) words Elapsed_Cycles: %llu Elapsed_Time: %llu (ns) Cycles/Word: %llu \n\n",
+//				psFuncName,
+//				ui32SizePrint,
+//				pcSizeString,
+//				ui32Size,
+//				(uint64_t)g_ui64ElapsedTime2,
+//				(uint64_t)g_ui64ElapsedTime2,//(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
+//				(uint64_t)(g_ui64ElapsedTime2/ui32IdxCount));
 }
 
 		ui32TotalSize = ui32TotalSize - ui32IdxCount;
@@ -231,7 +251,7 @@ void LOG_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 		ui32IdxCount = (DESTBUFFERSIZE >> 1);
 	}
 
-//#pragma omp for // DO it in parallel to speed this up
+
 	for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 	{
 		pdBuffer[ui32Idx] = ui32Idx+0.001;
@@ -260,16 +280,16 @@ void LOG_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 		{
 			ui32IdxCount = (DESTBUFFERSIZE >> 1);
 		}
-//#pragma omp parallel private(ui32Idx) shared(ui32IdxCount,pfBuffer)
-//{
-//
-//#pragma omp for
+#pragma omp parallel private(ui32Idx) shared(ui32IdxCount,pfBuffer)
+{
+
+#pragma omp for
 		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 		{
 			pdBuffer[ui32Idx] = logdp(pdBuffer[ui32Idx]);
 
 		}
-//}
+}
 		ui32TotalSize = ui32TotalSize - ui32IdxCount;
 	}
 
@@ -314,16 +334,16 @@ void LOG_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 			ui32IdxCount = (DESTBUFFERSIZE >> 1);
 		}
 
-//#pragma omp parallel private(ui32Idx) shared(ui32IdxCount,pfBuffer)
-//{
-//
-//#pragma omp for
+#pragma omp parallel private(ui32Idx) shared(ui32IdxCount,pfBuffer)
+{
+
+#pragma omp for
 		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 		{
 			pdBuffer[ui32Idx] = logdp(pdBuffer[ui32Idx]);
 
 		}
-//}
+}
 		ui32TotalSize = ui32TotalSize - ui32IdxCount;
 	}
 
@@ -359,7 +379,7 @@ void LOG_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 		ui32IdxCount = (DESTBUFFERSIZE >> 1);
 	}
 
-//#pragma omp for // DO it in parallel to speed this up
+
 	for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 	{
 		pdBuffer[ui32Idx] = ui32Idx+0.001;
@@ -389,16 +409,16 @@ void LOG_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 			ui32IdxCount = (DESTBUFFERSIZE >> 1);
 		}
 
-//#pragma omp parallel private(ui32Idx) shared(ui32IdxCount,pfBuffer)
-//{
-//
-//#pragma omp for
+#pragma omp parallel private(ui32Idx) shared(ui32IdxCount,pfBuffer)
+{
+
+#pragma omp for
 		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 		{
 			pdBuffer[ui32Idx] = logdp_i(pdBuffer[ui32Idx]);
 
 		}
-//}
+}
 		ui32TotalSize = ui32TotalSize - ui32IdxCount;
 	}
 
@@ -442,17 +462,17 @@ void LOG_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 		{
 			ui32IdxCount = (DESTBUFFERSIZE >> 1);
 		}
-//
-//#pragma omp parallel private(ui32Idx) shared(ui32IdxCount,pfBuffer)
-//{
-//
-//#pragma omp for
+
+#pragma omp parallel private(ui32Idx) shared(ui32IdxCount,pfBuffer)
+{
+
+#pragma omp for
 		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 		{
 			pdBuffer[ui32Idx] = logdp_i(pdBuffer[ui32Idx]);
 
 		}
-//}
+}
 
 		ui32TotalSize = ui32TotalSize - ui32IdxCount;
 	}
