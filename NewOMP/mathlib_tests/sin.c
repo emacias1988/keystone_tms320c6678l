@@ -14,7 +14,7 @@ void SIN_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 	uint32_t ui32TotalSize;
 	char * pcSizeString;
 	uint32_t ui32SizePrint;
-
+	int coreid;
 	ui32TotalSize = ui32Size;
 
 
@@ -79,10 +79,18 @@ void SIN_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 			ui32IdxCount = DESTBUFFERSIZE;
 		}
 
+#pragma omp parallel private(ui32Idx) shared(ui32IdxCount,pfBuffer)
+{
+
+#pragma omp for
 		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 		{
 			pfBuffer[ui32Idx] = sinsp(pfBuffer[ui32Idx]);
+//			coreid = omp_get_thread_num(); 		  // Get master core
+//			printf ("Core: %d Result[%d] of sinsp is %f\n",coreid,ui32Idx,(float)pfBuffer[ui32Idx]);
+
 		}
+}
 
 		ui32TotalSize = ui32TotalSize - ui32IdxCount;
 	}
@@ -92,14 +100,19 @@ void SIN_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 	g_ui64StopTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
 	g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
 
-
+//	for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
+//	{
+//
+//		printf ("Result[%d] of sinsp is %f\n",ui32Idx,(float)pfBuffer[ui32Idx]);
+//
+//	}
 	printf ("MATHLIB_TEST %ssp %d%s(%d) words Elapsed_Cycles: %llu Elapsed_Time: %llu (ns) Cycles/Word: %llu \n\n",
 			psFuncName,
 			ui32SizePrint,
 			pcSizeString,
 			ui32Size,
 			(uint64_t)g_ui64ElapsedTime,
-			(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
+			(uint64_t)g_ui64ElapsedTime,//(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
 			(uint64_t)(g_ui64ElapsedTime/ui32Size));
 
 	//
@@ -145,11 +158,35 @@ void SIN_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 		{
 			ui32IdxCount = DESTBUFFERSIZE;
 		}
-
+#pragma omp parallel private(ui32Idx, TSCL, TSCH) shared(ui32IdxCount,pfBuffer)
+{
+//	uint64_t g_ui64StopTime2;
+//	uint64_t g_ui64StartTime2;
+//	uint64_t g_ui64ElapsedTime2;
+//
+//
+//		g_ui64StartTime2 = (uint64_t)(TSCL) ;
+//		g_ui64StartTime2 |= (uint64_t)((uint64_t)TSCH << 32 ) ;
+#pragma omp for
 		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 		{
 			pfBuffer[ui32Idx] = sinsp_i(pfBuffer[ui32Idx]);
+		//	printf ("Result of sinsp_i is %f\n",pfBuffer[ui32Idx]);
+
 		}
+
+//			g_ui64StopTime2 = (uint64_t)(TSCL) ;
+//			g_ui64StopTime2 |= (uint64_t)((uint64_t)TSCH << 32 ) ;
+//			g_ui64ElapsedTime2 = g_ui64StopTime - g_ui64StartTime;
+//		printf ("MATHLIB_TEST %ssp_i %d%s(%d) words Elapsed_Cycles: %llu Elapsed_Time: %llu (ns) Cycles/Word: %llu \n\n",
+//				psFuncName,
+//				ui32SizePrint,
+//				pcSizeString,
+//				ui32Size,
+//				(uint64_t)g_ui64ElapsedTime2,
+//				(uint64_t)g_ui64ElapsedTime2,//(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
+//				(uint64_t)(g_ui64ElapsedTime2/ui32IdxCount));
+}
 
 		ui32TotalSize = ui32TotalSize - ui32IdxCount;
 	}
@@ -165,7 +202,7 @@ void SIN_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 			pcSizeString,
 			ui32Size,
 			(uint64_t)g_ui64ElapsedTime,
-			(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
+			(uint64_t)g_ui64ElapsedTime,//(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
 			(uint64_t)(g_ui64ElapsedTime/ui32Size));
 }
 
@@ -176,7 +213,7 @@ void SIN_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 	uint32_t ui32TotalSize;
 	char * pcSizeString;
 	uint32_t ui32SizePrint;
-
+	//int coreid;
 	volatile double * pdBuffer;
 
 	ui32TotalSize = ui32Size >> 1;
@@ -243,12 +280,16 @@ void SIN_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 		{
 			ui32IdxCount = (DESTBUFFERSIZE >> 1);
 		}
+#pragma omp parallel private(ui32Idx) shared(ui32IdxCount,pfBuffer)
+{
 
+#pragma omp for
 		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 		{
 			pdBuffer[ui32Idx] = sindp(pdBuffer[ui32Idx]);
-		}
 
+		}
+}
 		ui32TotalSize = ui32TotalSize - ui32IdxCount;
 	}
 
@@ -293,11 +334,16 @@ void SIN_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 			ui32IdxCount = (DESTBUFFERSIZE >> 1);
 		}
 
+#pragma omp parallel private(ui32Idx) shared(ui32IdxCount,pfBuffer)
+{
+
+#pragma omp for
 		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 		{
 			pdBuffer[ui32Idx] = sindp(pdBuffer[ui32Idx]);
-		}
 
+		}
+}
 		ui32TotalSize = ui32TotalSize - ui32IdxCount;
 	}
 
@@ -312,7 +358,7 @@ void SIN_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 			pcSizeString,
 			ui32Size,
 			(uint64_t)g_ui64ElapsedTime,
-			(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
+			(uint64_t)g_ui64ElapsedTime,//(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
 			(uint64_t)(g_ui64ElapsedTime/ui32Size));
 
 	//
@@ -363,11 +409,16 @@ void SIN_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 			ui32IdxCount = (DESTBUFFERSIZE >> 1);
 		}
 
+#pragma omp parallel private(ui32Idx) shared(ui32IdxCount,pfBuffer)
+{
+
+#pragma omp for
 		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 		{
 			pdBuffer[ui32Idx] = sindp_i(pdBuffer[ui32Idx]);
-		}
 
+		}
+}
 		ui32TotalSize = ui32TotalSize - ui32IdxCount;
 	}
 
@@ -412,10 +463,16 @@ void SIN_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 			ui32IdxCount = (DESTBUFFERSIZE >> 1);
 		}
 
+#pragma omp parallel private(ui32Idx) shared(ui32IdxCount,pfBuffer)
+{
+
+#pragma omp for
 		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 		{
 			pdBuffer[ui32Idx] = sindp_i(pdBuffer[ui32Idx]);
+
 		}
+}
 
 		ui32TotalSize = ui32TotalSize - ui32IdxCount;
 	}
@@ -431,7 +488,7 @@ void SIN_dpTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 			pcSizeString,
 			ui32Size,
 			(uint64_t)g_ui64ElapsedTime,
-			(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
+			(uint64_t)g_ui64ElapsedTime,//(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
 			(uint64_t)(g_ui64ElapsedTime/ui32Size));
 }
 

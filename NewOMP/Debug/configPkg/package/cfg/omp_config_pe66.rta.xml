@@ -289,12 +289,12 @@
     <logger>null</logger>
     <diagsMask>0000110000000000</diagsMask>
   </modMap>
-  <modMap key="ti.sysbios.BIOS">
-    <id>32846</id>
+  <modMap key="ti.sysbios.family.c66.Cache">
+    <id>32847</id>
     <logger>null</logger>
     <diagsMask>0000110000000000</diagsMask>
   </modMap>
-  <modMap key="ti.sysbios.family.c66.Cache">
+  <modMap key="ti.sysbios.BIOS">
     <id>32848</id>
     <logger>null</logger>
     <diagsMask>0000110000000000</diagsMask>

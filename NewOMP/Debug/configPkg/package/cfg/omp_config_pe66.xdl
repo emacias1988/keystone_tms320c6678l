@@ -10,18 +10,18 @@
 
 
 -l"C:\Users\a0272339\Documents\UTD\uP\keystone_tms320c6678l\NewOMP\Debug\configPkg\package\cfg\omp_config_pe66.oe66"
--l"C:\ti\omp_1_02_00_05\packages\ti\omp\utils\lib\debug\ti.omp.utils.ae66"
--l"C:\ti\omp_1_02_00_05\packages\ti\omp\utils\lib\debug\ti.omp.utils.C6678.ae66"
+-l"C:\ti\omp_1_02_00_05\packages\ti\omp\utils\lib\release\ti.omp.utils.ae66"
+-l"C:\ti\omp_1_02_00_05\packages\ti\omp\utils\lib\release\ti.omp.utils.C6678.ae66"
 -l"C:\ti\ipc_1_24_03_32\packages\ti\sdo\ipc\lib\instrumented_e66\ipc\ipc.lib"
--l"C:\ti\omp_1_02_00_05\packages\ti\omp\navigator\lib\debug\ti.omp.navigator.C6678.ae66"
--l"C:\ti\omp_1_02_00_05\packages\ti\omp\navigator\lib\debug\ti.omp.navigatorOsal.C6678.ae66"
+-l"C:\ti\omp_1_02_00_05\packages\ti\omp\navigator\lib\release\ti.omp.navigator.C6678.ae66"
+-l"C:\ti\omp_1_02_00_05\packages\ti\omp\navigator\lib\release\ti.omp.navigatorOsal.C6678.ae66"
 -l"C:\ti\pdk_C6678_1_1_2_6\packages\ti\csl\lib\ti.csl.ae66"
 -l"C:\ti\pdk_C6678_1_1_2_6\packages\ti\csl\lib\ti.csl.intc.ae66"
 -l"C:\ti\pdk_C6678_1_1_2_6\packages\ti\drv\cppi\lib\ti.drv.cppi.ae66"
 -l"C:\ti\pdk_C6678_1_1_2_6\packages\ti\drv\qmss\lib\ti.drv.qmss.ae66"
 -l"C:\ti\bios_6_35_04_50\packages\ti\sysbios\lib\sysbios\instrumented\sysbios.ae66"
--l"C:\ti\omp_1_02_00_05\packages\ti\omp\lib\debug\ti.omp.ae66"
--l"C:\ti\omp_1_02_00_05\packages\ti\omp\config\sysbios\lib\debug\ti.omp.config.sysbios.ae66"
+-l"C:\ti\omp_1_02_00_05\packages\ti\omp\lib\release\ti.omp.ae66"
+-l"C:\ti\omp_1_02_00_05\packages\ti\omp\config\sysbios\lib\release\ti.omp.config.sysbios.ae66"
 -l"C:\ti\xdctools_3_25_03_72\packages\ti\targets\rts6000\lib\ti.targets.rts6000.ae66"
 -l"C:\ti\xdctools_3_25_03_72\packages\ti\targets\rts6000\lib\boot.ae66"
 
@@ -143,9 +143,9 @@ SECTIONS
 
 /* Content from ti.sdo.ipc.family (null): */
 
-/* Content from xdc.services.getset (null): */
-
 /* Content from ti.sysbios.family.c66 (ti/sysbios/family/c66/linkcmd.xdt): */
+
+/* Content from xdc.services.getset (null): */
 
 /* Content from ti.sysbios.rts (null): */
 

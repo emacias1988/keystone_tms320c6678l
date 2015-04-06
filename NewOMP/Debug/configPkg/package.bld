@@ -12,7 +12,7 @@ var Executable = xdc.module('xdc.bld.Executable');
 
 var exeOpts = new Executable.Attrs({
         cfgScript: 'C:/Users/a0272339/Documents/UTD/uP/keystone_tms320c6678l/NewOMP/omp_config.cfg',
-        profile: 'debug',
+        profile: 'release',
         cfgHome: 'configPkg',
 });
 

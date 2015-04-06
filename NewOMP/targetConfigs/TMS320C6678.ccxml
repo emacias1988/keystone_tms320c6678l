@@ -10,45 +10,45 @@
             <instance XML_version="1.2" href="drivers/tixds100etbcs.xml" id="drivers" xml="tixds100etbcs.xml" xmlpath="drivers"/>
             <platform XML_version="1.2" id="platform_0">
                 <instance XML_version="1.2" desc="TMS320C6678" href="devices/C6678.xml" id="TMS320C6678" xml="C6678.xml" xmlpath="devices"/>
-            <device HW_revision="1" XML_version="1.2" description="C66x core" id="TMS320C6678" partnum="TMS320C6678">
+            <device HW_revision="1" XML_version="1.2" description="C66x core" id="TMS320C6678" partnum="TMS320C6678" simulation="no">
                     <router HW_revision="1.0" XML_version="1.2" description="ICEPick_D Router" id="IcePick_D_0" isa="ICEPICK_D">
                         <subpath id="subpath_0">
-                            <cpu HW_revision="1.0" XML_version="1.2" description="C66xx CPU" id="C66xx_0" isa="TMS320c66xx">
+                            <cpu HW_revision="1.0" XML_version="1.2" description="C66xx CPU" deviceSim="false" id="C66xx_0" isa="TMS320c66xx">
                                 <property Type="filepathfield" Value="..\..\emulation\boards\evmc6678l\gel\evmc6678l.gel" id="GEL File"/>
                             </cpu>
                         </subpath>
                         <subpath id="subpath_1">
-                            <cpu HW_revision="1.0" XML_version="1.2" description="C66xx CPU" id="C66xx_1" isa="TMS320c66xx">
+                            <cpu HW_revision="1.0" XML_version="1.2" description="C66xx CPU" deviceSim="false" id="C66xx_1" isa="TMS320c66xx">
                                 <property Type="filepathfield" Value="..\..\emulation\boards\evmc6678l\gel\evmc6678l.gel" id="GEL File"/>
                             </cpu>
                         </subpath>
                         <subpath id="subpath_2">
-                            <cpu HW_revision="1.0" XML_version="1.2" description="C66xx CPU" id="C66xx_2" isa="TMS320c66xx">
+                            <cpu HW_revision="1.0" XML_version="1.2" description="C66xx CPU" deviceSim="false" id="C66xx_2" isa="TMS320c66xx">
                                 <property Type="filepathfield" Value="..\..\emulation\boards\evmc6678l\gel\evmc6678l.gel" id="GEL File"/>
                             </cpu>
                         </subpath>
                         <subpath id="subpath_3">
-                            <cpu HW_revision="1.0" XML_version="1.2" description="C66xx CPU" id="C66xx_3" isa="TMS320c66xx">
+                            <cpu HW_revision="1.0" XML_version="1.2" description="C66xx CPU" deviceSim="false" id="C66xx_3" isa="TMS320c66xx">
                                 <property Type="filepathfield" Value="..\..\emulation\boards\evmc6678l\gel\evmc6678l.gel" id="GEL File"/>
                             </cpu>
                         </subpath>
                         <subpath id="subpath_4">
-                            <cpu HW_revision="1.0" XML_version="1.2" description="C66xx CPU" id="C66xx_4" isa="TMS320c66xx">
+                            <cpu HW_revision="1.0" XML_version="1.2" description="C66xx CPU" deviceSim="false" id="C66xx_4" isa="TMS320c66xx">
                                 <property Type="filepathfield" Value="..\..\emulation\boards\evmc6678l\gel\evmc6678l.gel" id="GEL File"/>
                             </cpu>
                         </subpath>
                         <subpath id="subpath_5">
-                            <cpu HW_revision="1.0" XML_version="1.2" description="C66xx CPU" id="C66xx_5" isa="TMS320c66xx">
+                            <cpu HW_revision="1.0" XML_version="1.2" description="C66xx CPU" deviceSim="false" id="C66xx_5" isa="TMS320c66xx">
                                 <property Type="filepathfield" Value="..\..\emulation\boards\evmc6678l\gel\evmc6678l.gel" id="GEL File"/>
                             </cpu>
                         </subpath>
                         <subpath id="subpath_6">
-                            <cpu HW_revision="1.0" XML_version="1.2" description="C66xx CPU" id="C66xx_6" isa="TMS320c66xx">
+                            <cpu HW_revision="1.0" XML_version="1.2" description="C66xx CPU" deviceSim="false" id="C66xx_6" isa="TMS320c66xx">
                                 <property Type="filepathfield" Value="..\..\emulation\boards\evmc6678l\gel\evmc6678l.gel" id="GEL File"/>
                             </cpu>
                         </subpath>
                         <subpath id="subpath_7">
-                            <cpu HW_revision="1.0" XML_version="1.2" description="C66xx CPU" id="C66xx_7" isa="TMS320c66xx">
+                            <cpu HW_revision="1.0" XML_version="1.2" description="C66xx CPU" deviceSim="false" id="C66xx_7" isa="TMS320c66xx">
                                 <property Type="filepathfield" Value="..\..\emulation\boards\evmc6678l\gel\evmc6678l.gel" id="GEL File"/>
                             </cpu>
                         </subpath>

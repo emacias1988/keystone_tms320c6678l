@@ -29,7 +29,7 @@
 /**********************************************************************
  ************************** Dr. Jung Defines **************************
  **********************************************************************/
-#define NTHREADS  2	//Number of cores
+#define NTHREADS  1	//Number of cores
 #pragma DATA_SECTION(pui32DestBuffer, ".damian")
 //#pragma DATA_ALIGN(pui32DestBuffer, 128);
 uint32_t pui32DestBuffer[DESTBUFFERSIZE];
@@ -105,42 +105,89 @@ g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
 
 #if OPERATIONS
 
+
+
 #if FOUR_K
-    ui32Size = 4*4*KB;
- //   pfBuffer = (float *)malloc(DESTBUFFERSIZE*sizeof(int));
+	ui32Size = 4*4*KB;
+	ATAN_runTests("atan", ui32Size,pfBuffer);
+	ATAN2_runTests("atan2", ui32Size,pfBuffer);
+	COS_runTests("cos", ui32Size,pfBuffer);
+	DIV_runTests("div", ui32Size,pfBuffer);
+	EXP_runTests("exp", ui32Size,pfBuffer);
+	EXP10_runTests("exp10", ui32Size,pfBuffer);
+	EXP2_runTests("exp2", ui32Size,pfBuffer);
+	LOG10_runTests("log10", ui32Size,pfBuffer);
+	LOG2_runTests("log2", ui32Size,pfBuffer);
 	LOG_runTests("log", ui32Size,pfBuffer);
+	POW_runTests("pow", ui32Size,pfBuffer);
+	RECIP_runTests("recip", ui32Size,pfBuffer);
+	RSQRT_runTests("rsqrt", ui32Size,pfBuffer);
+	SIN_runTests("sin", ui32Size,pfBuffer);
+	SQRT_runTests("sqrt", ui32Size,pfBuffer);
+	CMP_runTests("cmp",ui32Size,(char *) pfBuffer);
+#endif
+#if THIRTY_TWO_K
+	ui32Size = 32*4*KB;
+	ATAN_runTests("atan", ui32Size,pfBuffer);
+	ATAN2_runTests("atan2", ui32Size,pfBuffer);
+	COS_runTests("cos", ui32Size,pfBuffer);
+	DIV_runTests("div", ui32Size,pfBuffer);
+	EXP_runTests("exp", ui32Size,pfBuffer);
+	EXP10_runTests("exp10", ui32Size,pfBuffer);
+	EXP2_runTests("exp2", ui32Size,pfBuffer);
+	LOG10_runTests("log10", ui32Size,pfBuffer);
+	LOG2_runTests("log2", ui32Size,pfBuffer);
+	LOG_runTests("log", ui32Size,pfBuffer);
+	POW_runTests("pow", ui32Size,pfBuffer);
+	RECIP_runTests("recip", ui32Size,pfBuffer);
+	RSQRT_runTests("rsqrt", ui32Size,pfBuffer);
+	SIN_runTests("sin", ui32Size,pfBuffer);
+	SQRT_runTests("sqrt", ui32Size,pfBuffer);
+	CMP_runTests("cmp",ui32Size,(char *) pfBuffer);
+#endif
 
+#if ONE_M
+	ui32Size = 1*4*MB;
+	ATAN_runTests("atan", ui32Size,pfBuffer);
+	ATAN2_runTests("atan2", ui32Size,pfBuffer);
+	COS_runTests("cos", ui32Size,pfBuffer);
+	DIV_runTests("div", ui32Size,pfBuffer);
+	EXP_runTests("exp", ui32Size,pfBuffer);
+	EXP10_runTests("exp10", ui32Size,pfBuffer);
+	EXP2_runTests("exp2", ui32Size,pfBuffer);
+	LOG10_runTests("log10", ui32Size,pfBuffer);
+	LOG2_runTests("log2", ui32Size,pfBuffer);
+	LOG_runTests("log", ui32Size,pfBuffer);
+	POW_runTests("pow", ui32Size,pfBuffer);
+	RECIP_runTests("recip", ui32Size,pfBuffer);
+	RSQRT_runTests("rsqrt", ui32Size,pfBuffer);
+	SIN_runTests("sin", ui32Size,pfBuffer);
+	SQRT_runTests("sqrt", ui32Size,pfBuffer);
+	CMP_runTests("cmp",ui32Size,(char *) pfBuffer);
+#endif
+#if ONE_G
+	ui32Size = 1*4*GB;
+	ATAN_runTests("atan", ui32Size,pfBuffer);
+	ATAN2_runTests("atan2", ui32Size,pfBuffer);
+	COS_runTests("cos", ui32Size,pfBuffer);
+	DIV_runTests("div", ui32Size,pfBuffer);
+	EXP_runTests("exp", ui32Size,pfBuffer);
+	EXP10_runTests("exp10", ui32Size,pfBuffer);
+	EXP2_runTests("exp2", ui32Size,pfBuffer);
+	LOG10_runTests("log10", ui32Size,pfBuffer);
+	LOG2_runTests("log2", ui32Size,pfBuffer);
+	LOG_runTests("log", ui32Size,pfBuffer);
+	POW_runTests("pow", ui32Size,pfBuffer);
+	RECIP_runTests("recip", ui32Size,pfBuffer);
+	RSQRT_runTests("rsqrt", ui32Size,pfBuffer);
+	SIN_runTests("sin", ui32Size,pfBuffer);
+	SQRT_runTests("sqrt", ui32Size,pfBuffer);
+	CMP_runTests("cmp",ui32Size,(char *) pfBuffer);
 #endif
 #endif
-//	g_ui64StartTime = (uint64_t)(TSCL) ;
-//	g_ui64StartTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
 
-//#pragma omp parallel private(i,id,g_ui64ElapsedTime,g_ui64StopTime,g_ui64StartTime) shared(N,pui32DestBuffer)
-//{
-//	CSL_tscEnable();
-//		g_ui64StartTime = (uint64_t)(TSCL) ;
-//		g_ui64StartTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
-//
-//
-//
-//#pragma omp for
-//	for(i=0;i<N;i++)
-//	{
-//		pui32DestBuffer[i] = log10sp_i(pui32DestBuffer[i]);
-//	}
-//
-//
-//		g_ui64StopTime = (uint64_t)(TSCL) ;
-//		g_ui64StopTime |= (uint64_t)((uint64_t)TSCH << 32 ) ;
-//		g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
-//
-//		id = omp_get_thread_num();
-//	printf("Core = %d, Done in %llu cycles\n", id,g_ui64ElapsedTime);
-//}
+	printf ("Test Complete!\n");
 
-
-id = omp_get_thread_num();
-printf("Core = %d, Done with loop\n", id);
 
 
   while(1);
