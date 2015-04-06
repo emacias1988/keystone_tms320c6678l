@@ -35,10 +35,10 @@
 
 MEMORY
 {
-    L2SRAM : org = 0x800000, len = 0x80000
-    DDR3 : org = 0x80000000, len = 0x20000000
-    MSMCSRAM : org = 0xc000000, len = 0x100000
-    MSMCSRAM_NOCACHE : org = 0xa0100000, len = 0x300000
+    L2SRAM (RWX) : org = 0x800000, len = 0x80000
+    DDR3 (RWX) : org = 0x80000000, len = 0x20000000
+    MSMCSRAM (RWX) : org = 0xc000000, len = 0x100000
+    MSMCSRAM_NOCACHE (RWX) : org = 0xa0100000, len = 0x300000
 }
 
 /*
@@ -256,6 +256,7 @@ SECTIONS
     .c6xabi.extab: load >> MSMCSRAM_NOCACHE
     ddr: load > DDR3
     .threadprivate: load > L2SRAM
+    .damian: load > MSMCSRAM
     .vecs: load > MSMCSRAM
     .text:_c_int00: load > MSMCSRAM align = 0x400
     .tls_tp: load > L2SRAM

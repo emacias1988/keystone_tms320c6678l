@@ -751,27 +751,6 @@ typedef struct ti_sdo_ipc_nsremote_NameServerRemoteNotify_Module__ {
 /* Module__root__V */
 extern ti_sdo_ipc_nsremote_NameServerRemoteNotify_Module__ ti_sdo_ipc_nsremote_NameServerRemoteNotify_Module__root__V;
 
-/* @@@ ti_sysbios_knl_Swi_Object__ */
-typedef struct ti_sysbios_knl_Swi_Object__ {
-    ti_sysbios_knl_Queue_Elem qElem;
-    ti_sysbios_knl_Swi_FuncPtr fxn;
-    xdc_UArg arg0;
-    xdc_UArg arg1;
-    xdc_UInt priority;
-    xdc_UInt mask;
-    xdc_Bool posted;
-    xdc_UInt initTrigger;
-    xdc_UInt trigger;
-    ti_sysbios_knl_Queue_Handle readyQ;
-    __TA_ti_sysbios_knl_Swi_Instance_State__hookEnv hookEnv;
-} ti_sysbios_knl_Swi_Object__;
-
-/* @@@ ti_sysbios_knl_Swi_Object2__ */
-typedef struct {
-    xdc_runtime_Types_InstHdr hdr;
-    ti_sysbios_knl_Swi_Object__ obj;
-} ti_sysbios_knl_Swi_Object2__;
-
 /* @@@ ti_sysbios_knl_Queue_Object__ */
 typedef struct ti_sysbios_knl_Queue_Object__ {
     ti_sysbios_knl_Queue_Elem elem;
@@ -797,6 +776,27 @@ typedef struct {
     xdc_runtime_Types_InstHdr hdr;
     ti_sysbios_knl_Semaphore_Object__ obj;
 } ti_sysbios_knl_Semaphore_Object2__;
+
+/* @@@ ti_sysbios_knl_Swi_Object__ */
+typedef struct ti_sysbios_knl_Swi_Object__ {
+    ti_sysbios_knl_Queue_Elem qElem;
+    ti_sysbios_knl_Swi_FuncPtr fxn;
+    xdc_UArg arg0;
+    xdc_UArg arg1;
+    xdc_UInt priority;
+    xdc_UInt mask;
+    xdc_Bool posted;
+    xdc_UInt initTrigger;
+    xdc_UInt trigger;
+    ti_sysbios_knl_Queue_Handle readyQ;
+    __TA_ti_sysbios_knl_Swi_Instance_State__hookEnv hookEnv;
+} ti_sysbios_knl_Swi_Object__;
+
+/* @@@ ti_sysbios_knl_Swi_Object2__ */
+typedef struct {
+    xdc_runtime_Types_InstHdr hdr;
+    ti_sysbios_knl_Swi_Object__ obj;
+} ti_sysbios_knl_Swi_Object2__;
 
 /* Object__ */
 typedef struct ti_sdo_ipc_nsremote_NameServerRemoteNotify_Object__ {
@@ -2842,7 +2842,7 @@ typedef struct ti_sdo_ipc_Ipc_Module_State__ {
 } ti_sdo_ipc_Ipc_Module_State__;
 
 /* --> ti_sdo_ipc_Ipc_Module_State_0_procEntry__A */
-__T1_ti_sdo_ipc_Ipc_Module_State__procEntry ti_sdo_ipc_Ipc_Module_State_0_procEntry__A[4];
+__T1_ti_sdo_ipc_Ipc_Module_State__procEntry ti_sdo_ipc_Ipc_Module_State_0_procEntry__A[1];
 
 /* Module__state__V */
 ti_sdo_ipc_Ipc_Module_State__ ti_sdo_ipc_Ipc_Module__state__V;
@@ -2912,17 +2912,8 @@ typedef struct ti_sdo_ipc_Notify_Module_State__ {
 /* --> ti_sdo_ipc_Notify_Module_State_0_notifyHandles_0__A */
 __T1_ti_sdo_ipc_Notify_Module_State__notifyHandles ti_sdo_ipc_Notify_Module_State_0_notifyHandles_0__A[1];
 
-/* --> ti_sdo_ipc_Notify_Module_State_0_notifyHandles_1__A */
-__T1_ti_sdo_ipc_Notify_Module_State__notifyHandles ti_sdo_ipc_Notify_Module_State_0_notifyHandles_1__A[1];
-
-/* --> ti_sdo_ipc_Notify_Module_State_0_notifyHandles_2__A */
-__T1_ti_sdo_ipc_Notify_Module_State__notifyHandles ti_sdo_ipc_Notify_Module_State_0_notifyHandles_2__A[1];
-
-/* --> ti_sdo_ipc_Notify_Module_State_0_notifyHandles_3__A */
-__T1_ti_sdo_ipc_Notify_Module_State__notifyHandles ti_sdo_ipc_Notify_Module_State_0_notifyHandles_3__A[1];
-
 /* --> ti_sdo_ipc_Notify_Module_State_0_notifyHandles__A */
-__T2_ti_sdo_ipc_Notify_Module_State__notifyHandles ti_sdo_ipc_Notify_Module_State_0_notifyHandles__A[4];
+__T2_ti_sdo_ipc_Notify_Module_State__notifyHandles ti_sdo_ipc_Notify_Module_State_0_notifyHandles__A[1];
 
 /* Module__state__V */
 ti_sdo_ipc_Notify_Module_State__ ti_sdo_ipc_Notify_Module__state__V;
@@ -3070,10 +3061,10 @@ typedef struct ti_sdo_utils_MultiProc_Module_State__ {
 ti_sdo_utils_MultiProc_Module_State__ ti_sdo_utils_MultiProc_Module__state__V;
 
 /* --> ti_sdo_utils_MultiProc_nameList__A */
-const __T1_ti_sdo_utils_MultiProc_nameList ti_sdo_utils_MultiProc_nameList__A[4];
+const __T1_ti_sdo_utils_MultiProc_nameList ti_sdo_utils_MultiProc_nameList__A[1];
 
 /* --> ti_sdo_utils_MultiProc_procIdList__A */
-const __T1_ti_sdo_utils_MultiProc_procIdList ti_sdo_utils_MultiProc_procIdList__A[4];
+const __T1_ti_sdo_utils_MultiProc_procIdList ti_sdo_utils_MultiProc_procIdList__A[1];
 
 
 /*
@@ -6094,7 +6085,7 @@ __FAR__ const CT__ti_sdo_ipc_GateMP_maxNameLen ti_sdo_ipc_GateMP_maxNameLen__C =
  */
 
 /* --> ti_sdo_ipc_Ipc_Module_State_0_procEntry__A */
-__T1_ti_sdo_ipc_Ipc_Module_State__procEntry ti_sdo_ipc_Ipc_Module_State_0_procEntry__A[4] = {
+__T1_ti_sdo_ipc_Ipc_Module_State__procEntry ti_sdo_ipc_Ipc_Module_State_0_procEntry__A[1] = {
     {
         ((xdc_Ptr)0),  /* localConfigList */
         ((xdc_Ptr)0),  /* remoteConfigList */
@@ -6105,36 +6096,6 @@ __T1_ti_sdo_ipc_Ipc_Module_State__procEntry ti_sdo_ipc_Ipc_Module_State_0_procEn
             1,  /* setupMessageQ */
         },  /* entry */
     },  /* [0] */
-    {
-        ((xdc_Ptr)0),  /* localConfigList */
-        ((xdc_Ptr)0),  /* remoteConfigList */
-        (xdc_UInt)0x0,  /* attached */
-        {
-            (xdc_UInt16)0x1,  /* remoteProcId */
-            1,  /* setupNotify */
-            1,  /* setupMessageQ */
-        },  /* entry */
-    },  /* [1] */
-    {
-        ((xdc_Ptr)0),  /* localConfigList */
-        ((xdc_Ptr)0),  /* remoteConfigList */
-        (xdc_UInt)0x0,  /* attached */
-        {
-            (xdc_UInt16)0x2,  /* remoteProcId */
-            1,  /* setupNotify */
-            1,  /* setupMessageQ */
-        },  /* entry */
-    },  /* [2] */
-    {
-        ((xdc_Ptr)0),  /* localConfigList */
-        ((xdc_Ptr)0),  /* remoteConfigList */
-        (xdc_UInt)0x0,  /* attached */
-        {
-            (xdc_UInt16)0x3,  /* remoteProcId */
-            1,  /* setupNotify */
-            1,  /* setupMessageQ */
-        },  /* entry */
-    },  /* [3] */
 };
 
 /* Module__state__V */
@@ -6603,27 +6564,9 @@ __T1_ti_sdo_ipc_Notify_Module_State__notifyHandles ti_sdo_ipc_Notify_Module_Stat
     0,  /* [0] */
 };
 
-/* --> ti_sdo_ipc_Notify_Module_State_0_notifyHandles_1__A */
-__T1_ti_sdo_ipc_Notify_Module_State__notifyHandles ti_sdo_ipc_Notify_Module_State_0_notifyHandles_1__A[1] = {
-    0,  /* [0] */
-};
-
-/* --> ti_sdo_ipc_Notify_Module_State_0_notifyHandles_2__A */
-__T1_ti_sdo_ipc_Notify_Module_State__notifyHandles ti_sdo_ipc_Notify_Module_State_0_notifyHandles_2__A[1] = {
-    0,  /* [0] */
-};
-
-/* --> ti_sdo_ipc_Notify_Module_State_0_notifyHandles_3__A */
-__T1_ti_sdo_ipc_Notify_Module_State__notifyHandles ti_sdo_ipc_Notify_Module_State_0_notifyHandles_3__A[1] = {
-    0,  /* [0] */
-};
-
 /* --> ti_sdo_ipc_Notify_Module_State_0_notifyHandles__A */
-__T2_ti_sdo_ipc_Notify_Module_State__notifyHandles ti_sdo_ipc_Notify_Module_State_0_notifyHandles__A[4] = {
+__T2_ti_sdo_ipc_Notify_Module_State__notifyHandles ti_sdo_ipc_Notify_Module_State_0_notifyHandles__A[1] = {
     ((void*)ti_sdo_ipc_Notify_Module_State_0_notifyHandles_0__A),  /* [0] */
-    ((void*)ti_sdo_ipc_Notify_Module_State_0_notifyHandles_1__A),  /* [1] */
-    ((void*)ti_sdo_ipc_Notify_Module_State_0_notifyHandles_2__A),  /* [2] */
-    ((void*)ti_sdo_ipc_Notify_Module_State_0_notifyHandles_3__A),  /* [3] */
 };
 
 /* Module__state__V */
@@ -7025,9 +6968,9 @@ __FAR__ const CT__ti_sdo_ipc_family_c647x_Interrupt_INTERDSPINT ti_sdo_ipc_famil
 /* --> ti_sdo_ipc_family_c647x_MultiProcSetup_procMap__A */
 const __T1_ti_sdo_ipc_family_c647x_MultiProcSetup_procMap ti_sdo_ipc_family_c647x_MultiProcSetup_procMap__A[8] = {
     (xdc_UInt16)0x0,  /* [0] */
-    (xdc_UInt16)0x1,  /* [1] */
-    (xdc_UInt16)0x2,  /* [2] */
-    (xdc_UInt16)0x3,  /* [3] */
+    (xdc_UInt16)(-0x0 - 1),  /* [1] */
+    (xdc_UInt16)(-0x0 - 1),  /* [2] */
+    (xdc_UInt16)(-0x0 - 1),  /* [3] */
     (xdc_UInt16)(-0x0 - 1),  /* [4] */
     (xdc_UInt16)(-0x0 - 1),  /* [5] */
     (xdc_UInt16)(-0x0 - 1),  /* [6] */
@@ -7994,24 +7937,18 @@ __FAR__ const CT__ti_sdo_utils_List_Object__table ti_sdo_utils_List_Object__tabl
 
 /* Module__state__V */
 ti_sdo_utils_MultiProc_Module_State__ ti_sdo_utils_MultiProc_Module__state__V = {
-    (xdc_UInt16)0xffff,  /* id */
+    (xdc_UInt16)0x0,  /* id */
     (xdc_UInt16)0x0,  /* baseIdOfCluster */
 };
 
 /* --> ti_sdo_utils_MultiProc_nameList__A */
-const __T1_ti_sdo_utils_MultiProc_nameList ti_sdo_utils_MultiProc_nameList__A[4] = {
+const __T1_ti_sdo_utils_MultiProc_nameList ti_sdo_utils_MultiProc_nameList__A[1] = {
     "CORE0",  /* [0] */
-    "CORE1",  /* [1] */
-    "CORE2",  /* [2] */
-    "CORE3",  /* [3] */
 };
 
 /* --> ti_sdo_utils_MultiProc_procIdList__A */
-const __T1_ti_sdo_utils_MultiProc_procIdList ti_sdo_utils_MultiProc_procIdList__A[4] = {
+const __T1_ti_sdo_utils_MultiProc_procIdList ti_sdo_utils_MultiProc_procIdList__A[1] = {
     (xdc_UInt16)0x0,  /* [0] */
-    (xdc_UInt16)0x1,  /* [1] */
-    (xdc_UInt16)0x2,  /* [2] */
-    (xdc_UInt16)0x3,  /* [3] */
 };
 
 /* Module__diagsEnabled__C */
@@ -8078,7 +8015,7 @@ __FAR__ const CT__ti_sdo_utils_MultiProc_A_invalidProcName ti_sdo_utils_MultiPro
 __FAR__ const CT__ti_sdo_utils_MultiProc_nameList ti_sdo_utils_MultiProc_nameList__C = ((CT__ti_sdo_utils_MultiProc_nameList)ti_sdo_utils_MultiProc_nameList__A);
 
 /* numProcsInCluster__C */
-__FAR__ const CT__ti_sdo_utils_MultiProc_numProcsInCluster ti_sdo_utils_MultiProc_numProcsInCluster__C = (xdc_UInt16)0x4;
+__FAR__ const CT__ti_sdo_utils_MultiProc_numProcsInCluster ti_sdo_utils_MultiProc_numProcsInCluster__C = (xdc_UInt16)0x1;
 
 /* numProcessors__C */
 __FAR__ const CT__ti_sdo_utils_MultiProc_numProcessors ti_sdo_utils_MultiProc_numProcessors__C = (xdc_UInt16)0x8;
@@ -9068,7 +9005,7 @@ __FAR__ const CT__ti_sysbios_family_c66_Cache_Object__table ti_sysbios_family_c6
 __FAR__ const CT__ti_sysbios_family_c66_Cache_initSize ti_sysbios_family_c66_Cache_initSize__C = {
     ti_sysbios_family_c66_Cache_L1Size_32K,  /* l1pSize */
     ti_sysbios_family_c66_Cache_L1Size_32K,  /* l1dSize */
-    ti_sysbios_family_c66_Cache_L2Size_0K,  /* l2Size */
+    ti_sysbios_family_c66_Cache_L2Size_32K,  /* l2Size */
 };
 
 /* atomicBlockSize__C */

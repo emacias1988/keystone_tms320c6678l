@@ -20,7 +20,7 @@ ExcludeFromBuild=true
 ;  directories.
 ;
 ["Compiler" Settings: "Executable"]
-Options=-i"C:/ti/omp_1_01_03_02/packages" -i"C:/ti/bios_6_35_04_50/packages" -i"C:/ti/ipc_1_24_03_32/packages" -i"C:/ti/pdk_C6678_1_1_2_6/packages" -i"C:/ti/ccsv5/ccs_base" -i"C:/ti/xdctools_3_25_03_72/packages" -i"C:\Users\a0272339\Documents\UTD\uP\keystone_tms320c6678l\Multicore_benchmark\Debug" 
+Options=-i"C:/ti/omp_1_01_03_02/packages" -i"C:/ti/bios_6_35_04_50/packages" -i"C:/ti/ipc_1_24_03_32/packages" -i"C:/ti/pdk_C6678_1_1_2_6/packages" -i"C:/ti/ccsv5/ccs_base" -i"C:/ti/mathlib_c66x_3_0_1_1/packages" -i"C:/ti/xdctools_3_25_03_72/packages" -i"C:\Users\a0272339\Documents\UTD\uP\keystone_tms320c6678l\Multicore_benchmark\Debug" 
 
 [External Makefile]
 ExtMakefile=../../package.bld
