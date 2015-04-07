@@ -102,6 +102,6 @@ void CMP_spTest(char * psFuncName, uint32_t ui32Size, char * pcBuffer)
 			pcSizeString,
 			ui32Size,
 			(uint64_t)g_ui64ElapsedTime,
-			(uint64_t)(g_ui64ElapsedTime * (1000 / g_sEvmInfo.frequency)),
+			(uint64_t)(g_ui64ElapsedTime)// * (1000 / g_sEvmInfo.frequency)),
 			(uint64_t)(g_ui64ElapsedTime/ui32Size));
 }
