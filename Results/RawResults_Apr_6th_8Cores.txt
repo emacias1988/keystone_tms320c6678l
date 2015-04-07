@@ -1,3 +1,9 @@
+Starting Benchmark Tests for 8 cores...
+
+Master core is core 0
+
+Time to start and stop timer: 19 cycles 
+
 MATHLIB_TEST atansp 4K(4096) words Elapsed_Cycles: 93498 Elapsed_Time: 93498 (ns) Cycles/Word: 22 
 
 MATHLIB_TEST atansp_i 4K(4096) words Elapsed_Cycles: 73280 Elapsed_Time: 73280 (ns) Cycles/Word: 17 
