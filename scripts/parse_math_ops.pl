@@ -19,7 +19,7 @@ use Getopt::Std;
 
 my $basedir = dirname(${0});
 
-our($opt_d, $opt_f, $opt_g, $opt_h);
+our($opt_d, $opt_i, $opt_f, $opt_g, $opt_h);
 
 #
 # set default config file name
@@ -29,14 +29,15 @@ $opt_f = "config.in";
 #
 # parse command line switches
 #
-getopts("f:dgh");
+getopts("f:digh");
 
 if(defined($opt_h))
 {
-    print "Usage: parse_math_ops.pl [-g]\n";
+    print "Usage: parse_math_ops.pl [-d][-i][-g][-f]\n";
     print "Generate parsed output for math operation benchmarks.\n";
     print "\n";
 	print "  -d  Print debug information while parsing\n";
+	print "  -i  Generate output using inline functions\n";
     print "  -g  Generate all parsed output for math operations\n";
     print "  -f  Specify configuration file name (default config.in)\n";
     print "  -h  Print the help menu text\n";
@@ -80,7 +81,7 @@ if(defined($opt_g))
 		#
 		# Check for MATHLIB_TESTS and *_i 
 		#
-		if(/^MATHLIB_TEST/ && /_i/)
+		if(/^MATHLIB_TEST/ && /_i/ && defined($opt_i))
 		{
 			my @data_values;
 			
@@ -99,7 +100,28 @@ if(defined($opt_g))
 			#
 			# Create Hash
 			#
-			$math_func_db{$data_values[1]}{$size_transfer}{$data_values[5]} = 1;
+			$math_func_db{$data_values[1]}{$size_transfer}{$data_values[7]} = 1;
+		}
+		elsif(/^MATHLIB_TEST/ && !/_i/ && ! defined($opt_i))
+		{
+					my @data_values;
+			
+			#
+			# Split the line based on space
+			#
+			@data_values = split(' ', $_);
+			
+			my $size_transfer;
+			
+			#Store in $1 the value between parentheses
+			$data_values[2] =~ /\((.*?)\)/g;
+			
+			$size_transfer = $1;
+			
+			#
+			# Create Hash
+			#
+			$math_func_db{$data_values[1]}{$size_transfer}{$data_values[7]} = 1;
 		}
 		
 		#print "$_\n";
@@ -110,12 +132,12 @@ if(defined($opt_g))
 	#
 	#	Print Table Header
 	#
-	printf "%10s\t","Function";
+	printf "%-10s\t","Function";
 	foreach my $func_name (sort keys %math_func_db) 
 	{
 		foreach my $data_size (sort {$a <=> $b} keys %{ $math_func_db{$func_name}})
 		{
-			printf "%15s\t",$data_size." words";
+			printf "%-15s\t",$data_size." words";
 		}	
 		print("\n");
 		last;
@@ -126,12 +148,12 @@ if(defined($opt_g))
 	#
 	foreach my $func_name (sort keys %math_func_db) 
 	{
-		printf "%10s\t",$func_name;
+		printf "%-10s\t",$func_name;
 		foreach my $data_size (sort {$a <=> $b} keys %{ $math_func_db{$func_name} })
 		{
 			foreach my $latency (keys %{ $math_func_db{$func_name}{$data_size} })
 			{
-				printf "%15s\t",$latency;
+				printf "%-15.2f\t",$latency;
 			}
 		}	
 		print "\n";
