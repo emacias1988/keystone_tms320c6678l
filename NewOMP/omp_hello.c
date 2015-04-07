@@ -29,7 +29,7 @@
 /**********************************************************************
  ************************** Dr. Jung Defines **************************
  **********************************************************************/
-#define NTHREADS  2	//Number of cores
+#define NTHREADS  7	//Number of cores
 #pragma DATA_SECTION(pui32DestBuffer, ".damian")
 //#pragma DATA_ALIGN(pui32DestBuffer, 128);
 uint32_t pui32DestBuffer[DESTBUFFERSIZE];
@@ -74,9 +74,6 @@ volatile uint32_t ui32Size;
 
 float * pfBuffer = (float*)pui32DestBuffer;
 //float * pfBuffer;
-
-
-
 
 nthreads = NTHREADS;
 omp_set_num_threads(NTHREADS);	  // Set number of active cores (must set in omp_config.cfg too)
