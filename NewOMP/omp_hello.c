@@ -14,9 +14,7 @@
 #include "mathlib_tests.h"
 #include "EVM6678.h"
 #include "testselector.h"
-
 #include "platform.h"
-
 #include <string.h>
 #include <assert.h>
 #include <stdint.h>
@@ -29,7 +27,7 @@
 /**********************************************************************
  ************************** Dr. Jung Defines **************************
  **********************************************************************/
-#define NTHREADS  7	//Number of cores
+#define NTHREADS  1	//Number of cores
 #pragma DATA_SECTION(pui32DestBuffer, ".damian")
 //#pragma DATA_ALIGN(pui32DestBuffer, 128);
 uint32_t pui32DestBuffer[DESTBUFFERSIZE];
@@ -65,10 +63,6 @@ uint64_t Osal_calculateElapsedTime(uint64_t ui64Start, uint64_t ui64Stop)
 
 void main()
 {
-
-
-
-
 int nthreads, id;// i;
 volatile uint32_t ui32Size;
 
