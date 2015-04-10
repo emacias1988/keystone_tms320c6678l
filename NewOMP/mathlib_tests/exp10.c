@@ -4,7 +4,7 @@ void EXP10_runTests(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 {
 	EXP10_spTest(psFuncName,ui32Size,pfBuffer);
 
-	EXP10_dpTest(psFuncName,ui32Size,pfBuffer);
+//	EXP10_dpTest(psFuncName,ui32Size,pfBuffer);
 }
 
 void EXP10_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)

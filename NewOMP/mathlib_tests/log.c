@@ -4,7 +4,7 @@ void LOG_runTests(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 {
 	LOG_spTest(psFuncName,ui32Size,pfBuffer);
 
-	LOG_dpTest(psFuncName,ui32Size,pfBuffer);
+//	LOG_dpTest(psFuncName,ui32Size,pfBuffer);
 }
 
 void LOG_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
@@ -85,7 +85,7 @@ void LOG_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 #pragma omp for
 		for(ui32Idx=0;ui32Idx<ui32IdxCount;ui32Idx++)
 		{
-			pfBuffer[ui32Idx] = logsp(pfBuffer[ui32Idx]);
+			pfBuffer[ui32Idx] = logsp(123.2312+ui32Idx);//pfBuffer[ui32Idx]);
 //			coreid = omp_get_thread_num(); 		  // Get master core
 //			printf ("Core: %d Result[%d] of logsp is %f\n",coreid,ui32Idx,(float)pfBuffer[ui32Idx]);
 

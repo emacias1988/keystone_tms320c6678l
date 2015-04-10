@@ -2,7 +2,7 @@
 
 void ATAN_runTests(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 {
-	ATAN_spTest(psFuncName,ui32Size,pfBuffer);
+//	ATAN_spTest(psFuncName,ui32Size,pfBuffer);
 
 	ATAN_dpTest(psFuncName,ui32Size,pfBuffer);
 }

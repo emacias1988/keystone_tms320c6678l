@@ -2,7 +2,7 @@
 
 void LOG2_runTests(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 {
-	LOG2_spTest(psFuncName,ui32Size,pfBuffer);
+//	LOG2_spTest(psFuncName,ui32Size,pfBuffer);
 
 	LOG2_dpTest(psFuncName,ui32Size,pfBuffer);
 }

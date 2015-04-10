@@ -4,7 +4,7 @@ void POW_runTests(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 {
 	POW_spTest(psFuncName,ui32Size,pfBuffer);
 
-	POW_dpTest(psFuncName,ui32Size,pfBuffer);
+//	POW_dpTest(psFuncName,ui32Size,pfBuffer);
 }
 
 void POW_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)

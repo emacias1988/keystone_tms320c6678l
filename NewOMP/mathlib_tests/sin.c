@@ -4,7 +4,7 @@ void SIN_runTests(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 {
 	SIN_spTest(psFuncName,ui32Size,pfBuffer);
 
-	SIN_dpTest(psFuncName,ui32Size,pfBuffer);
+//	SIN_dpTest(psFuncName,ui32Size,pfBuffer);
 }
 
 void SIN_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)

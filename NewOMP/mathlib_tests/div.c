@@ -4,7 +4,7 @@ void DIV_runTests(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 {
 	DIV_spTest(psFuncName,ui32Size,pfBuffer);
 
-	DIV_dpTest(psFuncName,ui32Size,pfBuffer);
+//	DIV_dpTest(psFuncName,ui32Size,pfBuffer);
 }
 
 void DIV_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)

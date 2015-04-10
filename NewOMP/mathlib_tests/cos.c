@@ -4,7 +4,7 @@ void COS_runTests(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 {
 	COS_spTest(psFuncName,ui32Size,pfBuffer);
 
-	COS_dpTest(psFuncName,ui32Size,pfBuffer);
+//	COS_dpTest(psFuncName,ui32Size,pfBuffer);
 }
 
 void COS_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)

@@ -386,7 +386,19 @@ extern uint64_t g_ui64ElapsedTime;
 extern uint64_t Osal_calculateElapsedTime(uint64_t ui64Start, uint64_t ui64Stop);
 
 void CMP_runTests(char * psFuncName, uint32_t ui32Size, char * pcBuffer);
-
 void CMP_spTest(char * psFuncName, uint32_t ui32Size, char * pcBuffer);
+
+void ADD_runTests(char * psFuncName, uint32_t ui32Size, float * pcBuffer);
+void ADD_spTest(char * psFuncName, uint32_t ui32Size, float * pcBuffer);
+void ADD_dpTest(char * psFuncName, uint32_t ui32Size, double * pcBuffer);
+
+void SUB_runTests(char * psFuncName, uint32_t ui32Size, float * pcBuffer);
+void SUB_spTest(char * psFuncName, uint32_t ui32Size, float * pcBuffer);
+void SUB_dpTest(char * psFuncName, uint32_t ui32Size, double * pcBuffer);
+
+void MULT_runTests(char * psFuncName, uint32_t ui32Size, float * pcBuffer);
+void MULT_spTest(char * psFuncName, uint32_t ui32Size, float * pcBuffer);
+void MULT_dpTest(char * psFuncName, uint32_t ui32Size, double * pcBuffer);
+void MULT_intTest(char * psFuncName, uint32_t ui32Size, int * piBuffer);
 
 #endif

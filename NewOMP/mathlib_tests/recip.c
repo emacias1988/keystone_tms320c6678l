@@ -4,7 +4,7 @@ void RECIP_runTests(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 {
 	RECIP_spTest(psFuncName,ui32Size,pfBuffer);
 
-	RECIP_dpTest(psFuncName,ui32Size,pfBuffer);
+//	RECIP_dpTest(psFuncName,ui32Size,pfBuffer);
 }
 
 void RECIP_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)

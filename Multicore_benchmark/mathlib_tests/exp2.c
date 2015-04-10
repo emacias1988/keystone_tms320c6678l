@@ -2,7 +2,7 @@
 
 void EXP2_runTests(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 {
-	EXP2_spTest(psFuncName,ui32Size,pfBuffer);
+//	EXP2_spTest(psFuncName,ui32Size,pfBuffer);
 
 	EXP2_dpTest(psFuncName,ui32Size,pfBuffer);
 }

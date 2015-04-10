@@ -96,12 +96,12 @@ void CMP_spTest(char * psFuncName, uint32_t ui32Size, char * pcBuffer)
 	g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
 
 
-	printf ("MATHLIB_TEST %s_i %d%s(%d) words Elapsed_Cycles: %llu Elapsed_Time: %llu (ns) Cycles/Word: %llu \n\n",
+	printf ("MATHLIB_TEST %s %d%s(%d) words Elapsed_Cycles: %llu Elapsed_Time: %llu (ns) Cycles/Word: %llu \n\n",
 			psFuncName,
 			ui32SizePrint,
 			pcSizeString,
 			ui32Size,
 			(uint64_t)g_ui64ElapsedTime,
-			(uint64_t)(g_ui64ElapsedTime)// * (1000 / g_sEvmInfo.frequency)),
+			(uint64_t)(g_ui64ElapsedTime),// * (1000 / g_sEvmInfo.frequency)),
 			(uint64_t)(g_ui64ElapsedTime/ui32Size));
 }

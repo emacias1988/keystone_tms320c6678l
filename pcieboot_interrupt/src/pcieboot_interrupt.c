@@ -498,10 +498,23 @@ void main (void)
 
 #if OPERATIONS
 
+    ui32Size = 4*4*4*KB;
+    CMP_runTests("cmp",ui32Size,(char *) pfBuffer);
+    ui32Size = 4*32*4*KB;
+    CMP_runTests("cmp",ui32Size,(char *) pfBuffer);
+    ui32Size = 4*1*4*MB;
+    CMP_runTests("cmp",ui32Size,(char *) pfBuffer);
+
+
+
+    while(1);
 
 
 #if FOUR_K
 	ui32Size = 4*4*KB;
+	ADD_runTests("add", ui32Size,pfBuffer);
+	SUB_runTests("sub", ui32Size,pfBuffer);
+	MULT_runTests("mult", ui32Size,pfBuffer);
 	ATAN_runTests("atan", ui32Size,pfBuffer);
 	ATAN2_runTests("atan2", ui32Size,pfBuffer);
 	COS_runTests("cos", ui32Size,pfBuffer);
@@ -521,6 +534,9 @@ void main (void)
 #endif
 #if THIRTY_TWO_K
 	ui32Size = 32*4*KB;
+	ADD_runTests("add", ui32Size,pfBuffer);
+	SUB_runTests("sub", ui32Size,pfBuffer);
+	MULT_runTests("mult", ui32Size,pfBuffer);
 	ATAN_runTests("atan", ui32Size,pfBuffer);
 	ATAN2_runTests("atan2", ui32Size,pfBuffer);
 	COS_runTests("cos", ui32Size,pfBuffer);
@@ -541,6 +557,9 @@ void main (void)
 
 #if ONE_M
 	ui32Size = 1*4*MB;
+	ADD_runTests("add", ui32Size,pfBuffer);
+	SUB_runTests("sub", ui32Size,pfBuffer);
+	MULT_runTests("mult", ui32Size,pfBuffer);
 	ATAN_runTests("atan", ui32Size,pfBuffer);
 	ATAN2_runTests("atan2", ui32Size,pfBuffer);
 	COS_runTests("cos", ui32Size,pfBuffer);
@@ -560,6 +579,9 @@ void main (void)
 #endif
 #if ONE_G
 	ui32Size = 1*4*GB;
+	ADD_runTests("add", ui32Size,pfBuffer);
+	SUB_runTests("sub", ui32Size,pfBuffer);
+	MULT_runTests("mult", ui32Size,pfBuffer);
 	ATAN_runTests("atan", ui32Size,pfBuffer);
 	ATAN2_runTests("atan2", ui32Size,pfBuffer);
 	COS_runTests("cos", ui32Size,pfBuffer);

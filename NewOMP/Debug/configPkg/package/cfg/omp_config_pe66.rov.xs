@@ -195,11 +195,11 @@ __obj = [
     {},    // #192 xdc.rov.ViewInfo.Instance#46
     [],    // #193 xdc.rov.ViewInfo.Instance#46/viewMap
     {},    // #194 xdc.rov.ViewInfo.Instance#46/viewMap/'Module'
-    {},    // #195 xdc.rov.ViewInfo.Instance#46/viewMap/'EnableMARs'
+    {},    // #195 xdc.rov.ViewInfo.Instance#46/viewMap/'Scan for errors...'
     {},    // #196 xdc.rov.ViewInfo.Instance#47
     [],    // #197 xdc.rov.ViewInfo.Instance#47/viewMap
     {},    // #198 xdc.rov.ViewInfo.Instance#47/viewMap/'Module'
-    {},    // #199 xdc.rov.ViewInfo.Instance#47/viewMap/'Scan for errors...'
+    {},    // #199 xdc.rov.ViewInfo.Instance#47/viewMap/'EnableMARs'
     {},    // #200 xdc.rov.ViewInfo.Instance#48
     [],    // #201 xdc.rov.ViewInfo.Instance#48/viewMap
     {},    // #202 xdc.rov.ViewInfo.Instance#48/viewMap/'Basic'
@@ -2025,8 +2025,8 @@ __o = __obj[1]
     __o['#32842'] = __obj[1574.0]
     __o['#32844'] = __obj[1729.0]
     __o['#32845'] = __obj[417.0]
-    __o['#32847'] = __obj[880.0]
-    __o['#32848'] = __obj[1757.0]
+    __o['#32846'] = __obj[1757.0]
+    __o['#32848'] = __obj[880.0]
     __o['#32850'] = __obj[1184.0]
     __o['#32852'] = __obj[1083.0]
     __o['#32853'] = __obj[958.0]
@@ -3588,7 +3588,7 @@ __o = __obj[192]  // xdc.rov.ViewInfo.Instance#46
 __o = __obj[193]  // xdc.rov.ViewInfo.Instance#46/viewMap
     __o.$keys = []
     __o.push(__o['Module'] = __obj[194.0]); __o.$keys.push('Module')
-    __o.push(__o['EnableMARs'] = __obj[195.0]); __o.$keys.push('EnableMARs')
+    __o.push(__o['Scan for errors...'] = __obj[195.0]); __o.$keys.push('Scan for errors...')
     __o['$category'] = String(java.net.URLDecoder.decode('Map', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('xdc.rov.ViewInfo.Instance%2346%2FviewMap', 'UTF-8'))
 
@@ -3599,12 +3599,12 @@ __o = __obj[194]  // xdc.rov.ViewInfo.Instance#46/viewMap/'Module'
     __o['type'] = String(java.net.URLDecoder.decode('xdc.rov.ViewInfo.MODULE', 'UTF-8'))
     __o['viewInitFxn'] = String(java.net.URLDecoder.decode('viewInitModule', 'UTF-8'))
 
-__o = __obj[195]  // xdc.rov.ViewInfo.Instance#46/viewMap/'EnableMARs'
+__o = __obj[195]  // xdc.rov.ViewInfo.Instance#46/viewMap/'Scan for errors...'
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
-    __o['$name'] = String(java.net.URLDecoder.decode('xdc.rov.ViewInfo.Instance%2346%2FviewMap%2F%27EnableMARs%27', 'UTF-8'))
-    __o['structName'] = String(java.net.URLDecoder.decode('MarRegisterView', 'UTF-8'))
+    __o['$name'] = String(java.net.URLDecoder.decode('xdc.rov.ViewInfo.Instance%2346%2FviewMap%2F%27Scan+for+errors...%27', 'UTF-8'))
+    __o['structName'] = String(java.net.URLDecoder.decode('ErrorView', 'UTF-8'))
     __o['type'] = String(java.net.URLDecoder.decode('xdc.rov.ViewInfo.MODULE_DATA', 'UTF-8'))
-    __o['viewInitFxn'] = String(java.net.URLDecoder.decode('viewInitMarRegisters', 'UTF-8'))
+    __o['viewInitFxn'] = String(java.net.URLDecoder.decode('viewInitErrorScan', 'UTF-8'))
 
 __o = __obj[196]  // xdc.rov.ViewInfo.Instance#47
     __o['$category'] = String(java.net.URLDecoder.decode('Instance', 'UTF-8'))
@@ -3616,7 +3616,7 @@ __o = __obj[196]  // xdc.rov.ViewInfo.Instance#47
 __o = __obj[197]  // xdc.rov.ViewInfo.Instance#47/viewMap
     __o.$keys = []
     __o.push(__o['Module'] = __obj[198.0]); __o.$keys.push('Module')
-    __o.push(__o['Scan for errors...'] = __obj[199.0]); __o.$keys.push('Scan for errors...')
+    __o.push(__o['EnableMARs'] = __obj[199.0]); __o.$keys.push('EnableMARs')
     __o['$category'] = String(java.net.URLDecoder.decode('Map', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('xdc.rov.ViewInfo.Instance%2347%2FviewMap', 'UTF-8'))
 
@@ -3627,12 +3627,12 @@ __o = __obj[198]  // xdc.rov.ViewInfo.Instance#47/viewMap/'Module'
     __o['type'] = String(java.net.URLDecoder.decode('xdc.rov.ViewInfo.MODULE', 'UTF-8'))
     __o['viewInitFxn'] = String(java.net.URLDecoder.decode('viewInitModule', 'UTF-8'))
 
-__o = __obj[199]  // xdc.rov.ViewInfo.Instance#47/viewMap/'Scan for errors...'
+__o = __obj[199]  // xdc.rov.ViewInfo.Instance#47/viewMap/'EnableMARs'
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
-    __o['$name'] = String(java.net.URLDecoder.decode('xdc.rov.ViewInfo.Instance%2347%2FviewMap%2F%27Scan+for+errors...%27', 'UTF-8'))
-    __o['structName'] = String(java.net.URLDecoder.decode('ErrorView', 'UTF-8'))
+    __o['$name'] = String(java.net.URLDecoder.decode('xdc.rov.ViewInfo.Instance%2347%2FviewMap%2F%27EnableMARs%27', 'UTF-8'))
+    __o['structName'] = String(java.net.URLDecoder.decode('MarRegisterView', 'UTF-8'))
     __o['type'] = String(java.net.URLDecoder.decode('xdc.rov.ViewInfo.MODULE_DATA', 'UTF-8'))
-    __o['viewInitFxn'] = String(java.net.URLDecoder.decode('viewInitErrorScan', 'UTF-8'))
+    __o['viewInitFxn'] = String(java.net.URLDecoder.decode('viewInitMarRegisters', 'UTF-8'))
 
 __o = __obj[200]  // xdc.rov.ViewInfo.Instance#48
     __o['$category'] = String(java.net.URLDecoder.decode('Instance', 'UTF-8'))
@@ -17717,15 +17717,15 @@ __o = __obj[568]  // xdc.runtime.Text/charTab
     __o['10477'] = 101
     __o['10478'] = 109
     __o['10479'] = 0
-    __o['10480'] = 99
-    __o['10481'] = 54
-    __o['10482'] = 54
-    __o['10483'] = 46
+    __o['10480'] = 66
+    __o['10481'] = 73
+    __o['10482'] = 79
+    __o['10483'] = 83
     __o['10484'] = 0
-    __o['10485'] = 66
-    __o['10486'] = 73
-    __o['10487'] = 79
-    __o['10488'] = 83
+    __o['10485'] = 99
+    __o['10486'] = 54
+    __o['10487'] = 54
+    __o['10488'] = 46
     __o['10489'] = 0
     __o['10490'] = 120
     __o['10491'] = 100
@@ -18695,20 +18695,20 @@ __o = __obj[661]  // xdc.runtime.Text/nodeTab/77
 __o = __obj[662]  // xdc.runtime.Text/nodeTab/78
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('xdc.runtime.Text%2FnodeTab%2F78', 'UTF-8'))
-    __o['left'] = 32786
+    __o['left'] = 32785
     __o['right'] = 10480
 
 __o = __obj[663]  // xdc.runtime.Text/nodeTab/79
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('xdc.runtime.Text%2FnodeTab%2F79', 'UTF-8'))
-    __o['left'] = 32846
-    __o['right'] = 10044
+    __o['left'] = 32786
+    __o['right'] = 10485
 
 __o = __obj[664]  // xdc.runtime.Text/nodeTab/80
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
     __o['$name'] = String(java.net.URLDecoder.decode('xdc.runtime.Text%2FnodeTab%2F80', 'UTF-8'))
-    __o['left'] = 32785
-    __o['right'] = 10485
+    __o['left'] = 32847
+    __o['right'] = 10044
 
 __o = __obj[665]  // xdc.runtime.Text/nodeTab/81
     __o['$category'] = String(java.net.URLDecoder.decode('Struct', 'UTF-8'))
@@ -20746,7 +20746,7 @@ __o = __obj[880]  // ti.sysbios.family.c66.Cache
     __o['Module__diagsMask'] = null
     __o['Module__gateObj'] = null
     __o['Module__gatePrms'] = null
-    __o['Module__id'] = 32847
+    __o['Module__id'] = 32848
     __o['Module__loggerDefined'] = false
     __o['Module__loggerFxn0'] = null
     __o['Module__loggerFxn1'] = null
@@ -20769,7 +20769,7 @@ __o = __obj[880]  // ti.sysbios.family.c66.Cache
     __o['initSize'] = __obj[896.0]
     __o['marvalues'] = __obj[897.0]
     __o['rovShowRawTab$'] = true
-    __o['rovViewInfo'] = __obj[192.0]
+    __o['rovViewInfo'] = __obj[196.0]
     __o['viewNameMap$'] = __obj[898.0]
 
 __o = __obj[881]  // ti.sysbios.family.c66.Cache/$instances
@@ -21048,38 +21048,38 @@ __o = __obj[897]  // ti.sysbios.family.c66.Cache/marvalues
     __o['125'] = 12
     __o['126'] = 12
     __o['127'] = 12
-    __o['128'] = 9
-    __o['129'] = 9
-    __o['130'] = 9
-    __o['131'] = 9
-    __o['132'] = 9
-    __o['133'] = 9
-    __o['134'] = 9
-    __o['135'] = 9
-    __o['136'] = 9
-    __o['137'] = 9
-    __o['138'] = 9
-    __o['139'] = 9
-    __o['140'] = 9
-    __o['141'] = 9
-    __o['142'] = 9
-    __o['143'] = 9
-    __o['144'] = 9
-    __o['145'] = 9
-    __o['146'] = 9
-    __o['147'] = 9
-    __o['148'] = 9
-    __o['149'] = 9
-    __o['150'] = 9
-    __o['151'] = 9
-    __o['152'] = 9
-    __o['153'] = 9
-    __o['154'] = 9
-    __o['155'] = 9
-    __o['156'] = 9
-    __o['157'] = 9
-    __o['158'] = 9
-    __o['159'] = 9
+    __o['128'] = 13
+    __o['129'] = 13
+    __o['130'] = 13
+    __o['131'] = 13
+    __o['132'] = 13
+    __o['133'] = 13
+    __o['134'] = 13
+    __o['135'] = 13
+    __o['136'] = 13
+    __o['137'] = 13
+    __o['138'] = 13
+    __o['139'] = 13
+    __o['140'] = 13
+    __o['141'] = 13
+    __o['142'] = 13
+    __o['143'] = 13
+    __o['144'] = 13
+    __o['145'] = 13
+    __o['146'] = 13
+    __o['147'] = 13
+    __o['148'] = 13
+    __o['149'] = 13
+    __o['150'] = 13
+    __o['151'] = 13
+    __o['152'] = 13
+    __o['153'] = 13
+    __o['154'] = 13
+    __o['155'] = 13
+    __o['156'] = 13
+    __o['157'] = 13
+    __o['158'] = 13
+    __o['159'] = 13
     __o['160'] = 0
     __o['161'] = 12
     __o['162'] = 12
@@ -29501,7 +29501,7 @@ __o = __obj[1757]  // ti.sysbios.BIOS
     __o['Module__diagsMask'] = null
     __o['Module__gateObj'] = null
     __o['Module__gatePrms'] = null
-    __o['Module__id'] = 32848
+    __o['Module__id'] = 32846
     __o['Module__loggerDefined'] = false
     __o['Module__loggerFxn0'] = null
     __o['Module__loggerFxn1'] = null
@@ -29534,7 +29534,7 @@ __o = __obj[1757]  // ti.sysbios.BIOS
     __o['libType'] = String(java.net.URLDecoder.decode('ti.sysbios.BIOS.LibType_Instrumented', 'UTF-8'))
     __o['logsEnabled'] = true
     __o['rovShowRawTab$'] = true
-    __o['rovViewInfo'] = __obj[196.0]
+    __o['rovViewInfo'] = __obj[192.0]
     __o['rtsGateType'] = String(java.net.URLDecoder.decode('ti.sysbios.BIOS.GateMutex', 'UTF-8'))
     __o['runtimeCreatesEnabled'] = true
     __o['smpEnabled'] = false

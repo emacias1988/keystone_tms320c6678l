@@ -8,21 +8,7 @@ CG_TOOL_ROOT := C:/ti/ccsv5/tools/compiler/c6000_7.4.4
 
 ORDERED_OBJS += \
 $(GEN_CMDS__FLAG) \
-"./mathlib_tests/sqrt.obj" \
-"./mathlib_tests/sin.obj" \
-"./mathlib_tests/rsqrt.obj" \
-"./mathlib_tests/recip.obj" \
-"./mathlib_tests/pow.obj" \
-"./mathlib_tests/log2.obj" \
-"./mathlib_tests/log10.obj" \
 "./mathlib_tests/log.obj" \
-"./mathlib_tests/exp2.obj" \
-"./mathlib_tests/exp10.obj" \
-"./mathlib_tests/exp.obj" \
-"./mathlib_tests/div.obj" \
-"./mathlib_tests/cos.obj" \
-"./mathlib_tests/atan2.obj" \
-"./mathlib_tests/atan.obj" \
 "./tables.obj" \
 "./omp_hello.obj" \
 "./cmp_function.obj" \
@@ -142,8 +128,8 @@ NewOMP.out: $(OBJS) $(GEN_CMDS)
 clean:
 	-$(RM) $(GEN_MISC_FILES__QUOTED)$(C6000_EXECUTABLE_OUTPUTS__QUOTED)$(GEN_FILES__QUOTED)$(GEN_OPTS__QUOTED)$(GEN_CMDS__QUOTED) "NewOMP.out"
 	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
-	-$(RM) "cmp_function.pp" "omp_hello.pp" "tables.pp" "mathlib_tests\atan.pp" "mathlib_tests\atan2.pp" "mathlib_tests\cos.pp" "mathlib_tests\div.pp" "mathlib_tests\exp.pp" "mathlib_tests\exp10.pp" "mathlib_tests\exp2.pp" "mathlib_tests\log.pp" "mathlib_tests\log10.pp" "mathlib_tests\log2.pp" "mathlib_tests\pow.pp" "mathlib_tests\recip.pp" "mathlib_tests\rsqrt.pp" "mathlib_tests\sin.pp" "mathlib_tests\sqrt.pp" 
-	-$(RM) "cmp_function.obj" "omp_hello.obj" "tables.obj" "mathlib_tests\atan.obj" "mathlib_tests\atan2.obj" "mathlib_tests\cos.obj" "mathlib_tests\div.obj" "mathlib_tests\exp.obj" "mathlib_tests\exp10.obj" "mathlib_tests\exp2.obj" "mathlib_tests\log.obj" "mathlib_tests\log10.obj" "mathlib_tests\log2.obj" "mathlib_tests\pow.obj" "mathlib_tests\recip.obj" "mathlib_tests\rsqrt.obj" "mathlib_tests\sin.obj" "mathlib_tests\sqrt.obj" 
+	-$(RM) "cmp_function.pp" "omp_hello.pp" "tables.pp" "mathlib_tests\log.pp" 
+	-$(RM) "cmp_function.obj" "omp_hello.obj" "tables.obj" "mathlib_tests\log.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

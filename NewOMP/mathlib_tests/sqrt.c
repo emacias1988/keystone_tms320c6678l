@@ -4,7 +4,7 @@ void SQRT_runTests(char * psFuncName, uint32_t ui32Size, float * pfBuffer)
 {
 	SQRT_spTest(psFuncName,ui32Size,pfBuffer);
 
-	SQRT_dpTest(psFuncName,ui32Size,pfBuffer);
+//	SQRT_dpTest(psFuncName,ui32Size,pfBuffer);
 }
 
 void SQRT_spTest(char * psFuncName, uint32_t ui32Size, float * pfBuffer)

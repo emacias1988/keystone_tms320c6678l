@@ -1,0 +1,255 @@
+Starting Benchmark Tests for 4 cores...
+
+Master core is core 0
+
+Time to start and stop timer: 6 cycles 
+
+MATHLIB_TEST atansp 4K(4096) words Elapsed_Cycles: 150312 Elapsed_Time: 150312 (ns) Cycles/Word: 36 
+
+MATHLIB_TEST atansp_i 4K(4096) words Elapsed_Cycles: 108314 Elapsed_Time: 108314 (ns) Cycles/Word: 26 
+
+MATHLIB_TEST atan2sp 4K(4096) words Elapsed_Cycles: 147787 Elapsed_Time: 147787 (ns) Cycles/Word: 36 
+
+MATHLIB_TEST atan2sp_i 4K(4096) words Elapsed_Cycles: 112694 Elapsed_Time: 112694 (ns) Cycles/Word: 27 
+
+MATHLIB_TEST cossp 4K(4096) words Elapsed_Cycles: 130327 Elapsed_Time: 130327 (ns) Cycles/Word: 31 
+
+MATHLIB_TEST cossp_i 4K(4096) words Elapsed_Cycles: 119267 Elapsed_Time: 119267 (ns) Cycles/Word: 29 
+
+MATHLIB_TEST divsp 4K(4096) words Elapsed_Cycles: 85323 Elapsed_Time: 85323 (ns) Cycles/Word: 20 
+
+MATHLIB_TEST divsp_i 4K(4096) words Elapsed_Cycles: 47954 Elapsed_Time: 47954 (ns) Cycles/Word: 11 
+
+MATHLIB_TEST expsp 4K(4096) words Elapsed_Cycles: 89539 Elapsed_Time: 89539 (ns) Cycles/Word: 21 
+
+MATHLIB_TEST expsp_i 4K(4096) words Elapsed_Cycles: 99665 Elapsed_Time: 99665 (ns) Cycles/Word: 24 
+
+MATHLIB_TEST exp10sp 4K(4096) words Elapsed_Cycles: 88328 Elapsed_Time: 88328 (ns) Cycles/Word: 21 
+
+MATHLIB_TEST exp10sp_i 4K(4096) words Elapsed_Cycles: 99733 Elapsed_Time: 99733 (ns) Cycles/Word: 24 
+
+MATHLIB_TEST exp2sp 4K(4096) words Elapsed_Cycles: 92192 Elapsed_Time: 92192 (ns) Cycles/Word: 22 
+
+MATHLIB_TEST exp2sp_i 4K(4096) words Elapsed_Cycles: 121201 Elapsed_Time: 121201 (ns) Cycles/Word: 29 
+
+MATHLIB_TEST log10sp 4K(4096) words Elapsed_Cycles: 130078 Elapsed_Time: 130078 (ns) Cycles/Word: 31 
+
+MATHLIB_TEST log10sp_i 4K(4096) words Elapsed_Cycles: 95737 Elapsed_Time: 95737 (ns) Cycles/Word: 23 
+
+MATHLIB_TEST log2sp 4K(4096) words Elapsed_Cycles: 129410 Elapsed_Time: 129410 (ns) Cycles/Word: 31 
+
+MATHLIB_TEST log2sp_i 4K(4096) words Elapsed_Cycles: 96263 Elapsed_Time: 96263 (ns) Cycles/Word: 23 
+
+MATHLIB_TEST logsp 4K(4096) words Elapsed_Cycles: 192446 Elapsed_Time: 192446 (ns) Cycles/Word: 46 
+
+MATHLIB_TEST logsp_i 4K(4096) words Elapsed_Cycles: 92761 Elapsed_Time: 92761 (ns) Cycles/Word: 22 
+
+MATHLIB_TEST powsp 4K(4096) words Elapsed_Cycles: 242289 Elapsed_Time: 242289 (ns) Cycles/Word: 59 
+
+MATHLIB_TEST powsp_i 4K(4096) words Elapsed_Cycles: 171445 Elapsed_Time: 171445 (ns) Cycles/Word: 41 
+
+MATHLIB_TEST recipsp 4K(4096) words Elapsed_Cycles: 82367 Elapsed_Time: 82367 (ns) Cycles/Word: 20 
+
+MATHLIB_TEST recipsp_i 4K(4096) words Elapsed_Cycles: 59852 Elapsed_Time: 59852 (ns) Cycles/Word: 14 
+
+MATHLIB_TEST rsqrtsp 4K(4096) words Elapsed_Cycles: 92780 Elapsed_Time: 92780 (ns) Cycles/Word: 22 
+
+MATHLIB_TEST rsqrtsp_i 4K(4096) words Elapsed_Cycles: 77068 Elapsed_Time: 77068 (ns) Cycles/Word: 18 
+
+MATHLIB_TEST sinsp 4K(4096) words Elapsed_Cycles: 124559 Elapsed_Time: 124559 (ns) Cycles/Word: 30 
+
+MATHLIB_TEST sinsp_i 4K(4096) words Elapsed_Cycles: 103678 Elapsed_Time: 103678 (ns) Cycles/Word: 25 
+
+MATHLIB_TEST sqrtsp 4K(4096) words Elapsed_Cycles: 95968 Elapsed_Time: 95968 (ns) Cycles/Word: 23 
+
+MATHLIB_TEST sqrtsp_i 4K(4096) words Elapsed_Cycles: 82711 Elapsed_Time: 82711 (ns) Cycles/Word: 20 
+
+MATHLIB_TEST cmp 4K(4096) words Elapsed_Cycles: 40950 Elapsed_Time: 40950 (ns) Cycles/Word: 9 
+
+MATHLIB_TEST atansp 32K(32768) words Elapsed_Cycles: 1078735 Elapsed_Time: 1078735 (ns) Cycles/Word: 32 
+
+MATHLIB_TEST atansp_i 32K(32768) words Elapsed_Cycles: 753269 Elapsed_Time: 753269 (ns) Cycles/Word: 22 
+
+MATHLIB_TEST atan2sp 32K(32768) words Elapsed_Cycles: 1060655 Elapsed_Time: 1060655 (ns) Cycles/Word: 32 
+
+MATHLIB_TEST atan2sp_i 32K(32768) words Elapsed_Cycles: 769187 Elapsed_Time: 769187 (ns) Cycles/Word: 23 
+
+MATHLIB_TEST cossp 32K(32768) words Elapsed_Cycles: 911819 Elapsed_Time: 911819 (ns) Cycles/Word: 27 
+
+MATHLIB_TEST cossp_i 32K(32768) words Elapsed_Cycles: 840413 Elapsed_Time: 840413 (ns) Cycles/Word: 25 
+
+MATHLIB_TEST divsp 32K(32768) words Elapsed_Cycles: 562735 Elapsed_Time: 562735 (ns) Cycles/Word: 17 
+
+MATHLIB_TEST divsp_i 32K(32768) words Elapsed_Cycles: 260187 Elapsed_Time: 260187 (ns) Cycles/Word: 7 
+
+MATHLIB_TEST expsp 32K(32768) words Elapsed_Cycles: 566739 Elapsed_Time: 566739 (ns) Cycles/Word: 17 
+
+MATHLIB_TEST expsp_i 32K(32768) words Elapsed_Cycles: 671523 Elapsed_Time: 671523 (ns) Cycles/Word: 20 
+
+MATHLIB_TEST exp10sp 32K(32768) words Elapsed_Cycles: 562099 Elapsed_Time: 562099 (ns) Cycles/Word: 17 
+
+MATHLIB_TEST exp10sp_i 32K(32768) words Elapsed_Cycles: 671379 Elapsed_Time: 671379 (ns) Cycles/Word: 20 
+
+MATHLIB_TEST exp2sp 32K(32768) words Elapsed_Cycles: 568539 Elapsed_Time: 568539 (ns) Cycles/Word: 17 
+
+MATHLIB_TEST exp2sp_i 32K(32768) words Elapsed_Cycles: 849113 Elapsed_Time: 849113 (ns) Cycles/Word: 25 
+
+MATHLIB_TEST log10sp 32K(32768) words Elapsed_Cycles: 915311 Elapsed_Time: 915311 (ns) Cycles/Word: 27 
+
+MATHLIB_TEST log10sp_i 32K(32768) words Elapsed_Cycles: 646199 Elapsed_Time: 646199 (ns) Cycles/Word: 19 
+
+MATHLIB_TEST log2sp 32K(32768) words Elapsed_Cycles: 915967 Elapsed_Time: 915967 (ns) Cycles/Word: 27 
+
+MATHLIB_TEST log2sp_i 32K(32768) words Elapsed_Cycles: 644047 Elapsed_Time: 644047 (ns) Cycles/Word: 19 
+
+MATHLIB_TEST logsp 32K(32768) words Elapsed_Cycles: 1419097 Elapsed_Time: 1419097 (ns) Cycles/Word: 43 
+
+MATHLIB_TEST logsp_i 32K(32768) words Elapsed_Cycles: 612707 Elapsed_Time: 612707 (ns) Cycles/Word: 18 
+
+MATHLIB_TEST powsp 32K(32768) words Elapsed_Cycles: 1800503 Elapsed_Time: 1800503 (ns) Cycles/Word: 54 
+
+MATHLIB_TEST powsp_i 32K(32768) words Elapsed_Cycles: 1249725 Elapsed_Time: 1249725 (ns) Cycles/Word: 38 
+
+MATHLIB_TEST recipsp 32K(32768) words Elapsed_Cycles: 520991 Elapsed_Time: 520991 (ns) Cycles/Word: 15 
+
+MATHLIB_TEST recipsp_i 32K(32768) words Elapsed_Cycles: 368179 Elapsed_Time: 368179 (ns) Cycles/Word: 11 
+
+MATHLIB_TEST rsqrtsp 32K(32768) words Elapsed_Cycles: 616079 Elapsed_Time: 616079 (ns) Cycles/Word: 18 
+
+MATHLIB_TEST rsqrtsp_i 32K(32768) words Elapsed_Cycles: 497437 Elapsed_Time: 497437 (ns) Cycles/Word: 15 
+
+MATHLIB_TEST sinsp 32K(32768) words Elapsed_Cycles: 865755 Elapsed_Time: 865755 (ns) Cycles/Word: 26 
+
+MATHLIB_TEST sinsp_i 32K(32768) words Elapsed_Cycles: 709045 Elapsed_Time: 709045 (ns) Cycles/Word: 21 
+
+MATHLIB_TEST sqrtsp 32K(32768) words Elapsed_Cycles: 645869 Elapsed_Time: 645869 (ns) Cycles/Word: 19 
+
+MATHLIB_TEST sqrtsp_i 32K(32768) words Elapsed_Cycles: 536307 Elapsed_Time: 536307 (ns) Cycles/Word: 16 
+
+MATHLIB_TEST cmp 32K(32768) words Elapsed_Cycles: 177952 Elapsed_Time: 177952 (ns) Cycles/Word: 5 
+
+MATHLIB_TEST atansp 1M(1048576) words Elapsed_Cycles: 26799347 Elapsed_Time: 26799347 (ns) Cycles/Word: 25 
+
+MATHLIB_TEST atansp_i 1M(1048576) words Elapsed_Cycles: 23440777 Elapsed_Time: 23440777 (ns) Cycles/Word: 22 
+
+MATHLIB_TEST atan2sp 1M(1048576) words Elapsed_Cycles: 33429251 Elapsed_Time: 33429251 (ns) Cycles/Word: 31 
+
+MATHLIB_TEST atan2sp_i 1M(1048576) words Elapsed_Cycles: 23988819 Elapsed_Time: 23988819 (ns) Cycles/Word: 22 
+
+MATHLIB_TEST cossp 1M(1048576) words Elapsed_Cycles: 28704631 Elapsed_Time: 28704631 (ns) Cycles/Word: 27 
+
+MATHLIB_TEST cossp_i 1M(1048576) words Elapsed_Cycles: 26348289 Elapsed_Time: 26348289 (ns) Cycles/Word: 25 
+
+MATHLIB_TEST divsp 1M(1048576) words Elapsed_Cycles: 17416925 Elapsed_Time: 17416925 (ns) Cycles/Word: 16 
+
+MATHLIB_TEST divsp_i 1M(1048576) words Elapsed_Cycles: 7739065 Elapsed_Time: 7739065 (ns) Cycles/Word: 7 
+
+MATHLIB_TEST expsp 1M(1048576) words Elapsed_Cycles: 17430015 Elapsed_Time: 17430015 (ns) Cycles/Word: 16 
+
+MATHLIB_TEST expsp_i 1M(1048576) words Elapsed_Cycles: 21080233 Elapsed_Time: 21080233 (ns) Cycles/Word: 20 
+
+MATHLIB_TEST exp10sp 1M(1048576) words Elapsed_Cycles: 17436867 Elapsed_Time: 17436867 (ns) Cycles/Word: 16 
+
+MATHLIB_TEST exp10sp_i 1M(1048576) words Elapsed_Cycles: 21081047 Elapsed_Time: 21081047 (ns) Cycles/Word: 20 
+
+MATHLIB_TEST exp2sp 1M(1048576) words Elapsed_Cycles: 17436577 Elapsed_Time: 17436577 (ns) Cycles/Word: 16 
+
+MATHLIB_TEST exp2sp_i 1M(1048576) words Elapsed_Cycles: 26610789 Elapsed_Time: 26610789 (ns) Cycles/Word: 25 
+
+MATHLIB_TEST log10sp 1M(1048576) words Elapsed_Cycles: 28709477 Elapsed_Time: 28709477 (ns) Cycles/Word: 27 
+
+MATHLIB_TEST log10sp_i 1M(1048576) words Elapsed_Cycles: 20055305 Elapsed_Time: 20055305 (ns) Cycles/Word: 19 
+
+MATHLIB_TEST log2sp 1M(1048576) words Elapsed_Cycles: 28710203 Elapsed_Time: 28710203 (ns) Cycles/Word: 27 
+
+MATHLIB_TEST log2sp_i 1M(1048576) words Elapsed_Cycles: 20045509 Elapsed_Time: 20045509 (ns) Cycles/Word: 19 
+
+MATHLIB_TEST logsp 1M(1048576) words Elapsed_Cycles: 45258735 Elapsed_Time: 45258735 (ns) Cycles/Word: 43 
+
+MATHLIB_TEST logsp_i 1M(1048576) words Elapsed_Cycles: 19005997 Elapsed_Time: 19005997 (ns) Cycles/Word: 18 
+
+MATHLIB_TEST powsp 1M(1048576) words Elapsed_Cycles: 22129675 Elapsed_Time: 22129675 (ns) Cycles/Word: 21 
+
+MATHLIB_TEST powsp_i 1M(1048576) words Elapsed_Cycles: 39458079 Elapsed_Time: 39458079 (ns) Cycles/Word: 37 
+
+MATHLIB_TEST recipsp 1M(1048576) words Elapsed_Cycles: 16120557 Elapsed_Time: 16120557 (ns) Cycles/Word: 15 
+
+MATHLIB_TEST recipsp_i 1M(1048576) words Elapsed_Cycles: 11120535 Elapsed_Time: 11120535 (ns) Cycles/Word: 10 
+
+MATHLIB_TEST rsqrtsp 1M(1048576) words Elapsed_Cycles: 18999787 Elapsed_Time: 18999787 (ns) Cycles/Word: 18 
+
+MATHLIB_TEST rsqrtsp_i 1M(1048576) words Elapsed_Cycles: 15334371 Elapsed_Time: 15334371 (ns) Cycles/Word: 14 
+
+MATHLIB_TEST sinsp 1M(1048576) words Elapsed_Cycles: 27130765 Elapsed_Time: 27130765 (ns) Cycles/Word: 25 
+
+MATHLIB_TEST sinsp_i 1M(1048576) words Elapsed_Cycles: 22141555 Elapsed_Time: 22141555 (ns) Cycles/Word: 21 
+
+MATHLIB_TEST sqrtsp 1M(1048576) words Elapsed_Cycles: 20058159 Elapsed_Time: 20058159 (ns) Cycles/Word: 19 
+
+MATHLIB_TEST sqrtsp_i 1M(1048576) words Elapsed_Cycles: 16643329 Elapsed_Time: 16643329 (ns) Cycles/Word: 15 
+
+MATHLIB_TEST cmp 1M(1048576) words Elapsed_Cycles: 5353340 Elapsed_Time: 5353340 (ns) Cycles/Word: 5 
+
+MATHLIB_TEST atansp 1G(1073741824) words Elapsed_Cycles: 26158333465 Elapsed_Time: 26158333465 (ns) Cycles/Word: 24 
+
+MATHLIB_TEST atansp_i 1G(1073741824) words Elapsed_Cycles: 23992952829 Elapsed_Time: 23992952829 (ns) Cycles/Word: 22 
+
+MATHLIB_TEST atan2sp 1G(1073741824) words Elapsed_Cycles: 13150994749 Elapsed_Time: 13150994749 (ns) Cycles/Word: 12 
+
+MATHLIB_TEST atan2sp_i 1G(1073741824) words Elapsed_Cycles: 24540796621 Elapsed_Time: 24540796621 (ns) Cycles/Word: 22 
+
+MATHLIB_TEST cossp 1G(1073741824) words Elapsed_Cycles: 29378733044 Elapsed_Time: 29378733044 (ns) Cycles/Word: 27 
+
+MATHLIB_TEST cossp_i 1G(1073741824) words Elapsed_Cycles: 26964303927 Elapsed_Time: 26964303927 (ns) Cycles/Word: 25 
+
+MATHLIB_TEST divsp 1G(1073741824) words Elapsed_Cycles: 17830089537 Elapsed_Time: 17830089537 (ns) Cycles/Word: 16 
+
+MATHLIB_TEST divsp_i 1G(1073741824) words Elapsed_Cycles: 7896212671 Elapsed_Time: 7896212671 (ns) Cycles/Word: 7 
+
+MATHLIB_TEST expsp 1G(1073741824) words Elapsed_Cycles: 17831848073 Elapsed_Time: 17831848073 (ns) Cycles/Word: 16 
+
+MATHLIB_TEST expsp_i 1G(1073741824) words Elapsed_Cycles: 21589484067 Elapsed_Time: 21589484067 (ns) Cycles/Word: 20 
+
+MATHLIB_TEST exp10sp 1G(1073741824) words Elapsed_Cycles: 17829602177 Elapsed_Time: 17829602177 (ns) Cycles/Word: 16 
+
+MATHLIB_TEST exp10sp_i 1G(1073741824) words Elapsed_Cycles: 21579921561 Elapsed_Time: 21579921561 (ns) Cycles/Word: 20 
+
+MATHLIB_TEST exp2sp 1G(1073741824) words Elapsed_Cycles: 17831842553 Elapsed_Time: 17831842553 (ns) Cycles/Word: 16 
+
+MATHLIB_TEST exp2sp_i 1G(1073741824) words Elapsed_Cycles: 27219749223 Elapsed_Time: 27219749223 (ns) Cycles/Word: 25 
+
+MATHLIB_TEST log10sp 1G(1073741824) words Elapsed_Cycles: 29378612769 Elapsed_Time: 29378612769 (ns) Cycles/Word: 27 
+
+MATHLIB_TEST log10sp_i 1G(1073741824) words Elapsed_Cycles: 20507984435 Elapsed_Time: 20507984435 (ns) Cycles/Word: 19 
+
+MATHLIB_TEST log2sp 1G(1073741824) words Elapsed_Cycles: 29377081205 Elapsed_Time: 29377081205 (ns) Cycles/Word: 27 
+
+MATHLIB_TEST log2sp_i 1G(1073741824) words Elapsed_Cycles: 20515382893 Elapsed_Time: 20515382893 (ns) Cycles/Word: 19 
+
+MATHLIB_TEST logsp 1G(1073741824) words Elapsed_Cycles: 46530527153 Elapsed_Time: 46530527153 (ns) Cycles/Word: 43 
+
+MATHLIB_TEST logsp_i 1G(1073741824) words Elapsed_Cycles: 19434631163 Elapsed_Time: 19434631163 (ns) Cycles/Word: 18 
+
+MATHLIB_TEST powsp 1G(1073741824) words Elapsed_Cycles: 14344238697 Elapsed_Time: 14344238697 (ns) Cycles/Word: 13 
+
+MATHLIB_TEST powsp_i 1G(1073741824) words Elapsed_Cycles: 40388803807 Elapsed_Time: 40388803807 (ns) Cycles/Word: 37 
+
+MATHLIB_TEST recipsp 1G(1073741824) words Elapsed_Cycles: 16487555371 Elapsed_Time: 16487555371 (ns) Cycles/Word: 15 
+
+MATHLIB_TEST recipsp_i 1G(1073741824) words Elapsed_Cycles: 11379338981 Elapsed_Time: 11379338981 (ns) Cycles/Word: 10 
+
+MATHLIB_TEST rsqrtsp 1G(1073741824) words Elapsed_Cycles: 19442508877 Elapsed_Time: 19442508877 (ns) Cycles/Word: 18 
+
+MATHLIB_TEST rsqrtsp_i 1G(1073741824) words Elapsed_Cycles: 15673976553 Elapsed_Time: 15673976553 (ns) Cycles/Word: 14 
+
+MATHLIB_TEST sinsp 1G(1073741824) words Elapsed_Cycles: 27764942367 Elapsed_Time: 27764942367 (ns) Cycles/Word: 25 
+
+MATHLIB_TEST sinsp_i 1G(1073741824) words Elapsed_Cycles: 22656314901 Elapsed_Time: 22656314901 (ns) Cycles/Word: 21 
+
+MATHLIB_TEST sqrtsp 1G(1073741824) words Elapsed_Cycles: 20519249831 Elapsed_Time: 20519249831 (ns) Cycles/Word: 19 
+
+MATHLIB_TEST sqrtsp_i 1G(1073741824) words Elapsed_Cycles: 17017723829 Elapsed_Time: 17017723829 (ns) Cycles/Word: 15 
+
+MATHLIB_TEST cmp 1G(1073741824) words Elapsed_Cycles: 5472448841 Elapsed_Time: 5472448841 (ns) Cycles/Word: 5 
+
+Test Complete!

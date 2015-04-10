@@ -143,9 +143,9 @@ SECTIONS
 
 /* Content from ti.sdo.ipc.family (null): */
 
-/* Content from ti.sysbios.family.c66 (ti/sysbios/family/c66/linkcmd.xdt): */
-
 /* Content from xdc.services.getset (null): */
+
+/* Content from ti.sysbios.family.c66 (ti/sysbios/family/c66/linkcmd.xdt): */
 
 /* Content from ti.sysbios.rts (null): */
 
@@ -255,7 +255,6 @@ SECTIONS
     .c6xabi.extab: load >> MSMCSRAM
     ddr: load > DDR3
     .threadprivate: load > L2SRAM
-    .damian: load > DDR3
     .vecs: load > MSMCSRAM
     .text:_c_int00: load > MSMCSRAM align = 0x400
     .tls_tp: load > L2SRAM

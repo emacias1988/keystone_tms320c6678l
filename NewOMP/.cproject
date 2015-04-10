@@ -91,7 +91,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="mathlib_tests/sqrt.c|mathlib_tests/sin.c|mathlib_tests/rsqrt.c|mathlib_tests/recip.c|mathlib_tests/pow.c|mathlib_tests/log2.c|mathlib_tests/log10.c|mathlib_tests/exp2.c|mathlib_tests/exp10.c|mathlib_tests/exp.c|mathlib_tests/div.c|mathlib_tests/cos.c|mathlib_tests/atan2.c|mathlib_tests/atan.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

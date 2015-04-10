@@ -28,7 +28,7 @@
  ************************** Dr. Jung Defines **************************
  **********************************************************************/
 #define NTHREADS  1	//Number of cores
-#pragma DATA_SECTION(pui32DestBuffer, ".damian")
+//#pragma DATA_SECTION(pui32DestBuffer, ".damian")
 //#pragma DATA_ALIGN(pui32DestBuffer, 128);
 uint32_t pui32DestBuffer[DESTBUFFERSIZE];
 
@@ -91,6 +91,17 @@ g_ui64StopTime = (uint64_t)(((uint64_t)TSCH << 32 ) | TSCL) ;
 g_ui64ElapsedTime = g_ui64StopTime - g_ui64StartTime;
     printf ("Time to start and stop timer: %u cycles \n\n",
     	          		g_ui64ElapsedTime);
+
+        ui32Size = 4*4*KB;
+        LOG_runTests("pow", ui32Size,pfBuffer);
+        ui32Size = 32*4*KB;
+        LOG_runTests("pow", ui32Size,pfBuffer);
+        ui32Size = 1*4*MB;
+        LOG_runTests("pow", ui32Size,pfBuffer);
+        ui32Size = 1*4*GB;
+        LOG_runTests("pow", ui32Size,pfBuffer);
+
+        while(1);
 
 
 
